@@ -6,5 +6,5 @@ import { IWorkoutPageProps } from "./IWorkoutPageProps";
 export const WorkoutPage: React.FC<IWorkoutPageProps> = () => {
   const { t } = useTranslation();
 
-  return <Page title={t(texts.workoutPage.title)}></Page>;
+  return <Page navigateBackPath="/" title={t(texts.workoutPage.title)}></Page>;
 };

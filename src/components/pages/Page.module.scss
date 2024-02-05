@@ -6,6 +6,12 @@ $borderLeft: 1rem;
 }
 
 .header h3 {
+  margin: 0;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
   margin: $borderLeft;
 }
 
