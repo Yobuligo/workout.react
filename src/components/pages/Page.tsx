@@ -10,9 +10,11 @@ export const Page: React.FC<IPageProps> = (props) => {
           {props.navigateBackPath && (
             <NavigateBackButton navigateBackPath={props.navigateBackPath} />
           )}
-          <h3>{props.title}</h3>
+          <div>
+            <h3>{props.title}</h3>
+            <p className={styles.subTitle}>{props.subTitle}</p>
+          </div>
         </div>
-        <p className={styles.subTitle}>{props.subTitle}</p>
       </header>
       <main className={styles.main}>{props.children}</main>
       <footer className={styles.footer}>{props.footer}</footer>

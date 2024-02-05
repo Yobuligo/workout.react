@@ -12,6 +12,7 @@ export const WorkoutPage: React.FC<IWorkoutPageProps> = () => {
       footer={<WorkoutFooter />}
       navigateBackPath="/"
       title={t(texts.workoutPage.title)}
+      subTitle={t(texts.workoutPage.subtitle)}
     ></Page>
   );
 };

@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 $borderLeft: 1rem;
 
 .page {
@@ -5,18 +7,26 @@ $borderLeft: 1rem;
   flex-direction: column;
 }
 
+.header {
+  background-color: $neutral_dark;
+}
+
 .header h3 {
+  color: $primary_dark;
   margin: 0;
 }
 
 .title {
   display: flex;
   flex-direction: row;
-  margin: $borderLeft;
+  margin: 0.5rem 0 0 $borderLeft;
 }
 
 .subTitle {
-  margin-left: $borderLeft;
+  margin: 0 0 0.5rem 0;
+  color: $neutral_light;
+  font-size: small;
+  letter-spacing: 0.1rem;
 }
 
 .main {
@@ -27,6 +37,6 @@ $borderLeft: 1rem;
 .footer {
   position: fixed;
   bottom: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   width: 100%;
 }

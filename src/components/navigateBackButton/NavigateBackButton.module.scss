@@ -1,5 +1,8 @@
-.navigateBackButton {
-    cursor: pointer;
-    font-size: large;
+@import "../../colors.scss";
+
+.chevronLeft {
+    width: 1.5rem;
     margin-right: 0.5rem;
+    fill: $primary_dark;
+    cursor: pointer;
 }

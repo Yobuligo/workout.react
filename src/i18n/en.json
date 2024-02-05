@@ -1,7 +1,10 @@
 {
+    "deviceSelectorList": {
+        "explanation": "Pick your available training devices"
+    },
     "workoutConfigPage": {
         "title": "Workout App",
-        "subTitle": "Pick your available training devices"
+        "subTitle": "Match your workout to your needs"
     },
     "workoutConfigFooter": {
         "captionGenerateWorkout": "Generate Workout"
@@ -10,6 +13,7 @@
         "captionGenerateWorkout": "Start Workout"
     },
     "workoutPage": {
-        "title": "Your workout today"
+        "title": "Your workout today",
+        "subtitle": "Enjoy!"
     }
 }
