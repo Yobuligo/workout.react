@@ -1,5 +1,6 @@
 {
     "workoutConfigPage": {
+        "captionGenerateWorkout": "Generate Workout",
         "title": "Workout App",
         "subTitle": "Pick your available training devices"
     }

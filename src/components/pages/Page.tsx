@@ -9,6 +9,7 @@ export const Page: React.FC<IPageProps> = (props) => {
         <div className={styles.subTitle}>{props.subTitle}</div>
       </header>
       <main className={styles.main}>{props.children}</main>
+      <footer className={styles.footer}>{props.footer}</footer>
     </div>
   );
 };

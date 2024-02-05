@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { DeviceApi } from "../api/DeviceApi";
+import { Card } from "../components/card/Card";
 import { Page } from "../components/pages/Page";
 import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelectorList";
 import useTranslation from "../hooks/useTranslation";
@@ -19,6 +20,8 @@ export const WorkoutConfigPage: React.FC = () => {
     });
   });
 
+  const onGenerateWorkout = () => {};
+
   const onSelectDevice = (device: IDevice) =>
     setSelectedDevices((previous) => [...previous, device]);
 
@@ -31,8 +34,15 @@ export const WorkoutConfigPage: React.FC = () => {
       return previous;
     });
 
+  const contentFooter = (
+    <Card onClick={onGenerateWorkout}>
+      {t(texts.workoutConfigPage.captionGenerateWorkout)}
+    </Card>
+  );
+
   return (
     <Page
+      footer={contentFooter}
       subTitle={t(texts.workoutConfigPage.subTitle)}
       title={t(texts.workoutConfigPage.title)}
     >
