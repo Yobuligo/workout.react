@@ -18,7 +18,7 @@ export const WorkoutConfigPage: React.FC = () => {
       const devices = await new DeviceApi().findAll();
       setDevices(devices);
     });
-  });
+  }, []);
 
   const onSelectDevice = (device: IDevice) =>
     setSelectedDevices((previous) => [...previous, device]);

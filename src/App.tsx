@@ -1,12 +1,14 @@
 import React from "react";
-import "./App.css";
 import { RouterProvider } from "react-router-dom";
-import { AppRouter } from "./routes/AppRouter";
+import "./App.css";
 import { fetchMock } from "./api/mock/fetchMock";
+import { AppRouter } from "./routes/AppRouter";
 
+export const fetchBackup = global.fetch;
 global.fetch = fetchMock;
 
 const App: React.FC = () => {
+  console.log("Test")
   return <RouterProvider router={AppRouter} />;
 };
 

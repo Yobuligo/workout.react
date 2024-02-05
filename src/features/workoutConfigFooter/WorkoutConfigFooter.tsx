@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { FooterButton } from "../../components/footerButton/FooterButton";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import { IWorkoutConfigFooterProps } from "./IWorkoutConfigFooterProps";
 
-export const WorkoutConfigFooter: React.FC<IWorkoutConfigFooterProps> = () => {
+export const WorkoutConfigFooter: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
