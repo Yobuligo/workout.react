@@ -7,6 +7,8 @@ import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
 import { IDevice } from "../shared/model/exercise/IDevice";
 import { request } from "../utils/request";
+import styles from "./WorkoutConfigPage.module.scss";
+import { ReactComponent as Athlete } from "../assets/plank.svg";
 
 export const WorkoutConfigPage: React.FC = () => {
   const [devices, setDevices] = useState<IDevice[]>([]);
@@ -43,6 +45,7 @@ export const WorkoutConfigPage: React.FC = () => {
         onSelect={onSelectDevice}
         onUnselect={onUnselectDevice}
       />
+      <Athlete className={styles.athlete} />
     </Page>
   );
 };

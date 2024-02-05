@@ -1,0 +1,9 @@
+@import "../colors.scss";
+
+.athlete {
+    position: absolute;
+    bottom: 5rem;
+    right: 1rem;
+    width: 15rem;
+    fill: $neutral_dark;
+}
