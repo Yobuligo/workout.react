@@ -1,5 +1,6 @@
 {
     "workoutConfigPage": {
-        "title": "Pick your available training devices"
+        "title": "Workout App",
+        "subTitle": "Pick your available training devices"
     }
 }
