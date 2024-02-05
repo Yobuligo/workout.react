@@ -33,8 +33,8 @@ export const WorkoutConfigPage: React.FC = () => {
 
   return (
     <Page
-      subTitle={t(texts.workoutConfigPage.title)}
-      title={t(texts.workoutConfigPage.subTitle)}
+      subTitle={t(texts.workoutConfigPage.subTitle)}
+      title={t(texts.workoutConfigPage.title)}
     >
       <DeviceSelectorList
         devices={devices}
