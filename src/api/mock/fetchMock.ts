@@ -1,6 +1,10 @@
 import { fetchBackup } from "../../App";
 import { MockRouter } from "./MockRouter";
 
+const isUpdateRequest = (path: string) => {
+  return path.match(/main.*update.json/);
+};
+
 export const fetchMock = (
   input: RequestInfo | URL,
   init?: RequestInit
@@ -11,8 +15,4 @@ export const fetchMock = (
   }
 
   return MockRouter.handle(input.toString(), init);
-};
-
-const isUpdateRequest = (path: string) => {
-  return path.match(/main.*update.json/);
 };

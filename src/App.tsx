@@ -8,7 +8,6 @@ export const fetchBackup = global.fetch;
 global.fetch = fetchMock;
 
 const App: React.FC = () => {
-  console.log("Test")
   return <RouterProvider router={AppRouter} />;
 };
 
