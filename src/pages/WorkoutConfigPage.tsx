@@ -4,10 +4,13 @@ import { Page } from "../components/pages/Page";
 import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelectorList";
 import { IDevice } from "../shared/model/exercise/IDevice";
 import { request } from "../utils/request";
+import useTranslation from "../hooks/useTranslation";
+import { texts } from "../i18n/texts";
 
 export const WorkoutConfigPage: React.FC = () => {
   const [devices, setDevices] = useState<IDevice[]>([]);
   const [selectedDevices, setSelectedDevices] = useState<IDevice[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     request(async () => {
@@ -29,7 +32,7 @@ export const WorkoutConfigPage: React.FC = () => {
     });
 
   return (
-    <Page subTitle="Pick your available training devices" title={"Workout App"}>
+    <Page subTitle={t(texts.workoutConfigPage.title)} title={"Workout App"}>
       <DeviceSelectorList
         devices={devices}
         onSelect={onSelectDevice}
