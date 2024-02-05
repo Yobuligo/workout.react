@@ -1,5 +1,6 @@
 import { Card } from "../../components/card/Card";
 import { useToggle } from "../../hooks/useToggle";
+import { style } from "../../utils/style";
 import styles from "./DeviceSelector.module.scss";
 import { IDeviceSelectorProps } from "./IDeviceSelectorProps";
 
@@ -16,7 +17,10 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
 
   return (
     <Card
-      className={selected ? styles.selected : styles.unselected}
+      className={style(
+        styles.card,
+        selected ? styles.selected : styles.unselected
+      )}
       onClick={onToggleSelected}
     >
       {props.device.name}

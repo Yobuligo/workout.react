@@ -1,0 +1,17 @@
+.workoutConfigFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.generateCard {
+  display: flex;
+  flex-direction: row;
+  justify-content:  center;
+  width: 90%;
+  cursor: pointer;
+}
+
+.generateCard h4 {
+  margin: 0.25rem;
+}

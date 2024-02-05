@@ -1,24 +1,26 @@
+$borderLeft: 1rem;
+
 .page {
   display: flex;
   flex-direction: column;
 }
 
 .header h3 {
-  margin: 0.5rem;
+  margin: $borderLeft;
 }
 
 .subTitle {
-  margin-left: 0.5rem;
+  margin-left: $borderLeft;
 }
 
 .main {
-  margin-left: 0.5rem;
+  margin-left: $borderLeft;
   margin-top: 1rem;
 }
 
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  margin-left: 0.5rem;
   margin-bottom: 1rem;
+  width: 100%;
 }

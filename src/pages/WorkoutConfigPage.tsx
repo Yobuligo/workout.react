@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { DeviceApi } from "../api/DeviceApi";
-import { Card } from "../components/card/Card";
 import { Page } from "../components/pages/Page";
 import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelectorList";
+import { WorkoutConfigFooter } from "../features/workoutConfigFooter/WorkoutConfigFooter";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
 import { IDevice } from "../shared/model/exercise/IDevice";
@@ -20,8 +20,6 @@ export const WorkoutConfigPage: React.FC = () => {
     });
   });
 
-  const onGenerateWorkout = () => {};
-
   const onSelectDevice = (device: IDevice) =>
     setSelectedDevices((previous) => [...previous, device]);
 
@@ -34,15 +32,9 @@ export const WorkoutConfigPage: React.FC = () => {
       return previous;
     });
 
-  const contentFooter = (
-    <Card onClick={onGenerateWorkout}>
-      {t(texts.workoutConfigPage.captionGenerateWorkout)}
-    </Card>
-  );
-
   return (
     <Page
-      footer={contentFooter}
+      footer={<WorkoutConfigFooter />}
       subTitle={t(texts.workoutConfigPage.subTitle)}
       title={t(texts.workoutConfigPage.title)}
     >
