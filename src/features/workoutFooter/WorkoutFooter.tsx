@@ -4,7 +4,7 @@ import { texts } from "../../i18n/texts";
 
 export const WorkoutFooter: React.FC = () => {
   const { t } = useTranslation();
-  
+
   return (
     <FooterButton caption={t(texts.workoutFooter.captionGenerateWorkout)} />
   );

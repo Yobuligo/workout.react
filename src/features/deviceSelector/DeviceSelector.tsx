@@ -3,6 +3,7 @@ import { useToggle } from "../../hooks/useToggle";
 import { style } from "../../utils/style";
 import styles from "./DeviceSelector.module.scss";
 import { IDeviceSelectorProps } from "./IDeviceSelectorProps";
+import { ReactComponent as CheckIcon } from "../../assets/icons/check.svg";
 
 export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
   const [selected, toggleSelected] = useToggle(props.selected);
@@ -23,7 +24,10 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
       )}
       onClick={onToggleSelected}
     >
-      {props.device.name}
+      <>
+        {selected && <CheckIcon className={styles.checkIcon} />}
+        {props.device.name}
+      </>
     </Card>
   );
 };

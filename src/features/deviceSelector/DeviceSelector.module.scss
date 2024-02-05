@@ -1,14 +1,23 @@
+@import "../../colors.scss";
+
 .card {
   padding: 0.5rem;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .selected {
-  background-color: orange;
-  color: white;
+  background-color: $neutral_dark;
+  color: $neutral_light;
 }
 
 .unselected {
-  background-color: white;
-  color: black;
+  background-color: $neutral_light;
+  color: $neutral_dark;
+}
+
+.checkIcon {
+  width: 1rem;
+  margin-right: 0.5rem;
+  fill: $neutral_light;
 }
