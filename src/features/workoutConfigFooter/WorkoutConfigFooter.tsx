@@ -12,7 +12,7 @@ export const WorkoutConfigFooter: React.FC<IWorkoutConfigFooterProps> = () => {
 
   return (
     <FooterButton
-      caption={t(texts.workoutConfigPage.captionGenerateWorkout)}
+      caption={t(texts.workoutConfigFooter.captionGenerateWorkout)}
       onClick={onGenerateWorkout}
     />
   );

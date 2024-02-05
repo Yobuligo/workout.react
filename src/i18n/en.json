@@ -1,8 +1,13 @@
 {
     "workoutConfigPage": {
-        "captionGenerateWorkout": "Generate Workout",
         "title": "Workout App",
         "subTitle": "Pick your available training devices"
+    },
+    "workoutConfigFooter": {
+        "captionGenerateWorkout": "Generate Workout"
+    },
+    "workoutFooter": {
+        "captionGenerateWorkout": "Start Workout"
     },
     "workoutPage": {
         "title": "Your workout today"
