@@ -6,8 +6,9 @@ export const Page: React.FC<IPageProps> = (props) => {
     <div className={styles.page}>
       <header className={styles.header}>
         <h3>{props.title}</h3>
+        <div className={styles.subTitle}>{props.subTitle}</div>
       </header>
-      <main>{props.children}</main>
+      <main className={styles.main}>{props.children}</main>
     </div>
   );
 };

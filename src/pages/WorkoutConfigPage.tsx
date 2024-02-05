@@ -29,7 +29,7 @@ export const WorkoutConfigPage: React.FC = () => {
     });
 
   return (
-    <Page title={"Workout App"}>
+    <Page subTitle="Pick your available training devices" title={"Workout App"}>
       <DeviceSelectorList
         devices={devices}
         onSelect={onSelectDevice}
