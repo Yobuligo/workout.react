@@ -7,6 +7,7 @@ import { request } from "../utils/request";
 
 export const WorkoutConfigPage: React.FC = () => {
   const [devices, setDevices] = useState<IDevice[]>([]);
+  const [selectedDevices, setSelectedDevices] = useState<IDevice[]>([]);
 
   useEffect(() => {
     request(async () => {
@@ -15,9 +16,25 @@ export const WorkoutConfigPage: React.FC = () => {
     });
   });
 
+  const onSelectDevice = (device: IDevice) =>
+    setSelectedDevices((previous) => [...previous, device]);
+
+  const onUnselectDevice = (device: IDevice) =>
+    setSelectedDevices((previous) => {
+      const index = previous.findIndex((item) => (item.id = device.id));
+      if (index !== -1) {
+        previous.splice(index, 1);
+      }
+      return previous;
+    });
+
   return (
-    <Page>
-      <DeviceSelectorList devices={devices} />
+    <Page title={"Workout App"}>
+      <DeviceSelectorList
+        devices={devices}
+        onSelect={onSelectDevice}
+        onUnselect={onUnselectDevice}
+      />
     </Page>
   );
 };

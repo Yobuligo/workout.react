@@ -8,7 +8,7 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
 
   const onToggleSelected = () => {
     if (toggleSelected()) {
-      props.onselect?.(props.device);
+      props.onSelect?.(props.device);
     } else {
       props.onUnselect?.(props.device);
     }
