@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react";
+import { useInitialize } from "../../hooks/useInitialize";
+import { useToggle } from "../../hooks/useToggle";
 import { Spinner } from "../spinner/Spinner";
 import { IAsyncLoadProps } from "./IAsyncLoadProps";
 
 export function AsyncLoad<T>(props: IAsyncLoadProps<T>) {
-  const [needsLoading, setNeedsLoading] = useState(true);
+  const [needsLoading, toggleNeedsLoading] = useToggle(true);
 
-  useEffect(() => {
-    if (needsLoading) {
-      setTimeout(async () => {
-        await props.load();
-        setNeedsLoading(false);
-      }, 2000);
-    }
-  }, [needsLoading, props]);
+  useInitialize(async () => {
+    await props.load();
+    toggleNeedsLoading();
+  });
 
   return (
     <div className={props.className}>

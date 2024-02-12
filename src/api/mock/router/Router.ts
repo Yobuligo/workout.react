@@ -9,19 +9,22 @@ export class Router {
 
   handle(url: string, requestInit?: RequestInit): Promise<Response> {
     return new Promise(async (resolve) => {
-      const route = this.findRoute(url, requestInit);
-      if (!route) {
-        throw new Error(
-          `Error while calling mock REST handler. No handler found for url ${url} with HTTP method '${requestInit?.method}'.`
-        );
-      }
-      const data = route.handler();
-      const blob = new Blob([JSON.stringify(data)], {
-        type: "application/json",
-      });
-      const init = { status: 200, statusText: "Mock data fetched." };
-      const response = new Response(blob, init);
-      resolve(response);
+      setTimeout(() => {
+        const route = this.findRoute(url, requestInit);
+        if (!route) {
+          throw new Error(
+            `Error while calling mock REST handler. No handler found for url ${url} with HTTP method '${requestInit?.method}'.`
+          );
+        }
+        const data = route.handler();
+        const blob = new Blob([JSON.stringify(data)], {
+          type: "application/json",
+        });
+        const init = { status: 200, statusText: "Mock data fetched." };
+        const response = new Response(blob, init);
+
+        resolve(response);
+      }, 1000);
     });
   }
 
