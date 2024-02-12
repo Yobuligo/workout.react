@@ -1,6 +1,6 @@
 import { Card } from "../../components/card/Card";
 import { useToggle } from "../../hooks/useToggle";
-import { style } from "../../utils/style";
+import { style } from "../../core/style";
 import styles from "./DeviceSelector.module.scss";
 import { IDeviceSelectorProps } from "./IDeviceSelectorProps";
 import { ReactComponent as CheckIcon } from "../../assets/icons/check.svg";
