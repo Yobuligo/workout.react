@@ -1,4 +1,4 @@
 export interface IValue<T> {
   readonly value: T;
-  setValue(newValue: T): void;
+  setValue: React.Dispatch<React.SetStateAction<T>>;
 }
