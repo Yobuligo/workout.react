@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <AppContext.Provider
       value={{
-        selectedDevices: useList<IDevice>((a, b) => a.id === b.id),
+        selectedDevices: useList<IDevice>("id"),
       }}
     >
       <RouterProvider router={AppRouter} />
