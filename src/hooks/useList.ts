@@ -36,5 +36,9 @@ export const useList = <T>(
     [createComparator]
   );
 
-  return { append, items, remove };
+  const removeAll = useCallback(() => {
+    setItems([]);
+  }, []);
+
+  return { append, items, remove, removeAll };
 };
