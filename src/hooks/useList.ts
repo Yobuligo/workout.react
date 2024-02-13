@@ -3,9 +3,9 @@ import { IList } from "../types/IList";
 
 export const useList = <T>(
   compare: (a: T, b: T) => boolean,
-  initialList?: T[]
+  initialItems?: T[]
 ): IList<T> => {
-  const [items, setItems] = useState<T[]>(initialList ?? []);
+  const [items, setItems] = useState<T[]>(initialItems ?? []);
 
   const append = useCallback(
     (item: T) => setItems((previous) => [...previous, item]),
