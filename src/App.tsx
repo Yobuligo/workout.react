@@ -3,7 +3,7 @@ import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import { fetchMock } from "./api/mock/fetchMock";
 import { AppContext } from "./context/AppContext";
-import { useValue } from "./hooks/useValue";
+import { useList } from "./hooks/useList";
 import { AppRouter } from "./routes/AppRouter";
 import { IDevice } from "./shared/model/exercise/IDevice";
 
@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <AppContext.Provider
       value={{
-        selectedDevices: useValue<IDevice[]>([]),
+        selectedDevices: useList<IDevice>((a, b) => a.id === b.id),
       }}
     >
       <RouterProvider router={AppRouter} />

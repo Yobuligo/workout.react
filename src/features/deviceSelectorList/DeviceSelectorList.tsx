@@ -15,17 +15,10 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
   const { t } = useTranslation();
 
   const onSelectDevice = (device: IDevice) =>
-    context.selectedDevices.setValue((previous) => [...previous, device]);
+    context.selectedDevices.append(device);
 
-  const onUnselectDevice = (device: IDevice) => {
-    context.selectedDevices.setValue((previous) => {
-      const index = previous.findIndex((item) => item.id === device.id);
-      if (index !== -1) {
-        previous.splice(index, 1);
-      }
-      return [...previous];
-    });
-  };
+  const onUnselectDevice = (device: IDevice) =>
+    context.selectedDevices.remove(device);
 
   const items = devices.map((device) => (
     <div key={device.id}>

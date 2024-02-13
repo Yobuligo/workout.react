@@ -1,6 +1,6 @@
 import { IDevice } from "../shared/model/exercise/IDevice";
-import { IValue } from "../types/IValue";
+import { IList } from "../types/IList";
 
 export interface IAppContext {
-  selectedDevices: IValue<IDevice[]>;
+  selectedDevices: IList<IDevice>;
 }
