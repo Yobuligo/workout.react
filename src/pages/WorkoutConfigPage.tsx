@@ -12,16 +12,19 @@ export const WorkoutConfigPage: React.FC = () => {
   const [selectedDevices, setSelectedDevices] = useState<IDevice[]>([]);
   const { t } = useTranslation();
 
-  const onSelectDevice = (device: IDevice) =>
-    setSelectedDevices((previous) => [...previous, device]);
+  const onSelectDevice = (device: IDevice) => {
+    setSelectedDevices((previous) => {
+      return [...previous, device];
+    });
+  };
 
   const onUnselectDevice = (device: IDevice) =>
     setSelectedDevices((previous) => {
-      const index = previous.findIndex((item) => (item.id = device.id));
+      const index = previous.findIndex((item) => (item.id === device.id));
       if (index !== -1) {
         previous.splice(index, 1);
       }
-      return previous;
+      return [...previous];
     });
 
   return (
