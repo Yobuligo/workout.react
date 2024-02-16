@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { DeviceApi } from "../../api/DeviceApi";
 import { AsyncLoad } from "../../components/asyncLoad/AsyncLoad";
 import { AppContext } from "../../context/AppContext";
+import { useInitialize } from "../../hooks/useInitialize";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
 import { IDevice } from "../../shared/model/exercise/IDevice";
@@ -13,6 +14,8 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
   const [devices, setDevices] = useState<IDevice[]>([]);
   const context = useContext(AppContext);
   const { t } = useTranslation();
+
+  useInitialize(() => context.selectedDevices.removeAll());
 
   const onSelectDevice = (device: IDevice) =>
     context.selectedDevices.append(device);
