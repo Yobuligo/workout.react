@@ -1,4 +1,5 @@
 import { Difficulty } from "../../types/Difficulty";
+import { ExerciseType } from "../../types/ExerciseType";
 import { IImage } from "../../types/IImage";
 import { MuscleGroup } from "../../types/MuscleGroup";
 import { IEntity } from "../core/IEntity";
@@ -11,4 +12,5 @@ export interface IExercise extends IEntity, IHaveName, IHaveDescription {
   difficulty: Difficulty;
   image?: IImage;
   muscleGroups: MuscleGroup[];
+  type: ExerciseType;
 }
