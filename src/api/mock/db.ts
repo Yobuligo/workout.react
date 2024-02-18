@@ -7,4 +7,5 @@ export const db = {
     { id: "5", name: "Rope" },
     { id: "6", name: "Weighted vest" },
   ],
+  exercises: []
 };

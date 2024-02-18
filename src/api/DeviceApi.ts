@@ -1,11 +1,8 @@
 import { IDevice } from "../shared/model/exercise/IDevice";
+import { Repository } from "./core/Repository";
 
-export class DeviceApi {
-  findAll(): Promise<IDevice[]> {
-    return new Promise(async (resolve) => {
-      const response = await fetch("/devices", { method: "GET" });
-      const devices = await response.json();
-      resolve(devices);
-    });
+export class DeviceApi extends Repository<IDevice> {
+  constructor() {
+    super("/devices");
   }
 }
