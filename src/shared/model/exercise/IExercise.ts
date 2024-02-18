@@ -8,7 +8,7 @@ import { IHaveName } from "../core/IHaveName";
 import { IDevice } from "./IDevice";
 
 export interface IExercise extends IEntity, IHaveName, IHaveDescription {
-  devices: IDevice[];
+  devices?: IDevice[];
   difficulty: Difficulty;
   image?: IImage;
   muscleGroups: MuscleGroup[];

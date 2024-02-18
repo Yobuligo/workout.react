@@ -1,3 +1,7 @@
+import { Difficulty } from "../../shared/types/Difficulty";
+import { ExerciseType } from "../../shared/types/ExerciseType";
+import { MuscleGroup } from "../../shared/types/MuscleGroup";
+
 export const db = {
   devices: [
     { id: "1", name: "Balance board" },
@@ -7,5 +11,20 @@ export const db = {
     { id: "5", name: "Rope" },
     { id: "6", name: "Weighted vest" },
   ],
-  exercises: []
+  exercises: [
+    {
+      id: "123",
+      name: "Push-ups",
+      description: "Push-ups",
+      difficulty: Difficulty.MEDIUM,
+      type: ExerciseType.POWER,
+      muscleGroups: [
+        MuscleGroup.ARMS,
+        MuscleGroup.CHEST,
+        MuscleGroup.SHOULDER,
+        MuscleGroup.CORE,
+        MuscleGroup.BACK,
+      ],
+    },
+  ],
 };
