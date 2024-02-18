@@ -1,1 +1,8 @@
-export class ExerciseApi {}
+import { IExercise } from "../shared/model/exercise/IExercise";
+import { Repository } from "./core/Repository";
+
+export class ExerciseApi extends Repository<IExercise> {
+  constructor() {
+    super("/exercises");
+  }
+}

@@ -1,4 +1,4 @@
-export abstract class REST {
+export abstract class RESTApi {
   get<T>(path: string): Promise<T> {
     return new Promise(async (resolve) => {
       const response = await fetch(path, { method: "GET" });
