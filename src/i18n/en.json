@@ -6,6 +6,9 @@
         "title": "Workout App",
         "subTitle": "Match your workout to your needs"
     },
+    "exerciseTypeSelector": {
+        "explanation": "Pick your workout type"
+    },
     "workoutConfigPage": {
         "title": "Workout App",
         "subTitle": "Match your workout to your needs"
