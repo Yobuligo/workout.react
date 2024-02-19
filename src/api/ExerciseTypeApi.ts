@@ -1,4 +1,4 @@
-import { IDevice } from "../shared/model/exercise/IDevice";
+import { DeviceMeta, IDevice } from "../shared/model/exercise/IDevice";
 import {
   ExerciseTypeMeta,
   IExerciseType,
@@ -12,9 +12,9 @@ export class ExerciseTypeApi extends Repository<IExerciseType> {
   }
 
   /**
-   * Finds all devices of a specific {@link exerciseType}.
+   * Finds all devices of the given {@link exerciseType}.
    */
   findDevices(exerciseType: ExerciseType): Promise<IDevice[]> {
-    return this.get(`${this.url}/${exerciseType}/devices`);
+    return this.get(`${this.url}/${exerciseType}${DeviceMeta.path}`);
   }
 }

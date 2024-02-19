@@ -32,4 +32,15 @@ export const db = {
     { id: "2", exerciseType: ExerciseType.POWER, description: "Power" },
     { id: "3", exerciseType: ExerciseType.STRETCH, description: "Stretching" },
   ],
+
+  faciaDevices: [{ id: "7", name: "Facia role" }],
+  powerDevices: [
+    { id: "1", name: "Balance board" },
+    { id: "2", name: "Dumbbell" },
+    { id: "3", name: "Kettle bell" },
+    { id: "4", name: "Resistance band" },
+    { id: "5", name: "Rope" },
+    { id: "6", name: "Weighted vest" },
+  ],
+  stretchingDevices: [],
 };
