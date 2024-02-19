@@ -1,1 +1,3 @@
-export interface IImage {}
+export interface IImage {
+  path: string;
+}

@@ -1,5 +1,6 @@
 import { Difficulty } from "../../types/Difficulty";
 import { ExerciseType } from "../../types/ExerciseType";
+import { IHavePath } from "../../types/IHavePath";
 import { IImage } from "../../types/IImage";
 import { MuscleGroup } from "../../types/MuscleGroup";
 import { IEntity } from "../core/IEntity";
@@ -14,3 +15,5 @@ export interface IExercise extends IEntity, IHaveName, IHaveDescription {
   muscleGroups: MuscleGroup[];
   type: ExerciseType;
 }
+
+export const ExerciseMeta: IHavePath = { path: "/exercises" };
