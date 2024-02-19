@@ -28,8 +28,8 @@ export const db = {
     },
   ],
   exerciseTypes: [
-    { id: "1", exerciseType: ExerciseType.FASCIA },
-    { id: "2", exerciseType: ExerciseType.POWER },
-    { id: "3", exerciseType: ExerciseType.STRETCH },
+    { id: "1", exerciseType: ExerciseType.FASCIA, description: "Facia" },
+    { id: "2", exerciseType: ExerciseType.POWER, description: "Power" },
+    { id: "3", exerciseType: ExerciseType.STRETCH, description: "Stretching" },
   ],
 };
