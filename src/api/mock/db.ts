@@ -1,6 +1,6 @@
 import { Difficulty } from "../../shared/types/Difficulty";
-import { ExerciseType } from "../../shared/types/ExerciseType";
 import { MuscleGroup } from "../../shared/types/MuscleGroup";
+import { WorkoutType } from "../../shared/types/WorkoutType";
 
 export const db = {
   devices: [
@@ -17,7 +17,7 @@ export const db = {
       name: "Push-ups",
       description: "Push-ups",
       difficulty: Difficulty.MEDIUM,
-      type: ExerciseType.POWER,
+      type: WorkoutType.POWER,
       muscleGroups: [
         MuscleGroup.ARMS,
         MuscleGroup.CHEST,
@@ -27,13 +27,13 @@ export const db = {
       ],
     },
   ],
-  exerciseTypes: [
-    { id: "1", exerciseType: ExerciseType.FASCIA, description: "Facia" },
-    { id: "2", exerciseType: ExerciseType.POWER, description: "Power" },
-    { id: "3", exerciseType: ExerciseType.STRETCH, description: "Stretching" },
+  workoutTypes: [
+    { id: "1", type: WorkoutType.FASCIA, description: "Fascia" },
+    { id: "2", type: WorkoutType.POWER, description: "Power" },
+    { id: "3", type: WorkoutType.STRETCH, description: "Stretching" },
   ],
 
-  faciaDevices: [{ id: "7", name: "Facia role" }],
+  fasciaDevices: [{ id: "7", name: "Fascia role" }],
   powerDevices: [
     { id: "1", name: "Balance board" },
     { id: "2", name: "Dumbbell" },

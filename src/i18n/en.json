@@ -2,11 +2,11 @@
     "deviceSelectorList": {
         "explanation": "Pick your available training devices"
     },
-    "exerciseTypePage": {
+    "workoutTypePage": {
         "title": "Workout App",
         "subTitle": "Match your workout to your needs"
     },
-    "exerciseTypeSelector": {
+    "workoutTypeSelector": {
         "explanation": "Pick your workout type"
     },
     "workoutConfigPage": {

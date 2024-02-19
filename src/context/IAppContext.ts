@@ -1,9 +1,9 @@
 import { IDevice } from "../shared/model/exercise/IDevice";
-import { IExerciseType } from "../shared/model/exercise/IExerciseType";
+import { IWorkoutType } from "../shared/model/exercise/IWorkoutType";
 import { IList } from "../types/IList";
 import { IValue } from "../types/IValue";
 
 export interface IAppContext {
-  selectedExerciseType: IValue<IExerciseType | undefined>;
+  selectedWorkoutType: IValue<IWorkoutType | undefined>;
   selectedDevices: IList<IDevice>;
 }

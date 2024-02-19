@@ -1,5 +1,5 @@
 import { Difficulty } from "../../types/Difficulty";
-import { ExerciseType } from "../../types/ExerciseType";
+import { WorkoutType } from "../../types/WorkoutType";
 import { IImage } from "../../types/IImage";
 import { IMeta } from "../../types/IMeta";
 import { MuscleGroup } from "../../types/MuscleGroup";
@@ -13,7 +13,7 @@ export interface IExercise extends IEntity, IHaveName, IHaveDescription {
   difficulty: Difficulty;
   image?: IImage;
   muscleGroups: MuscleGroup[];
-  type: ExerciseType;
+  type: WorkoutType;
 }
 
 export const ExerciseMeta: IMeta<IExercise> = { path: "/exercises" };

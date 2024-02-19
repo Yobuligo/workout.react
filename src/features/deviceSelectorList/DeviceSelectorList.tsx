@@ -37,7 +37,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
   return (
     <AsyncLoad
       load={async () => {
-        const devices = await Api.exerciseType.findDevices(context.selectedExerciseType.value!.exerciseType);
+        const devices = await Api.workoutType.findDevices(context.selectedWorkoutType.value!.type);
         setDevices(devices);  
       }}
     >

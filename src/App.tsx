@@ -7,7 +7,7 @@ import { useList } from "./hooks/useList";
 import { useValue } from "./hooks/useValue";
 import { AppRouter } from "./routes/AppRouter";
 import { IDevice } from "./shared/model/exercise/IDevice";
-import { IExerciseType } from "./shared/model/exercise/IExerciseType";
+import { IWorkoutType } from "./shared/model/exercise/IWorkoutType";
 
 export const fetchBackup = global.fetch;
 global.fetch = fetchMock;
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     <AppContext.Provider
       value={{
         selectedDevices: useList<IDevice>("id"),
-        selectedExerciseType: useValue<IExerciseType | undefined>(undefined),
+        selectedWorkoutType: useValue<IWorkoutType | undefined>(undefined),
       }}
     >
       <RouterProvider router={AppRouter} />

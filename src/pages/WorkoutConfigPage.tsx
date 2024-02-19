@@ -15,7 +15,7 @@ export const WorkoutConfigPage: React.FC = () => {
       footer={<WorkoutConfigFooter />}
       subTitle={t(texts.workoutConfigPage.subTitle)}
       title={t(texts.workoutConfigPage.title)}
-      navigateBackPath={Routes.exerciseTypePage}
+      navigateBackPath={Routes.workoutTypePage}
     >
       <DeviceSelectorList />
       <Athlete className={styles.athlete} />

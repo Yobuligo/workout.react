@@ -1,8 +1,8 @@
 import { DeviceMeta, IDevice } from "../../shared/model/exercise/IDevice";
 import { ExerciseMeta, IExercise } from "../../shared/model/exercise/IExercise";
-import { IExerciseType } from "../../shared/model/exercise/IExerciseType";
-import { ExerciseType } from "../../shared/types/ExerciseType";
-import { ExerciseTypeMeta } from "./../../shared/model/exercise/IExerciseType";
+import { IWorkoutType } from "../../shared/model/exercise/IWorkoutType";
+import { WorkoutType } from "../../shared/types/WorkoutType";
+import { WorkoutTypeMeta } from "../../shared/model/exercise/IWorkoutType";
 import { db } from "./db";
 import { Router } from "./router/Router";
 
@@ -12,19 +12,19 @@ MockRouter.get<IDevice[]>(DeviceMeta.path, () => db.devices);
 
 MockRouter.get<IExercise[]>(ExerciseMeta.path, () => db.exercises);
 
-MockRouter.get<IExerciseType[]>(ExerciseTypeMeta.path, () => db.exerciseTypes);
+MockRouter.get<IWorkoutType[]>(WorkoutTypeMeta.path, () => db.workoutTypes);
 
 MockRouter.get<IDevice[]>(
-  `${ExerciseTypeMeta.path}/${ExerciseType.FASCIA}${DeviceMeta.path}`,
-  () => db.faciaDevices
+  `${WorkoutTypeMeta.path}/${WorkoutType.FASCIA}${DeviceMeta.path}`,
+  () => db.fasciaDevices
 );
 
 MockRouter.get<IDevice[]>(
-  `${ExerciseTypeMeta.path}/${ExerciseType.POWER}${DeviceMeta.path}`,
+  `${WorkoutTypeMeta.path}/${WorkoutType.POWER}${DeviceMeta.path}`,
   () => db.powerDevices
 );
 
 MockRouter.get<IDevice[]>(
-  `${ExerciseTypeMeta.path}/${ExerciseType.STRETCH}${DeviceMeta.path}`,
+  `${WorkoutTypeMeta.path}/${WorkoutType.STRETCH}${DeviceMeta.path}`,
   () => db.stretchingDevices
 );
