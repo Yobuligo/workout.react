@@ -3,6 +3,6 @@ import { Repository } from "./core/Repository";
 
 export class DeviceApi extends Repository<IDevice> {
   constructor() {
-    super(DeviceMeta.path);
+    super(DeviceMeta);
   }
 }

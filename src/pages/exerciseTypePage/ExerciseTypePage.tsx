@@ -9,8 +9,6 @@ export const ExerciseTypePage: React.FC = () => {
     <Page
       title={t(texts.exerciseTypePage.title)}
       subTitle={t(texts.exerciseTypePage.subTitle)}
-    >
-
-    </Page>
+    ></Page>
   );
 };

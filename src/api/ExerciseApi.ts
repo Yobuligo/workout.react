@@ -3,6 +3,6 @@ import { Repository } from "./core/Repository";
 
 export class ExerciseApi extends Repository<IExercise> {
   constructor() {
-    super(ExerciseMeta.path);
+    super(ExerciseMeta);
   }
 }

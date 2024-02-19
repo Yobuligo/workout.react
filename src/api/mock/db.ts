@@ -27,4 +27,9 @@ export const db = {
       ],
     },
   ],
+  exerciseTypes: [
+    { id: "1", exerciseType: ExerciseType.FASCIA },
+    { id: "2", exerciseType: ExerciseType.POWER },
+    { id: "3", exerciseType: ExerciseType.STRETCH },
+  ],
 };
