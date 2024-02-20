@@ -5,8 +5,8 @@ import { AppContext } from "../../context/AppContext";
 import { WorkoutTypeSelector } from "../../features/workoutTypeSelector/WorkoutTypeSelector";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
+import { Routes } from "../../routes/AppRouter";
 import { IWorkoutType } from "../../shared/model/exercise/IWorkoutType";
-import { NewRoutes } from "../../routes/AppRouter";
 
 export const WorkoutTypePage: React.FC = () => {
   const { t } = useTranslation();
@@ -15,8 +15,7 @@ export const WorkoutTypePage: React.FC = () => {
 
   const onSelectWorkoutType = (workoutType: IWorkoutType) => {
     context.selectedWorkoutType.setValue(workoutType);
-    // navigate(Routes.workoutConfig);
-    navigate(`/${workoutType.type}/workout-config`);
+    navigate(Routes.workoutConfig.toPath({ "workout-type": workoutType.type }));
   };
 
   return (
