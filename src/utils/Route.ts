@@ -16,6 +16,10 @@ export class Route<TPath extends string> {
   constructor(readonly origin: TPath) {}
 
   toPath(params: Params<TPath>): string {
-    return "";
+    let path = this.origin;
+    for (const propName in params) {
+      path.replaceAll(`:${propName}`, (params as any)[propName]);
+    }
+    return path;
   }
 }
