@@ -6,6 +6,7 @@ import { WorkoutTypeSelector } from "../../features/workoutTypeSelector/WorkoutT
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
 import { IWorkoutType } from "../../shared/model/exercise/IWorkoutType";
+import { NewRoutes } from "../../routes/AppRouter";
 
 export const WorkoutTypePage: React.FC = () => {
   const { t } = useTranslation();

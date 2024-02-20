@@ -12,8 +12,8 @@ type Params<Path> = {
   [Key in FilteredParts<Path> as RemovePrefixDots<Key>]: ParamValue<Key>;
 };
 
-export class Path<TPath extends string> {
-  constructor(private readonly origin: TPath) {}
+export class Route<TPath extends string> {
+  constructor(readonly origin: TPath) {}
 
   toPath(params: Params<TPath>): string {
     return "";
