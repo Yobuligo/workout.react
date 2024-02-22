@@ -5,7 +5,7 @@ import { AppContext } from "../../context/AppContext";
 import { WorkoutTypeSelector } from "../../features/workoutTypeSelector/WorkoutTypeSelector";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import { Routes } from "../../routes/AppRouter";
+import { Routes } from "../../routes/Routes";
 import { IWorkoutType } from "../../shared/model/exercise/IWorkoutType";
 
 export const WorkoutTypePage: React.FC = () => {

@@ -4,7 +4,7 @@ import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelecto
 import { WorkoutConfigFooter } from "../features/workoutConfigFooter/WorkoutConfigFooter";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
-import { Routes } from "../routes/AppRouter";
+import { Routes } from "../routes/Routes";
 import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
