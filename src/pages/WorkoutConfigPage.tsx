@@ -4,6 +4,7 @@ import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelecto
 import { WorkoutConfigFooter } from "../features/workoutConfigFooter/WorkoutConfigFooter";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
+import { Routes } from "../routes/AppRouter";
 import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
@@ -14,6 +15,7 @@ export const WorkoutConfigPage: React.FC = () => {
       footer={<WorkoutConfigFooter />}
       subTitle={t(texts.workoutConfigPage.subTitle)}
       title={t(texts.workoutConfigPage.title)}
+      navigateBackPath={Routes.workoutTypePage.toPath({})}
     >
       <DeviceSelectorList />
       <Athlete className={styles.athlete} />

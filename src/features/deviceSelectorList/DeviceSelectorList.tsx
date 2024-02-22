@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { DeviceApi } from "../../api/DeviceApi";
+import { Api } from "../../api/Api";
 import { AsyncLoad } from "../../components/asyncLoad/AsyncLoad";
 import { AppContext } from "../../context/AppContext";
 import { useInitialize } from "../../hooks/useInitialize";
@@ -37,8 +37,8 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
   return (
     <AsyncLoad
       load={async () => {
-        const devices = await new DeviceApi().findAll();
-        setDevices(devices);
+        const devices = await Api.workoutType.findDevices(context.selectedWorkoutType.value!.type);
+        setDevices(devices);  
       }}
     >
       <p>{t(texts.deviceSelectorList.explanation)}</p>
