@@ -1,8 +1,8 @@
-import { Route } from "./Route";
-import { configure } from "./configure";
+import { configure } from "./core/configure";
+import { route } from "./core/route";
 
 export const Routes = configure({
-  workoutTypePage: new Route("/"),
-  workoutConfig: new Route("/:workout-type/workout-config"),
-  workout: new Route("/workout"),
+  workoutTypePage: route("/"),
+  workoutConfig: route("/:workout-type/workout-config"),
+  workout: route("/workout"),
 });
