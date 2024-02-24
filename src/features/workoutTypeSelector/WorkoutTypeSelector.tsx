@@ -5,8 +5,8 @@ import { Card } from "../../components/card/Card";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
 import { IWorkoutType } from "../../shared/model/exercise/IWorkoutType";
-import styles from "./WorkoutTypeSelector.module.scss";
 import { IWorkoutTypeSelectorProps } from "./IWorkoutTypeSelectorProps";
+import styles from "./WorkoutTypeSelector.module.scss";
 
 export const WorkoutTypeSelector: React.FC<IWorkoutTypeSelectorProps> = (
   props
@@ -15,14 +15,13 @@ export const WorkoutTypeSelector: React.FC<IWorkoutTypeSelectorProps> = (
   const [workoutTypes, setWorkoutTypes] = useState<IWorkoutType[]>([]);
 
   const items = workoutTypes.map((workoutType) => (
-    <div key={workoutType.id}>
-      <Card
-        className={styles.card}
-        onClick={() => props.onSelect?.(workoutType)}
-      >
-        {workoutType.description}
-      </Card>
-    </div>
+    <Card
+      key={workoutType.id}
+      className={styles.card}
+      onClick={() => props.onSelect?.(workoutType)}
+    >
+      {workoutType.description}
+    </Card>
   ));
 
   return (

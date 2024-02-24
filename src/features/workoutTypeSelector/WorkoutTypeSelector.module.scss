@@ -9,10 +9,13 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: $neutral_light;
   cursor: pointer;
   font-weight: 600;
-  text-align: center;
-  // width: 7rem;
-  width: 100%;
+  width: 70%;
+  height: 2rem;
 }
