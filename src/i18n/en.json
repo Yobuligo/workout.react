@@ -3,6 +3,7 @@
         "explanation": "Pick your available training devices"
     },
     "powerExercises": {
+        "gobletSquat": "Goblet Squat",
         "pushup": "Push-up"
     },
     "workoutBlock": {
