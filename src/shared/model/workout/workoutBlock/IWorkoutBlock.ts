@@ -1,4 +1,4 @@
-import { IWorkoutExercise } from "../IWorkoutExercise";
+import { IWorkoutExercise } from "../workoutExercise/IWorkoutExercise";
 import { IEntity } from "../../core/IEntity";
 import { IHaveName } from "../../core/IHaveName";
 

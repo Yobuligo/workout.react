@@ -1,9 +1,9 @@
 import { nextId } from "../../../../utils/nextId";
+import { IWorkoutExercise } from "../workoutExercise/IWorkoutExercise";
 import { IWorkoutBlock } from "./IWorkoutBlock";
-import { IWorkoutExercise } from "../IWorkoutExercise";
 
 export abstract class WorkoutBlock implements IWorkoutBlock {
   exercises: IWorkoutExercise[] = [];
-  id: string = nextId();
+  readonly id: string = nextId();
   abstract readonly name: string;
 }

@@ -1,6 +1,10 @@
+import { Pushup } from "../model/powerExercises/Pushup";
 import { IWorkout } from "../model/workout/IWorkout";
 import { IWorkoutConfig } from "../model/workout/IWorkoutConfig";
 import { Workout } from "../model/workout/Workout";
+import { Strength } from "../model/workout/workoutBlock/Strength";
+import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
+import { WorkoutExerciseSpanType } from "../types/WorkoutExerciseSpanType";
 import { IWorkoutGenerator } from "./IWorkoutGenerator";
 
 export class WorkoutGenerator implements IWorkoutGenerator {
@@ -10,6 +14,20 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // 2. Whenever getter Exercises, consider the devices, which can be used
     // 3. Consider all muscle groups
 
-    return new Workout();
+    // create workout
+    const workout = new Workout();
+
+    // create workout block
+    const strength = new Strength();
+    strength.exercises = [
+      new WorkoutExercise(
+        new Pushup(),
+        WorkoutExerciseSpanType.REPETITION_BASED,
+        20
+      ),
+    ];
+    workout.blocks = [strength];
+
+    return workout;
   }
 }
