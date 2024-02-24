@@ -36,7 +36,10 @@ export class Router {
     this.routes.push({ path: path, method: "GET", handler });
   }
 
-  post<T>(path: string, handler: RouteHandler<T>) {
+  post<TResult, TData = undefined>(
+    path: string,
+    handler: RouteHandler<TResult, TData>
+  ) {
     this.routes.push({ path: path, method: "POST", handler });
   }
 
