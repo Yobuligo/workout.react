@@ -6,4 +6,13 @@ export abstract class RESTApi {
       resolve(data);
     });
   }
+
+  post<T>(path: string, bodyData: any): Promise<T> {
+    return new Promise(async (resolve) => {
+      const body = JSON.stringify(bodyData);
+      const response = await fetch(path, { method: "POST", body });
+      const data = await response.json();
+      resolve(data);
+    });
+  }
 }
