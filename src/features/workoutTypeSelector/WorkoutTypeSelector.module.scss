@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   row-gap: 2rem;
+  width: 100%;
 }
 
 .card {
@@ -12,5 +13,6 @@
   cursor: pointer;
   font-weight: 600;
   text-align: center;
-  width: 7rem;
+  // width: 7rem;
+  width: 100%;
 }

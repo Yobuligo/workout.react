@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { WorkoutConfigPage } from "../pages/WorkoutConfigPage";
 import { WorkoutPage } from "../pages/WorkoutPage";
-import { WorkoutTypePage } from "../pages/workoutTypePage/WorkoutTypePage";
+import { WorkoutTypePage } from "../pages/WorkoutTypePage";
 import { Routes } from "./Routes";
 
 export const AppRouter = createBrowserRouter([
