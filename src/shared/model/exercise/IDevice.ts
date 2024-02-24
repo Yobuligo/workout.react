@@ -1,7 +1,7 @@
 import { IMeta } from "../../types/IMeta";
 import { IEntity } from "../core/IEntity";
-import { IHaveName } from "../core/IHaveName";
+import { IHaveTitle } from "../core/IHaveTitle";
 
-export interface IDevice extends IEntity, IHaveName {}
+export interface IDevice extends IEntity, IHaveTitle {}
 
 export const DeviceMeta: IMeta<IDevice> = { path: "/devices" };

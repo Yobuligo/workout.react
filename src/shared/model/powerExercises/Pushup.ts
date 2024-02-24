@@ -20,6 +20,6 @@ export class Pushup implements IExercise {
   ];
   type: WorkoutType = WorkoutType.POWER;
   id: string = nextId();
-  name: string = texts.powerExercises.pushup;
+  title: string = texts.powerExercises.pushup;
   description: string = texts.powerExercises.pushup;
 }

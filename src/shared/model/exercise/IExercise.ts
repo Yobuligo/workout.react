@@ -5,10 +5,10 @@ import { IMeta } from "../../types/IMeta";
 import { MuscleGroup } from "../../types/MuscleGroup";
 import { IEntity } from "../core/IEntity";
 import { IHaveDescription } from "../core/IHaveDescription";
-import { IHaveName } from "../core/IHaveName";
+import { IHaveTitle } from "../core/IHaveTitle";
 import { IDevice } from "./IDevice";
 
-export interface IExercise extends IEntity, IHaveName, IHaveDescription {
+export interface IExercise extends IEntity, IHaveTitle, IHaveDescription {
   devices?: IDevice[];
   difficulty: Difficulty;
   image?: IImage;

@@ -3,6 +3,7 @@ import { Workout } from "../features/workout/Workout";
 import { WorkoutFooter } from "../features/workoutFooter/WorkoutFooter";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
+import { Routes } from "../routes/Routes";
 
 export const WorkoutPage: React.FC = () => {
   const { t } = useTranslation();
@@ -10,7 +11,7 @@ export const WorkoutPage: React.FC = () => {
   return (
     <Page
       footer={<WorkoutFooter />}
-      navigateBackPath="/"
+      navigateBackPath={Routes.workoutTypePage.toPath()}
       title={t(texts.workoutPage.title)}
       subTitle={t(texts.workoutPage.subtitle)}
     >

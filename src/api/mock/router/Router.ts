@@ -1,11 +1,11 @@
-import { IRoute } from "./IRoute";
+import { IRESTRoute } from "./IRESTRoute";
 import { RouteHandler } from "./RouterHandler";
 
 /**
  * This class is responsible for creating mock responses for given routes.
  */
 export class Router {
-  private routes: IRoute[] = [];
+  private routes: IRESTRoute[] = [];
 
   handle(url: string, requestInit?: RequestInit): Promise<Response> {
     return new Promise(async (resolve) => {
@@ -16,7 +16,11 @@ export class Router {
             `Error while calling mock REST handler. No handler found for url ${url} with HTTP method '${requestInit?.method}'.`
           );
         }
-        const data = route.handler();
+        const data = route.handler(
+          requestInit?.body
+            ? JSON.parse(requestInit?.body.toString())
+            : undefined
+        );
         const blob = new Blob([JSON.stringify(data)], {
           type: "application/json",
         });
@@ -50,7 +54,7 @@ export class Router {
   private findRoute(
     url: string,
     requestInit?: RequestInit
-  ): IRoute | undefined {
+  ): IRESTRoute | undefined {
     const pathSegments = this.urlToPathSegments(url);
     return this.routes.find((route) => {
       const routeSegments = route.path.split("/");

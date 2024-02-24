@@ -1,7 +1,7 @@
 import { IWorkoutExercise } from "../workoutExercise/IWorkoutExercise";
 import { IEntity } from "../../core/IEntity";
-import { IHaveName } from "../../core/IHaveName";
+import { IHaveTitle } from "../../core/IHaveTitle";
 
-export interface IWorkoutBlock extends IEntity, IHaveName {
+export interface IWorkoutBlock extends IEntity, IHaveTitle {
   readonly exercises: IWorkoutExercise[];
 }

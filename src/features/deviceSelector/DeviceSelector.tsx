@@ -26,7 +26,7 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
     >
       <>
         {selected && <CheckIcon className={styles.checkIcon} />}
-        {props.device.name}
+        {props.device.title}
       </>
     </Card>
   );
