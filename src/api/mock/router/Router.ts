@@ -63,7 +63,7 @@ export class Router {
 
   private urlToPathSegments(url: string): string[] {
     // delete leading host information
-    const [path, parameters] = url.split("?");
+    const [path] = url.split("?");
     return path.split("/");
   }
 

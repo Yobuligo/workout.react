@@ -1,5 +1,4 @@
-import { Difficulty } from "../../shared/types/Difficulty";
-import { MuscleGroup } from "../../shared/types/MuscleGroup";
+import { Pushup } from "../../shared/model/exercises/Pushup";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 
 export const db = {
@@ -11,22 +10,7 @@ export const db = {
     { id: "5", name: "Rope" },
     { id: "6", name: "Weighted vest" },
   ],
-  exercises: [
-    {
-      id: "123",
-      name: "Push-ups",
-      description: "Push-ups",
-      difficulty: Difficulty.MEDIUM,
-      type: WorkoutType.POWER,
-      muscleGroups: [
-        MuscleGroup.ARMS,
-        MuscleGroup.CHEST,
-        MuscleGroup.SHOULDER,
-        MuscleGroup.CORE,
-        MuscleGroup.BACK,
-      ],
-    },
-  ],
+  exercises: [new Pushup()],
   workoutTypes: [
     { id: "1", type: WorkoutType.FASCIA, description: "Fascia" },
     { id: "2", type: WorkoutType.POWER, description: "Power" },
