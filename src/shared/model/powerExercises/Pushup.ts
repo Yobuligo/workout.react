@@ -1,3 +1,4 @@
+import { texts } from "../../../i18n/texts";
 import { nextId } from "../../../utils/nextId";
 import { Difficulty } from "../../types/Difficulty";
 import { IImage } from "../../types/IImage";
@@ -19,6 +20,6 @@ export class Pushup implements IExercise {
   ];
   type: WorkoutType = WorkoutType.POWER;
   id: string = nextId();
-  name: string = "Push-up";
-  description: string = "";
+  name: string = texts.powerExercises.pushup;
+  description: string = texts.powerExercises.pushup;
 }

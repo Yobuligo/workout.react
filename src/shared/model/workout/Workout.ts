@@ -1,6 +1,6 @@
 import { nextId } from "../../../utils/nextId";
 import { IWorkout } from "./IWorkout";
-import { IWorkoutBlock } from "./IWorkoutBlock";
+import { IWorkoutBlock } from "./workoutBlock/IWorkoutBlock";
 
 export class Workout implements IWorkout {
   blocks: IWorkoutBlock[] = [];

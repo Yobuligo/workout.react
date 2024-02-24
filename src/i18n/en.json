@@ -2,6 +2,13 @@
     "deviceSelectorList": {
         "explanation": "Pick your available training devices"
     },
+    "powerExercises": {
+        "pushup": "Push-up"
+    },
+    "workoutBlock": {
+        "conditioning": "Conditioning",
+        "strength": "Strength"
+    },
     "workoutTypePage": {
         "title": "Workout App",
         "subTitle": "Match your workout to your needs"

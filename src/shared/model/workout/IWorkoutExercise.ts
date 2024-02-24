@@ -3,6 +3,6 @@ import { IWorkoutExerciseSpan } from "./IWorkoutExerciseSpan";
 import { IEntity } from "../core/IEntity";
 
 export interface IWorkoutExercise extends IEntity {
-  exercise: IExercise;
-  span: IWorkoutExerciseSpan;
+  readonly exercise: IExercise;
+  readonly span: IWorkoutExerciseSpan;
 }
