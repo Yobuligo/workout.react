@@ -2,6 +2,7 @@ import { Pushup } from "../model/powerExercises/Pushup";
 import { IWorkout } from "../model/workout/IWorkout";
 import { IWorkoutConfig } from "../model/workout/IWorkoutConfig";
 import { Workout } from "../model/workout/Workout";
+import { Conditioning } from "../model/workout/workoutBlock/Conditioning";
 import { Strength } from "../model/workout/workoutBlock/Strength";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
 import { WorkoutExerciseSpanType } from "../types/WorkoutExerciseSpanType";
@@ -26,7 +27,11 @@ export class WorkoutGenerator implements IWorkoutGenerator {
         20
       ),
     ];
-    workout.blocks = [strength];
+    workout.blocks.push(strength);
+
+    // create workout block
+    const conditioning = new Conditioning();
+    workout.blocks.push(conditioning);
 
     return workout;
   }

@@ -3,12 +3,12 @@ import { WorkoutType } from "../../shared/types/WorkoutType";
 
 export const db = {
   devices: [
-    { id: "1", name: "Balance board" },
-    { id: "2", name: "Dumbbell" },
-    { id: "3", name: "Kettle bell" },
-    { id: "4", name: "Resistance band" },
-    { id: "5", name: "Rope" },
-    { id: "6", name: "Weighted vest" },
+    { id: "1", title: "Balance board" },
+    { id: "2", title: "Dumbbell" },
+    { id: "3", title: "Kettle bell" },
+    { id: "4", title: "Resistance band" },
+    { id: "5", title: "Rope" },
+    { id: "6", title: "Weighted vest" },
   ],
   exercises: [new Pushup()],
   workoutTypes: [
@@ -17,14 +17,14 @@ export const db = {
     { id: "3", type: WorkoutType.STRETCH, description: "Stretching" },
   ],
 
-  fasciaDevices: [{ id: "7", name: "Fascia role" }],
+  fasciaDevices: [{ id: "7", title: "Fascia role" }],
   powerDevices: [
-    { id: "1", name: "Balance board" },
-    { id: "2", name: "Dumbbell" },
-    { id: "3", name: "Kettle bell" },
-    { id: "4", name: "Resistance band" },
-    { id: "5", name: "Rope" },
-    { id: "6", name: "Weighted vest" },
+    { id: "1", title: "Balance board" },
+    { id: "2", title: "Dumbbell" },
+    { id: "3", title: "Kettle bell" },
+    { id: "4", title: "Resistance band" },
+    { id: "5", title: "Rope" },
+    { id: "6", title: "Weighted vest" },
   ],
   stretchingDevices: [],
 };
