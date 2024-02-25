@@ -9,9 +9,15 @@
         "kettleBellSwing": "Kettle bell swing",
         "pushup": "Push-up"
     },
+    "stretchExercises": {
+        "sitCrossLegged": "Sit Cross Legged",
+        "sitCrossLeggedToTheSide": "Sit Cross Legged to the Side",
+        "sitCrossLeggedWithSoleOfFoot": "Sit Cross Legged with sole of Foot"
+    },
     "workoutBlock": {
         "conditioning": "Conditioning",
-        "strength": "Strength"
+        "strength": "Strength",
+        "stretching": "Stretching"
     },
     "workoutTypePage": {
         "title": "Workout App",

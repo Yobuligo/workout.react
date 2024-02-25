@@ -1,4 +1,4 @@
-import { Pushup } from "../../shared/model/powerExercises/Pushup";
+import { Pushup } from "../../shared/model/exercise/powerExercises/Pushup";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 
 export const db = {
