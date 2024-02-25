@@ -1,4 +1,4 @@
-import { Pushup } from "../../shared/model/exercise/powerExercises/Pushup";
+import { PowerExercises } from "../../shared/model/exercise/PowerExercises";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 
 export const db = {
@@ -10,7 +10,7 @@ export const db = {
     { id: "5", title: "Rope" },
     { id: "6", title: "Weighted vest" },
   ],
-  exercises: [new Pushup()],
+  exercises: [PowerExercises.pushUp],
   workoutTypes: [
     { id: "1", type: WorkoutType.FASCIA, description: "Fascia" },
     { id: "2", type: WorkoutType.POWER, description: "Power" },
