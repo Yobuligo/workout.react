@@ -58,7 +58,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
       workoutExercises.push({
         exercise,
         id: nextId(),
-        type: WorkoutExerciseSpanType.TIME_BASED,
+        type: WorkoutExerciseSpanType.REPETITION_BASED,
         value: 20,
       })
     );
