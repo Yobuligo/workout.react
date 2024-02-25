@@ -1,7 +1,7 @@
 import { MuscleGroup } from "../../../types/MuscleGroup";
-import { configureWorkoutBlockSchemes } from "./configureWorkoutBlockSchemes";
+import { configureWorkoutSchemes } from "./configureWorkoutSchemes";
 
-export const WorkoutBlockSchemes = configureWorkoutBlockSchemes({
+export const WorkoutSchemes = configureWorkoutSchemes({
   default: {
     arms: MuscleGroup.ARMS,
     core: MuscleGroup.CORE,
