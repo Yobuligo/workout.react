@@ -7,13 +7,13 @@ import { WorkoutType } from "../../types/WorkoutType";
 import { IDevice } from "../exercise/IDevice";
 import { IExercise } from "../exercise/IExercise";
 
-export class GobletSquat implements IExercise {
+export class KettleBellGobletSquat implements IExercise {
   devices?: IDevice[] | undefined = [];
   difficulty: Difficulty = Difficulty.MEDIUM;
   image?: IImage | undefined = undefined;
   muscleGroups: MuscleGroup[] = [MuscleGroup.LEGS, MuscleGroup.ARMS];
   type: WorkoutType = WorkoutType.POWER;
   id: string = nextId();
-  title: string = texts.powerExercises.gobletSquat;
-  description: string = texts.powerExercises.gobletSquat;
+  title: string = texts.powerExercises.kettleBellGobletSquat;
+  description: string = texts.powerExercises.kettleBellGobletSquat;
 }

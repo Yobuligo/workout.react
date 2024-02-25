@@ -3,7 +3,10 @@
         "explanation": "Pick your available training devices"
     },
     "powerExercises": {
-        "gobletSquat": "Goblet Squat",
+        "kettleBellDeadLift": "Kettle bell deadlift",
+        "kettleBellGobletSquat": "Kettle bell goblet squat",
+        "kettleBellSumoDeadLiftHighPull": "Kettle bell sumo deadlift high pull",
+        "kettleBellSwing": "Kettle bell swing",
         "pushup": "Push-up"
     },
     "workoutBlock": {
