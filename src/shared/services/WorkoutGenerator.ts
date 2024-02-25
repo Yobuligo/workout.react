@@ -14,12 +14,6 @@ import { IWorkoutGenerator } from "./IWorkoutGenerator";
 
 export class WorkoutGenerator implements IWorkoutGenerator {
   generate(workoutConfig: IWorkoutConfig): IWorkout {
-    // Requirements
-    // 1. Would be like to generate several workout blocks? E.g. power and conditional
-    // 2. Whenever getter Exercises, consider the devices, which can be used
-    // 3. Consider all muscle groups
-    // 4. Consider e.g. for conditioning to switch between arms, legs and core and to not have 3 leg exercises in a row
-
     // create workout
     const workout = new Workout();
 
