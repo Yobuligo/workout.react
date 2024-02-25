@@ -10,6 +10,16 @@
         "pushup": "Push-up"
     },
     "stretchExercises": {
+        "butterflyStretch": "Butterfly Stretch",
+        "butterflyStretchDescription": "Sit straight, put soles of foot together",
+        "cobra": "Cobra",
+        "cobraDescription": "Lie at your belly, stretch arms",
+        "lowLunge": "Low Lunge",
+        "lowLungeDescription": "Do a wide lunge, put the knee of your back leg to the ground",
+        "reclinedHeroPose": "Reclined Hero Pose",
+        "reclinedHeroPoseDescription": "Lie at your back, knees are angled and shinbone at the ground",
+        "reclinedTwist": "Reclined Twist",
+        "reclinedTwistDescription": "Lie at your back, move your hip to one side, the upper knee to the ground, arms a stretched to the side",
         "sitCrossLegged": "Sit Cross Legged",
         "sitCrossLeggedToTheSide": "Sit Cross Legged to the Side",
         "sitCrossLeggedWithSoleOfFoot": "Sit Cross Legged with sole of Foot"
