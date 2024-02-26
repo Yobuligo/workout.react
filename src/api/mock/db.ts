@@ -1,30 +1,17 @@
+import { FasciaDevices } from "../../shared/model/device/FasciaDevices";
+import { IDevice } from "../../shared/model/device/IDevice";
+import { PowerDevices } from "../../shared/model/device/PowerDevices";
 import { PowerExercises } from "../../shared/model/exercise/PowerExercises";
-import { WorkoutType } from "../../shared/types/WorkoutType";
+import { WorkoutTypes } from "../../shared/model/workout/workoutTypes/WorkoutTypes";
+import { Pool } from "../../shared/types/Pool";
+import { poolToArray } from "../../shared/utils/poolToArray";
+import { IWorkoutType } from "./../../shared/model/exercise/IWorkoutType";
 
 export const db = {
-  devices: [
-    { id: "1", title: "Balance board" },
-    { id: "2", title: "Dumbbell" },
-    { id: "3", title: "Kettle bell" },
-    { id: "4", title: "Resistance band" },
-    { id: "5", title: "Rope" },
-    { id: "6", title: "Weighted vest" },
-  ],
+  devices: poolToArray<IDevice, Pool<IDevice>>(PowerDevices),
   exercises: [PowerExercises.pushUp],
-  workoutTypes: [
-    { id: "1", type: WorkoutType.FASCIA, description: "Fascia" },
-    { id: "2", type: WorkoutType.POWER, description: "Power" },
-    { id: "3", type: WorkoutType.STRETCHING, description: "Stretching" },
-  ],
-
-  fasciaDevices: [{ id: "7", title: "Fascia role" }],
-  powerDevices: [
-    { id: "1", title: "Balance board" },
-    { id: "2", title: "Dumbbell" },
-    { id: "3", title: "Kettle bell" },
-    { id: "4", title: "Resistance band" },
-    { id: "5", title: "Rope" },
-    { id: "6", title: "Weighted vest" },
-  ],
+  workoutTypes: poolToArray<IWorkoutType, Pool<IWorkoutType>>(WorkoutTypes),
+  fasciaDevices: poolToArray<IDevice, Pool<IDevice>>(FasciaDevices),
+  powerDevices: poolToArray<IDevice, Pool<IDevice>>(PowerDevices),
   stretchingDevices: [],
 };
