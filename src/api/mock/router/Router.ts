@@ -28,7 +28,7 @@ export class Router {
         const response = new Response(blob, init);
 
         resolve(response);
-      }, 1000);
+      }, 200);
     });
   }
 
