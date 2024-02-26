@@ -1,5 +1,11 @@
 {
-    "devices": {
+    "deviceSelectorList": {
+        "explanation": "Pick your available training devices"
+    },
+    "fasciaDevices": {
+        "fasciaRole": "Fascia Role"
+    },
+    "powerDevices": {
         "balanceBoard": "Balance board",
         "box": "Box",
         "dumbbell": "Dumbbell",
@@ -7,9 +13,6 @@
         "resistanceBand": "Resistance band",
         "rope": "Rope",
         "weightedVest": "Weighted vest"
-    },
-    "deviceSelectorList": {
-        "explanation": "Pick your available training devices"
     },
     "powerExercises": {
         "bicycleCrunches": "Bicycle Crunches",

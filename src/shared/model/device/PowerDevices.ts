@@ -2,33 +2,33 @@ import { texts } from "../../../i18n/texts";
 import { nextId } from "../../../utils/nextId";
 import { configureDevices } from "./configureDevices";
 
-export const Devices = configureDevices({
+export const PowerDevices = configureDevices({
   balanceBoard: {
     id: nextId(),
-    title: texts.devices.balanceBoard,
+    title: texts.powerDevices.balanceBoard,
   },
   box: {
     id: nextId(),
-    title: texts.devices.box,
+    title: texts.powerDevices.box,
   },
   dumbbell: {
     id: nextId(),
-    title: texts.devices.dumbbell,
+    title: texts.powerDevices.dumbbell,
   },
   kettleBell: {
     id: nextId(),
-    title: texts.devices.kettleBell,
+    title: texts.powerDevices.kettleBell,
   },
   resistanceBand: {
     id: nextId(),
-    title: texts.devices.resistanceBand,
+    title: texts.powerDevices.resistanceBand,
   },
   rope: {
     id: nextId(),
-    title: texts.devices.rope,
+    title: texts.powerDevices.rope,
   },
   weightedVest: {
     id: nextId(),
-    title: texts.devices.weightedVest,
+    title: texts.powerDevices.weightedVest,
   },
 });

@@ -41,7 +41,7 @@ MockRouter.get<IDevice[]>(
 );
 
 MockRouter.get<IDevice[]>(
-  `${WorkoutTypeMeta.path}/${WorkoutType.STRETCH}${DeviceMeta.path}`,
+  `${WorkoutTypeMeta.path}/${WorkoutType.STRETCHING}${DeviceMeta.path}`,
   () => db.stretchingDevices
 );
 

@@ -14,7 +14,7 @@ export const db = {
   workoutTypes: [
     { id: "1", type: WorkoutType.FASCIA, description: "Fascia" },
     { id: "2", type: WorkoutType.POWER, description: "Power" },
-    { id: "3", type: WorkoutType.STRETCH, description: "Stretching" },
+    { id: "3", type: WorkoutType.STRETCHING, description: "Stretching" },
   ],
 
   fasciaDevices: [{ id: "7", title: "Fascia role" }],

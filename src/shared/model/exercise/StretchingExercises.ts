@@ -14,7 +14,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.HIP, MuscleGroup.LEGS],
     title: texts.stretchExercises.butterflyStretch,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   cobra: {
     description: texts.stretchExercises.cobraDescription,
@@ -24,7 +24,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.BACK],
     title: texts.stretchExercises.cobra,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   lowLunge: {
     description: texts.stretchExercises.lowLungeDescription,
@@ -34,7 +34,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.HIP, MuscleGroup.LEGS],
     title: texts.stretchExercises.lowLunge,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   reclinedTwist: {
     description: texts.stretchExercises.reclinedTwistDescription,
@@ -44,7 +44,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.BACK],
     title: texts.stretchExercises.reclinedTwist,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   reclinedHeroPose: {
     description: texts.stretchExercises.reclinedHeroPoseDescription,
@@ -54,7 +54,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.LEGS, MuscleGroup.BACK],
     title: texts.stretchExercises.reclinedHeroPose,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   sitCrossLegged: {
     description: texts.stretchExercises.sitCrossLegged,
@@ -64,7 +64,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.BACK],
     title: texts.stretchExercises.sitCrossLegged,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   sitCrossLeggedToTheSide: {
     description: texts.stretchExercises.sitCrossLeggedToTheSide,
@@ -74,7 +74,7 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.BACK],
     title: texts.stretchExercises.sitCrossLeggedToTheSide,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
   sitCrossLeggedWithSoleOfFoot: {
     description: texts.stretchExercises.sitCrossLeggedWithSoleOfFoot,
@@ -84,6 +84,6 @@ export const StretchingExercises = configureExercises({
     image: undefined,
     muscleGroups: [MuscleGroup.BACK],
     title: texts.stretchExercises.sitCrossLeggedWithSoleOfFoot,
-    type: WorkoutType.STRETCH,
+    type: WorkoutType.STRETCHING,
   },
 });
