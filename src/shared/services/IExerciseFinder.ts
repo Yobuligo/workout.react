@@ -3,5 +3,8 @@ import { IExercise } from "../model/exercise/IExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
 
 export interface IExerciseFinder {
-  findByMuscleGroup(muscleGroup: MuscleGroup, devices: IDevice[]): IExercise;
+  findByMuscleGroup(
+    muscleGroup: MuscleGroup,
+    availableDevices?: IDevice[]
+  ): IExercise;
 }
