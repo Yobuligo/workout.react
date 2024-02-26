@@ -14,7 +14,13 @@ export class ExerciseFinder<TExercisePool extends ExercisePool>
   findByMuscleGroup(muscleGroup: MuscleGroup): IExercise {
     this.groupExercises();
     const exercises = this.registry.get(muscleGroup) ?? [];
-    const index = Math.floor(Math.random() * exercises.length) - 1;
+    const index = Math.floor(Math.random() * exercises.length);
+    const exercise = exercises[index];
+    if (!exercise) {
+      throw new Error(
+        `Error while finding exercise. Exercise not found. '${index}' is not valid index`
+      );
+    }
     return exercises[index];
   }
 

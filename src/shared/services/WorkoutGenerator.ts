@@ -10,11 +10,15 @@ import { Conditioning } from "../model/workout/workoutBlock/Conditioning";
 import { Strength } from "../model/workout/workoutBlock/Strength";
 import { Stretching } from "../model/workout/workoutBlock/Stretching";
 import { IWorkoutExercise } from "../model/workout/workoutExercise/IWorkoutExercise";
+import { MuscleGroup } from "../types/MuscleGroup";
 import { WorkoutExerciseSpanType } from "../types/WorkoutExerciseSpanType";
+import { ExerciseFinder } from "./ExerciseFinder";
 import { IWorkoutGenerator } from "./IWorkoutGenerator";
 
 export class WorkoutGenerator implements IWorkoutGenerator {
   generate(workoutConfig: IWorkoutConfig): IWorkout {
+    const exerciseFinder = new ExerciseFinder(PowerExercises);
+
     // create workout
     const workout = new Workout();
 
@@ -22,7 +26,26 @@ export class WorkoutGenerator implements IWorkoutGenerator {
 
     // create workout block for strength
     const strength = new Strength();
-    strength.exercises = this.createPowerExercises(PowerExercises);
+    strength.exercises = [
+      {
+        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.ARMS),
+        id: nextId(),
+        type: WorkoutExerciseSpanType.REPETITION_BASED,
+        value: 20,
+      },
+      {
+        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.CORE),
+        id: nextId(),
+        type: WorkoutExerciseSpanType.REPETITION_BASED,
+        value: 20,
+      },
+      {
+        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.LEGS),
+        id: nextId(),
+        type: WorkoutExerciseSpanType.REPETITION_BASED,
+        value: 20,
+      },
+    ];
     workout.blocks.push(strength);
 
     // create workout block for Conditioning
