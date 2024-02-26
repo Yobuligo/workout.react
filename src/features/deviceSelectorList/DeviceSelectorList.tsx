@@ -5,7 +5,7 @@ import { AppContext } from "../../context/AppContext";
 import { useInitialize } from "../../hooks/useInitialize";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import { IDevice } from "../../shared/model/exercise/IDevice";
+import { IDevice } from "../../shared/model/device/IDevice";
 import { DeviceSelector } from "../deviceSelector/DeviceSelector";
 import styles from "./DeviceSelectorList.module.scss";
 import { IDevicePickerListProps } from "./IDeviceSelectorListProps";

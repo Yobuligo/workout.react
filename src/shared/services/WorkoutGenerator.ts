@@ -28,19 +28,28 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     const strength = new Strength();
     strength.exercises = [
       {
-        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.ARMS),
+        exercise: exerciseFinder.findByMuscleGroup(
+          MuscleGroup.ARMS,
+          workoutConfig.devices
+        ),
         id: nextId(),
         type: WorkoutExerciseSpanType.REPETITION_BASED,
         value: 20,
       },
       {
-        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.CORE),
+        exercise: exerciseFinder.findByMuscleGroup(
+          MuscleGroup.CORE,
+          workoutConfig.devices
+        ),
         id: nextId(),
         type: WorkoutExerciseSpanType.REPETITION_BASED,
         value: 20,
       },
       {
-        exercise: exerciseFinder.findByMuscleGroup(MuscleGroup.LEGS),
+        exercise: exerciseFinder.findByMuscleGroup(
+          MuscleGroup.LEGS,
+          workoutConfig.devices
+        ),
         id: nextId(),
         type: WorkoutExerciseSpanType.REPETITION_BASED,
         value: 20,

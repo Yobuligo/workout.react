@@ -1,4 +1,4 @@
-import { IDevice } from "../../shared/model/exercise/IDevice";
+import { IDevice } from "../../shared/model/device/IDevice";
 
 export interface IDeviceSelectorProps {
   device: IDevice;

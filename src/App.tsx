@@ -6,7 +6,7 @@ import { AppContext } from "./context/AppContext";
 import { useList } from "./hooks/useList";
 import { useValue } from "./hooks/useValue";
 import { AppRouter } from "./routes/AppRouter";
-import { IDevice } from "./shared/model/exercise/IDevice";
+import { IDevice } from "./shared/model/device/IDevice";
 import { IWorkoutType } from "./shared/model/exercise/IWorkoutType";
 
 export const fetchBackup = global.fetch;

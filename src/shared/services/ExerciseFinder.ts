@@ -1,4 +1,5 @@
 import { ExercisePool } from "../model/exercise/ExercisePool";
+import { IDevice } from "../model/device/IDevice";
 import { IExercise } from "../model/exercise/IExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
 import { IExerciseFinder } from "./IExerciseFinder";
@@ -11,7 +12,7 @@ export class ExerciseFinder<TExercisePool extends ExercisePool>
 
   constructor(private exercisePool: TExercisePool) {}
 
-  findByMuscleGroup(muscleGroup: MuscleGroup): IExercise {
+  findByMuscleGroup(muscleGroup: MuscleGroup, devices: IDevice[]): IExercise {
     this.groupExercises();
     const exercises = this.registry.get(muscleGroup) ?? [];
     const index = Math.floor(Math.random() * exercises.length);

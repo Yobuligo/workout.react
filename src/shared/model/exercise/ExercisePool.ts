@@ -1,3 +1,4 @@
+import { Pool } from "../../types/Pool";
 import { IExercise } from "./IExercise";
 
-export type ExercisePool = { [key: string]: IExercise };
+export type ExercisePool = Pool<IExercise>;

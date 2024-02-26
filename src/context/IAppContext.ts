@@ -1,4 +1,4 @@
-import { IDevice } from "../shared/model/exercise/IDevice";
+import { IDevice } from "../shared/model/device/IDevice";
 import { IWorkoutType } from "../shared/model/exercise/IWorkoutType";
 import { IList } from "../types/IList";
 import { IValue } from "../types/IValue";

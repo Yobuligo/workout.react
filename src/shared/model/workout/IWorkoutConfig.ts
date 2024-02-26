@@ -1,4 +1,4 @@
-import { IDevice } from "../exercise/IDevice";
+import { IDevice } from "../device/IDevice";
 
 export interface IWorkoutConfig {
   readonly devices: IDevice[];

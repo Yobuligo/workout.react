@@ -1,4 +1,4 @@
-import { DeviceMeta, IDevice } from "../shared/model/exercise/IDevice";
+import { DeviceMeta, IDevice } from "../shared/model/device/IDevice";
 import {
   IWorkoutType,
   WorkoutTypeMeta,

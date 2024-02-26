@@ -6,7 +6,7 @@ import { MuscleGroup } from "../../types/MuscleGroup";
 import { IEntity } from "../core/IEntity";
 import { IHaveDescription } from "../core/IHaveDescription";
 import { IHaveTitle } from "../core/IHaveTitle";
-import { IDevice } from "./IDevice";
+import { IDevice } from "../device/IDevice";
 
 export interface IExercise extends IEntity, IHaveTitle, IHaveDescription {
   devices?: IDevice[];

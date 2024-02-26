@@ -1,4 +1,13 @@
 {
+    "devices": {
+        "balanceBoard": "Balance board",
+        "box": "Box",
+        "dumbbell": "Dumbbell",
+        "kettleBell": "Kettle bell",
+        "resistanceBand": "Resistance band",
+        "rope": "Rope",
+        "weightedVest": "Weighted vest"
+    },
     "deviceSelectorList": {
         "explanation": "Pick your available training devices"
     },
@@ -63,6 +72,11 @@
     "workoutTypePage": {
         "title": "Workout App",
         "subTitle": "Match your workout to your needs"
+    },
+    "workoutTypes": {
+        "fascia": "Fascia",
+        "power": "Power",
+        "stretching": "Stretching"
     },
     "workoutTypeSelector": {
         "explanation": "Pick your workout type"
