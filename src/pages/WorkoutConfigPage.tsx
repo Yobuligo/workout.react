@@ -3,16 +3,20 @@ import { ReactComponent as Athlete } from "../assets/plank.svg";
 import { Page } from "../components/pages/Page";
 import { DeviceSelectorList } from "../features/deviceSelectorList/DeviceSelectorList";
 import { WorkoutConfigFooter } from "../features/workoutConfigFooter/WorkoutConfigFooter";
+import { useRouteParam } from "../hooks/useRouteParam";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
 import { Routes } from "../routes/Routes";
+import { WorkoutType } from "../shared/types/WorkoutType";
 import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
+  const navigate = useNavigate();
+  const workoutType = useRouteParam<WorkoutType>("workout-type");
 
-  const onGenerateWorkout = () => navigate(Routes.workout.toPath());
+  const onGenerateWorkout = () =>
+    navigate(Routes.workout.toPath({ "workout-type": workoutType }));
 
   return (
     <Page
