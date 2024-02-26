@@ -3,6 +3,7 @@ import { nextId } from "../../../utils/nextId";
 import { Difficulty } from "../../types/Difficulty";
 import { MuscleGroup } from "../../types/MuscleGroup";
 import { WorkoutType } from "../../types/WorkoutType";
+import { PowerDevices } from "../device/PowerDevices";
 import { configureExercises } from "./configureExercises";
 
 export const PowerExercises = configureExercises({
@@ -91,7 +92,7 @@ export const PowerExercises = configureExercises({
   },
   jumpingRope: {
     description: texts.powerExercises.jumpingRope,
-    devices: [],
+    devices: [PowerDevices.rope],
     difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
@@ -106,7 +107,7 @@ export const PowerExercises = configureExercises({
   },
   kettleBellDeadLift: {
     description: texts.powerExercises.kettleBellDeadLift,
-    devices: [],
+    devices: [PowerDevices.kettleBell],
     difficulty: Difficulty.EASY,
     id: nextId(),
     image: undefined,
@@ -116,7 +117,7 @@ export const PowerExercises = configureExercises({
   },
   kettleBellGobletSquat: {
     description: texts.powerExercises.kettleBellGobletSquat,
-    devices: [],
+    devices: [PowerDevices.kettleBell],
     difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
@@ -126,7 +127,7 @@ export const PowerExercises = configureExercises({
   },
   kettleBellSumoDeadLiftHighPull: {
     description: texts.powerExercises.kettleBellSumoDeadLiftHighPull,
-    devices: [],
+    devices: [PowerDevices.kettleBell],
     difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
@@ -141,7 +142,7 @@ export const PowerExercises = configureExercises({
   },
   kettleBellSwing: {
     description: texts.powerExercises.kettleBellSwing,
-    devices: [],
+    devices: [PowerDevices.kettleBell],
     difficulty: Difficulty.EASY,
     id: nextId(),
     image: undefined,
@@ -256,7 +257,7 @@ export const PowerExercises = configureExercises({
   },
   pushUpHigh: {
     description: texts.powerExercises.pushUpHigh,
-    devices: [],
+    devices: [PowerDevices.box],
     difficulty: Difficulty.EASY,
     id: nextId(),
     image: undefined,
@@ -363,7 +364,7 @@ export const PowerExercises = configureExercises({
   },
   tricepDip: {
     description: texts.powerExercises.tricepDip,
-    devices: [],
+    devices: [PowerDevices.box],
     difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
