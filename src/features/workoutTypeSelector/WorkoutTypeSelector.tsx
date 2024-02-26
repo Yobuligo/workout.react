@@ -20,7 +20,7 @@ export const WorkoutTypeSelector: React.FC<IWorkoutTypeSelectorProps> = (
       className={styles.card}
       onClick={() => props.onSelect?.(workoutType)}
     >
-      {workoutType.description}
+      {t(workoutType.description)}
     </Card>
   ));
 

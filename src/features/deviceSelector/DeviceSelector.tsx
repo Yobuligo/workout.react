@@ -1,11 +1,13 @@
+import { ReactComponent as CheckIcon } from "../../assets/icons/check.svg";
 import { Card } from "../../components/card/Card";
-import { useToggle } from "../../hooks/useToggle";
 import { style } from "../../core/style";
+import { useToggle } from "../../hooks/useToggle";
+import useTranslation from "../../hooks/useTranslation";
 import styles from "./DeviceSelector.module.scss";
 import { IDeviceSelectorProps } from "./IDeviceSelectorProps";
-import { ReactComponent as CheckIcon } from "../../assets/icons/check.svg";
 
 export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
+  const { t } = useTranslation();
   const [selected, toggleSelected] = useToggle(props.selected);
 
   const onToggleSelected = () => {
@@ -26,7 +28,7 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
     >
       <>
         {selected && <CheckIcon className={styles.checkIcon} />}
-        {props.device.title}
+        {t(props.device.title)}
       </>
     </Card>
   );
