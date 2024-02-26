@@ -1,5 +1,5 @@
 import { nextId } from "../../utils/nextId";
-import { ExerciseConfig } from "../model/exercise/ExerciseConfig";
+import { ExercisePool } from "../model/exercise/ExercisePool";
 import { IExercise } from "../model/exercise/IExercise";
 import { PowerExercises } from "../model/exercise/PowerExercises";
 import { StretchingExercises } from "../model/exercise/StretchingExercises";
@@ -18,6 +18,8 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // create workout
     const workout = new Workout();
 
+    // find workout scheme (e.g. power - conditioning, power - stretching)
+
     // create workout block for strength
     const strength = new Strength();
     strength.exercises = this.createPowerExercises(PowerExercises);
@@ -35,7 +37,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     return workout;
   }
 
-  createStretchingExercises<TExerciseConfig extends ExerciseConfig>(
+  createStretchingExercises<TExerciseConfig extends ExercisePool>(
     config: TExerciseConfig
   ): IWorkoutExercise[] {
     const workoutExercises: IWorkoutExercise[] = [];
@@ -50,7 +52,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     return workoutExercises;
   }
 
-  createPowerExercises<TExerciseConfig extends ExerciseConfig>(
+  createPowerExercises<TExerciseConfig extends ExercisePool>(
     config: TExerciseConfig
   ): IWorkoutExercise[] {
     const workoutExercises: IWorkoutExercise[] = [];
@@ -65,7 +67,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     return workoutExercises;
   }
 
-  findExercises<TExerciseConfig extends ExerciseConfig>(
+  findExercises<TExerciseConfig extends ExercisePool>(
     config: TExerciseConfig
   ): IExercise[] {
     const exercises: IExercise[] = [];

@@ -1,7 +1,7 @@
-import { ExerciseConfig } from "./ExerciseConfig";
+import { ExercisePool } from "./ExercisePool";
 
-export const configureExercises = <TExerciseConfig extends ExerciseConfig>(
-  config: TExerciseConfig
-): TExerciseConfig => {
-  return config;
+export const configureExercises = <TExercisePool extends ExercisePool>(
+  pool: TExercisePool
+): TExercisePool => {
+  return pool;
 };
