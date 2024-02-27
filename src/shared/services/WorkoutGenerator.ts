@@ -5,7 +5,7 @@ import { Workout } from "../model/workout/Workout";
 import { Strength } from "../model/workout/workoutBlock/Strength";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
-import { WorkoutExerciseSpanType } from "../types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../types/WorkoutExerciseSpanType";
 import { ExerciseFinder } from "./ExerciseFinder";
 import { IWorkoutGenerator } from "./IWorkoutGenerator";
 
@@ -20,14 +20,14 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // consider workout type
 
     // create workout block for strength
-    const strength = new Strength();
+    const strength = new Strength(WorkoutSpanType.REPETITION_BASED, 3);
     strength.items = [
       new WorkoutExercise(
         exerciseFinder.findByMuscleGroup(
           MuscleGroup.ARMS,
           workoutConfig.devices
         ),
-        WorkoutExerciseSpanType.REPETITION_BASED,
+        WorkoutSpanType.REPETITION_BASED,
         20
       ),
       new WorkoutExercise(
@@ -35,7 +35,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
           MuscleGroup.CORE,
           workoutConfig.devices
         ),
-        WorkoutExerciseSpanType.REPETITION_BASED,
+        WorkoutSpanType.REPETITION_BASED,
         20
       ),
       new WorkoutExercise(
@@ -43,7 +43,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
           MuscleGroup.LEGS,
           workoutConfig.devices
         ),
-        WorkoutExerciseSpanType.REPETITION_BASED,
+        WorkoutSpanType.REPETITION_BASED,
         20
       ),
     ];

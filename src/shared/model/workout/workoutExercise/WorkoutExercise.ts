@@ -1,5 +1,5 @@
 import { nextId } from "../../../../utils/nextId";
-import { WorkoutExerciseSpanType } from "../../../types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../../../types/WorkoutExerciseSpanType";
 import { IExercise } from "../../exercise/IExercise";
 import { IWorkoutExercise } from "./IWorkoutExercise";
 
@@ -9,7 +9,7 @@ export class WorkoutExercise implements IWorkoutExercise {
 
   constructor(
     readonly exercise: IExercise,
-    readonly type: WorkoutExerciseSpanType,
+    readonly type: WorkoutSpanType,
     readonly value: number
   ) {
     this.title = exercise.title;

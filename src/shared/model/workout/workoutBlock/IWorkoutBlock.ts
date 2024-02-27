@@ -1,7 +1,6 @@
 import { IEntity } from "../../core/IEntity";
-import { IHaveTitle } from "../../core/IHaveTitle";
 import { IWorkoutBlockItem } from "./IWorkoutBlockItem";
 
-export interface IWorkoutBlock extends IEntity, IHaveTitle {
+export interface IWorkoutBlock extends IEntity, IWorkoutBlockItem {
   readonly items: IWorkoutBlockItem[];
 }

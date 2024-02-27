@@ -3,4 +3,5 @@ import { WorkoutBlock } from "./WorkoutBlock";
 
 export class Strength extends WorkoutBlock {
   readonly title: string = texts.workoutBlock.strength;
+  
 }
