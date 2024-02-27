@@ -1,5 +1,5 @@
 import useTranslation from "../../hooks/useTranslation";
-import { WorkoutSpanType } from "../../shared/types/WorkoutSpanType";
+import { renderWorkoutSpan } from "../../utils/renderWorkoutSpan";
 import { IWorkoutExerciseListProps } from "./IWorkoutExerciseListProps";
 import styles from "./WorkoutExerciseList.module.scss";
 
@@ -10,11 +10,7 @@ export const WorkoutExerciseList: React.FC<IWorkoutExerciseListProps> = (
 
   const items = props.workoutExercises.map((workoutExercise) => (
     <div key={workoutExercise.id}>
-      {t(workoutExercise.exercise.title)} ({workoutExercise.value}
-      {workoutExercise.type === WorkoutSpanType.REPETITION_BASED
-        ? "x"
-        : "sec"}
-      )
+      {t(workoutExercise.exercise.title)} ({renderWorkoutSpan(workoutExercise)})
     </div>
   ));
 
