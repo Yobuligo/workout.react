@@ -20,7 +20,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // consider workout type
 
     // create workout block for strength
-    const strength = new Strength(WorkoutSpanType.REPETITION_BASED, 3);
+    const strength = new Strength(WorkoutSpanType.TIME_BASED, 900);
     strength.items = [
       new WorkoutExercise(
         exerciseFinder.findByMuscleGroup(

@@ -5,6 +5,11 @@
     "fasciaDevices": {
         "fasciaRole": "Fascia Role"
     },
+    "general": {
+        "minutes": "min",
+        "seconds": "s",
+        "times": "x"
+    },
     "powerDevices": {
         "balanceBoard": "Balance board",
         "box": "Box",
