@@ -1,4 +1,4 @@
-import { WorkoutSpanType } from "../../../types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../../../types/WorkoutSpanType";
 import { IEntity } from "../../core/IEntity";
 import { IExercise } from "../../exercise/IExercise";
 import { IWorkoutBlockItem } from "../workoutBlock/IWorkoutBlockItem";

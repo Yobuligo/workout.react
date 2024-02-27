@@ -5,7 +5,7 @@ import { Workout } from "../model/workout/Workout";
 import { Strength } from "../model/workout/workoutBlock/Strength";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
-import { WorkoutSpanType } from "../types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../types/WorkoutSpanType";
 import { ExerciseFinder } from "./ExerciseFinder";
 import { IWorkoutGenerator } from "./IWorkoutGenerator";
 

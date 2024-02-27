@@ -1,7 +1,4 @@
-import { WorkoutSpanType } from "../../../types/WorkoutExerciseSpanType";
+import { IWorkoutSpan } from "../../../types/IWorkoutSpan";
 import { IHaveTitle } from "../../core/IHaveTitle";
 
-export interface IWorkoutBlockItem extends IHaveTitle {
-  readonly type: WorkoutSpanType;
-  readonly value: number;
-}
+export interface IWorkoutBlockItem extends IHaveTitle, IWorkoutSpan {}

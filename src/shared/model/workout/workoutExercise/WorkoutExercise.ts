@@ -1,5 +1,5 @@
 import { nextId } from "../../../../utils/nextId";
-import { WorkoutSpanType } from "../../../types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../../../types/WorkoutSpanType";
 import { IExercise } from "../../exercise/IExercise";
 import { IWorkoutExercise } from "./IWorkoutExercise";
 

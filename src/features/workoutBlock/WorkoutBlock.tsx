@@ -9,7 +9,7 @@ export const WorkoutBlock: React.FC<IWorkoutBlockProps> = (props) => {
 
   return (
     <div className={styles.workoutBlock}>
-      <h3>{t(props.workoutBlock.title)}</h3>
+      <h3>{t(props.workoutBlock.title)} ({props.workoutBlock.value})</h3>
       <div className={styles.workoutExerciseList}>
         <WorkoutExerciseList
           workoutExercises={props.workoutBlock.items as IWorkoutExercise[]}

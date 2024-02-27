@@ -1,5 +1,5 @@
 import useTranslation from "../../hooks/useTranslation";
-import { WorkoutSpanType } from "../../shared/types/WorkoutExerciseSpanType";
+import { WorkoutSpanType } from "../../shared/types/WorkoutSpanType";
 import { IWorkoutExerciseListProps } from "./IWorkoutExerciseListProps";
 import styles from "./WorkoutExerciseList.module.scss";
 
