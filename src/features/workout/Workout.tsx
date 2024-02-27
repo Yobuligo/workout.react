@@ -4,6 +4,7 @@ import { AsyncLoad } from "../../components/asyncLoad/AsyncLoad";
 import { AppContext } from "../../context/AppContext";
 import { IWorkout } from "../../shared/model/workout/IWorkout";
 import { IWorkoutConfig } from "../../shared/model/workout/IWorkoutConfig";
+import { checkNotNull } from "../../utils/checkNotNull";
 import { WorkoutBlock } from "../workoutBlock/WorkoutBlock";
 import styles from "./Workout.module.scss";
 
@@ -12,7 +13,10 @@ export const Workout: React.FC = () => {
   const [workout, setWorkout] = useState<IWorkout | undefined>(undefined);
 
   const createWorkoutConfig = (): IWorkoutConfig => {
-    return { devices: context.selectedDevices.items };
+    return {
+      devices: context.selectedDevices.items,
+      workoutType: checkNotNull(context.selectedWorkoutType.value).type,
+    };
   };
 
   const items = workout?.blocks.map((workoutBlock) => (
