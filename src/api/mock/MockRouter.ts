@@ -4,8 +4,8 @@ import {
   IWorkoutType,
   WorkoutTypeMeta,
 } from "../../shared/model/exercise/IWorkoutType";
-import { IWorkout, WorkoutMeta } from "../../shared/model/workout/IWorkout";
-import { IWorkoutConfig } from "../../shared/model/workout/IWorkoutConfig";
+import { IWorkout, WorkoutMeta } from "../../shared/model/workout/workout/IWorkout";
+import { IWorkoutConfig } from "../../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutGenerator } from "../../shared/services/WorkoutGenerator";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 import { db } from "./db";

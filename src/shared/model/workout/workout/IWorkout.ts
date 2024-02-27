@@ -1,6 +1,6 @@
-import { IWorkoutBlock } from "./workoutBlock/IWorkoutBlock";
-import { IEntity } from "../core/IEntity";
-import { IMeta } from "../../types/IMeta";
+import { IMeta } from "../../../types/IMeta";
+import { IEntity } from "../../core/IEntity";
+import { IWorkoutBlock } from "../workoutBlock/IWorkoutBlock";
 
 export interface IWorkout extends IEntity {
   readonly blocks: IWorkoutBlock[];

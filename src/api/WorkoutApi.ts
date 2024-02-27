@@ -1,5 +1,5 @@
-import { IWorkoutConfig } from "../shared/model/workout/IWorkoutConfig";
-import { IWorkout, WorkoutMeta } from "./../shared/model/workout/IWorkout";
+import { IWorkoutConfig } from "../shared/model/workout/workout/IWorkoutConfig";
+import { IWorkout, WorkoutMeta } from "../shared/model/workout/workout/IWorkout";
 import { Repository } from "./core/Repository";
 
 export class WorkoutApi extends Repository<IWorkout> {

@@ -1,7 +1,7 @@
 import { PowerExercises } from "../model/exercise/PowerExercises";
-import { IWorkout } from "../model/workout/IWorkout";
-import { IWorkoutConfig } from "../model/workout/IWorkoutConfig";
-import { Workout } from "../model/workout/Workout";
+import { IWorkout } from "../model/workout/workout/IWorkout";
+import { IWorkoutConfig } from "../model/workout/workout/IWorkoutConfig";
+import { Workout } from "../model/workout/workout/Workout";
 import { Strength } from "../model/workout/workoutBlock/Strength";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
