@@ -2,7 +2,7 @@ import { PowerExercises } from "../model/exercise/PowerExercises";
 import { IWorkout } from "../model/workout/workout/IWorkout";
 import { IWorkoutConfig } from "../model/workout/workout/IWorkoutConfig";
 import { Workout } from "../model/workout/workout/Workout";
-import { Strength } from "../model/workout/workoutBlock/Strength";
+import { Power } from "../model/workout/workoutBlock/Power";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
 import { MuscleGroup } from "../types/MuscleGroup";
 import { WorkoutSpanType } from "../types/WorkoutSpanType";
@@ -20,7 +20,7 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // consider workout type
 
     // create workout block for strength
-    const strength = new Strength(WorkoutSpanType.TIME_BASED, 900);
+    const strength = new Power(WorkoutSpanType.TIME_BASED, 900);
     strength.items = [
       new WorkoutExercise(
         exerciseFinder.findByMuscleGroup(
