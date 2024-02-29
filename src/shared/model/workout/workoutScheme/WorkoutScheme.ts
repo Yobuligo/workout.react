@@ -1,5 +1,4 @@
-import { Constructor } from "../../../../core/Constructor";
 import { Scheme } from "../../core/scheme/Scheme";
-import { WorkoutBlock } from "../workoutBlock/WorkoutBlock";
+import { WorkoutBlockScheme } from "../workoutBlockScheme/WorkoutBlockScheme";
 
-export type WorkoutScheme = Scheme<Scheme<Constructor<WorkoutBlock>>>;
+export type WorkoutScheme = Scheme<Scheme<WorkoutBlockScheme>>;
