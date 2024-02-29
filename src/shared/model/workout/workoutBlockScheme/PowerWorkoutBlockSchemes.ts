@@ -8,4 +8,9 @@ export const PowerWorkoutBlockSchemes: WorkoutBlockScheme = configureSchemes({
     core: MuscleGroup.CORE,
     legs: MuscleGroup.LEGS,
   },
+  legs: {
+    legs1: MuscleGroup.LEGS,
+    legs2: MuscleGroup.LEGS,
+    legs3: MuscleGroup.LEGS,
+  },
 });

@@ -3,6 +3,7 @@ export enum MuscleGroup {
   BACK = "Back",
   CHEST = "Chest",
   CORE = "Core",
+  FULL_BODY = "FullBody",
   LEGS = "Legs",
   HIP = "Hip",
   NECK = "Neck",

@@ -1,18 +1,20 @@
 import { configureSchemes } from "../../core/scheme/configureSchemes";
 import { PowerWorkoutBlockSchemes } from "../workoutBlockScheme/PowerWorkoutBlockSchemes";
+import { StretchingWorkoutBlockSchemes } from "../workoutBlockScheme/StretchingWorkoutBlockSchemes";
+import { ConditioningWorkoutBlockSchemes } from "./../workoutBlockScheme/ConditioningWorkoutBlockSchemes";
 import { WorkoutScheme } from "./WorkoutScheme";
 
 export const WorkoutSchemes: WorkoutScheme = configureSchemes({
   default: {
     power: PowerWorkoutBlockSchemes,
-    // conditioning: Conditioning,
+    conditioning: ConditioningWorkoutBlockSchemes,
   },
   full: {
-    // power: Power,
-    // conditioning: Conditioning,
-    // stretching: Stretching,
+    power: PowerWorkoutBlockSchemes,
+    conditioning: ConditioningWorkoutBlockSchemes,
+    stretching: StretchingWorkoutBlockSchemes,
   },
   stretching: {
-    // stretching: Stretching,
+    stretching: StretchingWorkoutBlockSchemes,
   },
 });
