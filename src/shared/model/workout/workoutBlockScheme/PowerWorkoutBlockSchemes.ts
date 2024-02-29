@@ -1,16 +1,13 @@
 import { MuscleGroup } from "../../../types/MuscleGroup";
-import { configureSchemes } from "../../core/scheme/configureSchemes";
-import { WorkoutBlockScheme } from "./WorkoutBlockScheme";
+import { WorkoutSpanType } from "../../../types/WorkoutSpanType";
+import { WorkoutBlockSchemes } from "./WorkoutBlockSchemes";
 
-export const PowerWorkoutBlockSchemes: WorkoutBlockScheme = configureSchemes({
+export const PowerWorkoutBlockSchemes: WorkoutBlockSchemes = {
   default: {
-    arms: MuscleGroup.ARMS,
-    core: MuscleGroup.CORE,
-    legs: MuscleGroup.LEGS,
+    workoutSpan: {
+      type: WorkoutSpanType.REPETITION_BASED,
+      value: 3,
+    },
+    muscleGroups: [MuscleGroup.LEGS, MuscleGroup.FULL_BODY, MuscleGroup.ARMS],
   },
-  legs: {
-    legs1: MuscleGroup.LEGS,
-    legs2: MuscleGroup.LEGS,
-    legs3: MuscleGroup.LEGS,
-  },
-});
+};

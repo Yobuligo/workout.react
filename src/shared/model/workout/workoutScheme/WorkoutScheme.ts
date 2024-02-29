@@ -1,4 +1,4 @@
 import { Scheme } from "../../core/scheme/Scheme";
-import { WorkoutBlockScheme } from "../workoutBlockScheme/WorkoutBlockScheme";
+import { WorkoutBlockSchemes } from "../workoutBlockScheme/WorkoutBlockSchemes";
 
-export type WorkoutScheme = Scheme<Scheme<WorkoutBlockScheme>>;
+export type WorkoutScheme = Scheme<Scheme<WorkoutBlockSchemes>>;

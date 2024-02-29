@@ -1,5 +1,3 @@
-import { configureSchemes } from "../../core/scheme/configureSchemes";
-import { WorkoutBlockScheme } from "./WorkoutBlockScheme";
+import { WorkoutBlockSchemes } from "./WorkoutBlockSchemes";
 
-export const StretchingWorkoutBlockSchemes: WorkoutBlockScheme =
-  configureSchemes({});
+export const StretchingWorkoutBlockSchemes: WorkoutBlockSchemes = {};
