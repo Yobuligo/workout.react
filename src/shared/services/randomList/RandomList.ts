@@ -5,7 +5,7 @@ import { RandomElement } from "./RandomElement";
 export class RandomList {
   private pickedTimes = 0;
   private readonly factor = 1000;
-  readonly elements: RandomElement[];
+  private readonly elements: RandomElement[];
 
   constructor(private readonly numberElements: number) {
     this.elements = this.setupElements(numberElements);
