@@ -1,10 +1,12 @@
+import { RandomList } from "./RandomList";
+
 export class RandomElement {
   private _pickedTimes = 0;
 
   constructor(
     private readonly factor: number,
     readonly index: number,
-    private readonly getElementProbability: () => number,
+    private readonly randomList: RandomList,
     private readonly predecessor?: RandomElement
   ) {}
 
@@ -40,7 +42,7 @@ export class RandomElement {
   get probabilityValue(): number {
     let probability = this.probability;
     if (probability === 0) {
-      probability = this.getElementProbability();
+      probability = this.randomList.getElementProbability();
     }
     return (probability / 100) * this.factor;
   }

@@ -26,7 +26,7 @@ export class ExerciseFinder<TExercisePool extends ExercisePool>
     const exercise = exercises[index];
     if (!exercise) {
       throw new Error(
-        `Error while finding exercise. Exercise not found. '${index}' is not valid index`
+        `Error while finding exercise. No exercise found for '${muscleGroup}'. '${index}' is not valid index`
       );
     }
 
