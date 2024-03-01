@@ -10,4 +10,11 @@ export const PowerWorkoutBlockSchemes: WorkoutBlockSchemes = {
     },
     muscleGroups: [MuscleGroup.LEGS, MuscleGroup.FULL_BODY, MuscleGroup.ARMS],
   },
+  back: {
+    workoutSpan: {
+      type: WorkoutSpanType.REPETITION_BASED,
+      value: 5,
+    },
+    muscleGroups: [MuscleGroup.BACK, MuscleGroup.BACK],
+  },
 };
