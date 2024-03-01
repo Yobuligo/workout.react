@@ -29,7 +29,7 @@ export class RandomList {
     return element;
   }
 
-  get elementProbability(): number {
+  private getElementProbability(): number {
     // sum all probabilities
     // those who are not picked yet, have probability 0, count
     // count number elements with a probability
@@ -68,7 +68,12 @@ export class RandomList {
     let predecessor: RandomElement | undefined = undefined;
     const elements: RandomElement[] = [];
     repeat(numberElements, (index) => {
-      const element = new RandomElement(this.factor, index, this, predecessor);
+      const element = new RandomElement(
+        this.factor,
+        index,
+        this.getElementProbability,
+        predecessor
+      );
       predecessor = element;
       elements.push(element);
     });

@@ -24,10 +24,10 @@ export class WorkoutGenerator implements IWorkoutGenerator {
 
     // create workout block for strength
 
-    const randomList = new RandomList(5)
-    repeat(Random.next(5), ()=>{
-      randomList.pick()
-    })
+    const randomList = new RandomList(5);
+    repeat(Random.next(5), () => {
+      randomList.pick();
+    });
 
     const strength = new Power(WorkoutSpanType.TIME_BASED, 900);
     strength.items = [
