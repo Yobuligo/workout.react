@@ -24,10 +24,15 @@ export class WorkoutGenerator implements IWorkoutGenerator {
 
     // create workout block for strength
 
-    const randomList = new RandomList(5);
-    repeat(Random.next(5), () => {
-      randomList.pick();
-    });
+    // !! DEMO picking from muscle Group -> to be deleted
+    // const randomList = new RandomList(5);
+    // repeat(Random.next(5), () => {
+    //   switch(randomList.pick().index){
+    //     case 0: {}
+    //   }
+    //   console.log(MuscleGroup[]);
+    // });
+        // !! DEMO picking from muscle Group -> to be deleted
 
     const strength = new Power(WorkoutSpanType.TIME_BASED, 900);
     strength.items = [
