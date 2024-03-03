@@ -118,12 +118,7 @@ export const PowerExercises = configureExercises({
     difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
-    muscleGroups: [
-      MuscleGroup.ARMS,
-      MuscleGroup.SHOULDER,
-      MuscleGroup.LEGS,
-      MuscleGroup.BACK,
-    ],
+    muscleGroups: [MuscleGroup.FULL_BODY],
     title: texts.powerExercises.kettleBellSumoDeadLiftHighPull,
     type: WorkoutType.POWER,
   },
