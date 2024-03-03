@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api } from "../api/Api";
 import { ReactComponent as Athlete } from "../assets/plank.svg";
 import { FooterButton } from "../components/footerButton/FooterButton";
 import { Page } from "../components/pages/Page";
@@ -9,7 +10,9 @@ import { useRouteParam } from "../hooks/useRouteParam";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
 import { Routes } from "../routes/Routes";
+import { IWorkoutConfig } from "../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutType } from "../shared/types/WorkoutType";
+import { checkNotNull } from "../utils/checkNotNull";
 import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
@@ -17,9 +20,20 @@ export const WorkoutConfigPage: React.FC = () => {
   const navigate = useNavigate();
   const workoutType = useRouteParam<WorkoutType>("workout-type");
   const context = useContext(AppContext);
+  const [isGenerating, setIsGenerating] = useState(false);
 
-  const onGenerateWorkout = () => {
-    context.selectedWorkout.setValue(undefined);
+  const createWorkoutConfig = (): IWorkoutConfig => {
+    return {
+      devices: context.selectedDevices.items,
+      workoutType: checkNotNull(context.selectedWorkoutType.value).type,
+    };
+  };
+
+  const onGenerateWorkout = async () => {
+    setIsGenerating(true);
+    const workout = await Api.workout.generateWorkout(createWorkoutConfig());
+    context.selectedWorkout.setValue(workout);
+    setIsGenerating(false);
     navigate(Routes.workoutOverview.toPath({ "workout-type": workoutType }));
   };
 
@@ -28,6 +42,7 @@ export const WorkoutConfigPage: React.FC = () => {
       footer={
         <FooterButton
           caption={t(texts.workoutConfigFooter.captionGenerateWorkout)}
+          displaySpinner={isGenerating}
           onClick={onGenerateWorkout}
         />
       }
