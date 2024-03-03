@@ -2,7 +2,7 @@ import { IllegalArgumentError } from "../../error/IllegalArgumentError";
 import { MuscleGroup } from "../types/MuscleGroup";
 import { RandomList } from "./randomList/RandomList";
 
-export class MuscleGroupRandom {
+export class MuscleGroupRandomizer {
   private randomList: RandomList;
 
   constructor(numberElements: number) {
@@ -23,7 +23,7 @@ export class MuscleGroupRandom {
         return MuscleGroup.LEGS;
       default:
         throw new IllegalArgumentError(
-          `Error while picking next muscle group from ${MuscleGroupRandom.name}. This requested muscle group is not supported.`
+          `Error while picking next muscle group from ${MuscleGroupRandomizer.name}. This requested muscle group is not supported.`
         );
     }
   }

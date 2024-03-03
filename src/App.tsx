@@ -10,7 +10,7 @@ import { useValue } from "./hooks/useValue";
 import { AppRouter } from "./routes/AppRouter";
 import { IDevice } from "./shared/model/device/IDevice";
 import { IWorkoutType } from "./shared/model/exercise/IWorkoutType";
-import { MuscleGroupRandom } from "./shared/services/MuscleGroupRandom";
+import { MuscleGroupRandomizer } from "./shared/services/MuscleGroupRandomizer";
 import { ExerciseFinder } from "./shared/services/ExerciseFinder";
 import { PowerExercises } from "./shared/model/exercise/PowerExercises";
 
@@ -18,7 +18,7 @@ export const fetchBackup = global.fetch;
 global.fetch = fetchMock;
 
 // !! DEMO picking from muscle Group -> to be deleted
-const muscleGroupRandom = new MuscleGroupRandom(5);
+const muscleGroupRandom = new MuscleGroupRandomizer(5);
 const exerciseFinder = new ExerciseFinder(PowerExercises);
 repeat(Random.next(5), () => {
 const muscleGroup =  muscleGroupRandom.next()
