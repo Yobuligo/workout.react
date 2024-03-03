@@ -1,8 +1,8 @@
 import { Random } from "../../../../../core/Random";
 import { repeat } from "../../../../../core/repeat";
 import { ExerciseFinder } from "../../../../services/ExerciseFinder";
+import { ExerciseRepetitionRandomizer } from "../../../../services/ExerciseRepetitionRandomizer";
 import { MuscleGroupRandomizer } from "../../../../services/MuscleGroupRandomizer";
-import { RepetitionRandomizer } from "../../../../services/RepetitionRandomizer";
 import { WorkoutSpanType } from "../../../../types/WorkoutSpanType";
 import { ExercisePool } from "../../../exercise/ExercisePool";
 import { IWorkoutConfig } from "../../workout/IWorkoutConfig";
@@ -42,13 +42,14 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
     repeat(numberExercises, () => {
       // If it is only 1 exercise, try as many repetitions as possible
       // otherwise the number is calculated
-      const numberRepetitions =
-        numberExercises === 1 ? 0 : RepetitionRandomizer.next();
       const muscleGroup = muscleGroupRandomizer.next();
       const exercise = exerciseFinder.findByMuscleGroup(
         muscleGroup,
         workoutConfig.devices
       );
+
+      const numberRepetitions =
+        numberExercises === 1 ? 0 : ExerciseRepetitionRandomizer.next(exercise);
       const workoutExercise = new WorkoutExercise(
         exercise,
         WorkoutSpanType.REPETITION_BASED,
