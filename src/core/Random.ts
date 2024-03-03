@@ -9,7 +9,7 @@ export class Random {
     }
 
     if (first && second) {
-      Math.floor(Math.random() * (second - first + 1) + first);
+      return Math.floor(Math.random() * (second - first + 1) + first);
     }
 
     throw new NotSupportedError(
