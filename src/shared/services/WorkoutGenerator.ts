@@ -17,8 +17,9 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // create workout
     const workout = new Workout();
 
-    // Currently we always take the default PowerWorkoutScheme
-    PowerWorkoutSchemes.default.power
+    // Currently we always take the default PowerWorkoutScheme, with PowerBlock and ConditioningBlock
+    
+
 
     // generate WorkoutBlock for power and for Conditioning
 
