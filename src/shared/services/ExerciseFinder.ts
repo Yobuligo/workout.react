@@ -30,7 +30,7 @@ export class ExerciseFinder<TExercisePool extends ExercisePool>
       );
     }
 
-    return exercises[index];
+    return exercise;
   }
 
   private findPotentialExercises(
