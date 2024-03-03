@@ -8,7 +8,7 @@ export class ConditioningWorkoutBlockGenerator extends WorkoutBlockGenerator<Con
     super(exercisePool, 1, 5);
   }
 
-  createWorkoutBlock(): ConditioningWorkoutBlock {
+  protected createWorkoutBlock(): ConditioningWorkoutBlock {
     return new ConditioningWorkoutBlock(WorkoutSpanType.TIME_BASED, 15);
   }
 }

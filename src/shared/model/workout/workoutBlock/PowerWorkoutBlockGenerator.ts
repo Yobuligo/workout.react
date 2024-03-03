@@ -8,7 +8,7 @@ export class PowerWorkoutBlockGenerator extends WorkoutBlockGenerator<PowerWorko
     super(exercisePool, 3, 4);
   }
 
-  createWorkoutBlock(): PowerWorkoutBlock {
+  protected createWorkoutBlock(): PowerWorkoutBlock {
     return new PowerWorkoutBlock(WorkoutSpanType.REPETITION_BASED, 3);
   }
 }

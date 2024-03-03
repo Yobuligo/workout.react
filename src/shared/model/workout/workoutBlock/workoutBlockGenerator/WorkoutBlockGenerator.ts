@@ -20,7 +20,7 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
     private readonly maxNumberExercises: number
   ) {}
 
-  abstract createWorkoutBlock(): T;
+  protected abstract createWorkoutBlock(): T;
 
   generate(workoutConfig: IWorkoutConfig): T {
     const workoutBlock = this.createWorkoutBlock();
