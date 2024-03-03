@@ -12,14 +12,12 @@ export class MuscleGroupRandomizer {
   next(): MuscleGroup {
     switch (this.randomList.pick().index) {
       case 0:
-        return MuscleGroup.ARMS;
-      case 1:
         return MuscleGroup.BACK;
-      case 2:
+      case 1:
         return MuscleGroup.CORE;
-      case 3:
+      case 2:
         return MuscleGroup.FULL_BODY;
-      case 4:
+      case 3:
         return MuscleGroup.LEGS;
       default:
         throw new IllegalArgumentError(
