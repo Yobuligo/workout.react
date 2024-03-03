@@ -3,7 +3,6 @@ import { repeat } from "../../../core/repeat";
 import { RandomElement } from "./RandomElement";
 
 export class RandomList {
-  private pickedTimes = 0;
   private readonly factor = 1000;
   private readonly elements: RandomElement[];
 
@@ -12,17 +11,16 @@ export class RandomList {
   }
 
   pick(): RandomElement {
-    this.pickedTimes++;
-    if (this.pickedTimes > this.numberElements) {
-      // Throw exception. The probability to pick an element is decreased with each pick.
-      // As long as there are elements which are not picked yet, they share the rest of the probability.
-      // But if the number of picks is greater than the number of elements, there is a chance, that each element was already picked and so the probability of each element is decreased.
-      // This means finally we couldn't find any element.
-      // Example: 5 elements, each was picked already, so each has now a probability of 10%. In sum 50%. This means for the last 50% we have to elements which cover these 50%.
-      throw new Error(
-        `Error while picking element. Number of picks must not be greater than the ${this.numberElements}, the number of elements.`
-      );
+    // The probability to pick an element is decreased with each pick.
+    // As long as there are elements which are not picked yet, they share the rest of the probability.
+    // But if the number of picks is greater than the number of elements, there is a chance, that each element was already picked and so the probability of each element is decreased.
+    // This means finally we couldn't find any element.
+    // Example: 5 elements, each was picked already, so each has now a probability of 10%. In sum 50%. This means for the last 50% we have to elements which cover these 50%.
+    // So reset picks, if everybody was picked at least once
+    if (this.wasEachPickedOnce()) {
+      this.resetPick();
     }
+
     const rangeValue = Random.next(this.factor);
     const element = this.findByRangeValue(rangeValue);
     element.onPick();
@@ -73,5 +71,20 @@ export class RandomList {
       elements.push(element);
     });
     return elements;
+  }
+
+  private wasEachPickedOnce(): boolean {
+    for (const element of this.elements) {
+      if (element.pickedTimes === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  private resetPick() {
+    for (const element of this.elements) {
+      element.resetPickedTimes();
+    }
   }
 }

@@ -46,4 +46,8 @@ export class RandomElement {
     }
     return (probability / 100) * this.factor;
   }
+
+  resetPickedTimes() {
+    this._pickedTimes = 0;
+  }
 }
