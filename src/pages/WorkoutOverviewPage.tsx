@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { FooterButton } from "../components/footerButton/FooterButton";
 import { Page } from "../components/pages/Page";
 import { WorkoutOverview } from "../features/workoutOverview/WorkoutOverview";
-import { WorkoutOverviewFooter } from "../features/workoutOverviewFooter/WorkoutOverviewFooter";
 import { useRouteParam } from "../hooks/useRouteParam";
 import useTranslation from "../hooks/useTranslation";
 import { texts } from "../i18n/texts";
@@ -18,7 +18,12 @@ export const WorkoutOverviewPage: React.FC = () => {
 
   return (
     <Page
-      footer={<WorkoutOverviewFooter onStartWorkout={onStartWorkout} />}
+      footer={
+        <FooterButton
+          caption={t(texts.workoutFooter.startWorkout)}
+          onClick={onStartWorkout}
+        />
+      }
       navigateBackPath={Routes.workoutConfig.toPath({
         "workout-type": workoutType,
       })}
