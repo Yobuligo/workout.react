@@ -1,3 +1,4 @@
+import { PowerExercises } from "../model/exercise/PowerExercises";
 import { IWorkout } from "../model/workout/workout/IWorkout";
 import { IWorkoutConfig } from "../model/workout/workout/IWorkoutConfig";
 import { Workout } from "../model/workout/workout/Workout";
@@ -15,10 +16,9 @@ export class WorkoutGenerator implements IWorkoutGenerator {
 
     // generate WorkoutBlock for Conditioning
     const conditioningWorkoutBlockGenerator =
-      new ConditioningWorkoutBlockGenerator();
-    const conditioningBlock = conditioningWorkoutBlockGenerator.generate(
-      workoutConfig.devices
-    );
+      new ConditioningWorkoutBlockGenerator(PowerExercises);
+    const conditioningBlock =
+      conditioningWorkoutBlockGenerator.generate(workoutConfig);
     workout.blocks.push(conditioningBlock);
 
     return workout;

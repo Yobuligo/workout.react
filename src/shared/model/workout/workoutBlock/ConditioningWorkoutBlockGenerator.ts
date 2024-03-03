@@ -1,47 +1,14 @@
-import { Random } from "../../../../core/Random";
-import { repeat } from "../../../../core/repeat";
-import { ExerciseFinder } from "../../../services/ExerciseFinder";
-import { MuscleGroupRandomizer } from "../../../services/MuscleGroupRandomizer";
-import { RepetitionRandomizer } from "../../../services/RepetitionRandomizer";
 import { WorkoutSpanType } from "../../../types/WorkoutSpanType";
-import { IDevice } from "../../device/IDevice";
-import { PowerExercises } from "../../exercise/PowerExercises";
-import { IWorkoutExercise } from "../workoutExercise/IWorkoutExercise";
-import { WorkoutExercise } from "../workoutExercise/WorkoutExercise";
+import { ExercisePool } from "./../../exercise/ExercisePool";
 import { ConditioningWorkoutBlock } from "./ConditioningWorkoutBlock";
+import { WorkoutBlockGenerator } from "./workoutBlockGenerator/WorkoutBlockGenerator";
 
-export class ConditioningWorkoutBlockGenerator {
-  generate(availableDevices: IDevice[]): ConditioningWorkoutBlock {
-    const workoutBlock = new ConditioningWorkoutBlock(
-      WorkoutSpanType.TIME_BASED,
-      15
-    );
-
-    const workoutExercises = this.generateWorkoutExercises(availableDevices);
-    workoutBlock.items.push(...workoutExercises);
-    return workoutBlock;
+export class ConditioningWorkoutBlockGenerator extends WorkoutBlockGenerator<ConditioningWorkoutBlock> {
+  constructor(exercisePool: ExercisePool) {
+    super(exercisePool, 1, 5);
   }
 
-  private generateWorkoutExercises(
-    availableDevices: IDevice[]
-  ): IWorkoutExercise[] {
-    const workoutExercises: IWorkoutExercise[] = [];
-    const numberExercises = Random.next(5);
-    const muscleGroupRandomizer = new MuscleGroupRandomizer(numberExercises);
-    const exerciseFinder = new ExerciseFinder(PowerExercises);
-    repeat(numberExercises, () => {
-      const muscleGroup = muscleGroupRandomizer.next();
-      const exercise = exerciseFinder.findByMuscleGroup(
-        muscleGroup,
-        availableDevices
-      );
-      const workoutExercise = new WorkoutExercise(
-        exercise,
-        WorkoutSpanType.REPETITION_BASED,
-        RepetitionRandomizer.next()
-      );
-      workoutExercises.push(workoutExercise);
-    });
-    return workoutExercises;
+  createWorkoutBlock(): ConditioningWorkoutBlock {
+    return new ConditioningWorkoutBlock(WorkoutSpanType.TIME_BASED, 15);
   }
 }

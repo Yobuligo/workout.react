@@ -14,7 +14,11 @@ import { IWorkoutBlockGenerator } from "./IWorkoutBlockGenerator";
 export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
   implements IWorkoutBlockGenerator<T>
 {
-  constructor(private readonly exercisePool: ExercisePool) {}
+  constructor(
+    private readonly exercisePool: ExercisePool,
+    private readonly minNumberExercises: number,
+    private readonly maxNumberExercises: number
+  ) {}
 
   abstract createWorkoutBlock(): T;
 
@@ -29,7 +33,10 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
     workoutConfig: IWorkoutConfig
   ): IWorkoutExercise[] {
     const workoutExercises: IWorkoutExercise[] = [];
-    const numberExercises = Random.next(5);
+    const numberExercises = Random.next(
+      this.minNumberExercises,
+      this.maxNumberExercises
+    );
     const muscleGroupRandomizer = new MuscleGroupRandomizer(numberExercises);
     const exerciseFinder = new ExerciseFinder(this.exercisePool);
     repeat(numberExercises, () => {
