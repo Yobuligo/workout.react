@@ -98,9 +98,9 @@
         "captionGenerateWorkout": "Generate Workout"
     },
     "workoutFooter": {
-        "captionGenerateWorkout": "Start Workout"
+        "startWorkout": "Start Workout"
     },
-    "workoutPage": {
+    "workoutOverviewPage": {
         "title": "Your workout today",
         "subtitle": "Enjoy!"
     }

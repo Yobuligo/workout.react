@@ -6,9 +6,9 @@ import { IWorkout } from "../../shared/model/workout/workout/IWorkout";
 import { IWorkoutConfig } from "../../shared/model/workout/workout/IWorkoutConfig";
 import { checkNotNull } from "../../utils/checkNotNull";
 import { WorkoutBlock } from "../workoutBlock/WorkoutBlock";
-import styles from "./Workout.module.scss";
+import styles from "./WorkoutOverview.module.scss";
 
-export const Workout: React.FC = () => {
+export const WorkoutOverview: React.FC = () => {
   const context = useContext(AppContext);
   const [workout, setWorkout] = useState<IWorkout | undefined>(undefined);
 
@@ -32,17 +32,7 @@ export const Workout: React.FC = () => {
         setWorkout(workout);
       }}
     >
-      <div className={styles.workout}>{items}</div>
-      <button
-        onClick={async () => {
-          const workout = await Api.workout.generateWorkout(
-            createWorkoutConfig()
-          );
-          setWorkout(workout);
-        }}
-      >
-        Regenerate
-      </button>
+      <div className={styles.workoutOverview}>{items}</div>
     </AsyncLoad>
   );
 };
