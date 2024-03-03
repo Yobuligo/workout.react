@@ -8,12 +8,9 @@ import { useValue } from "./hooks/useValue";
 import { AppRouter } from "./routes/AppRouter";
 import { IDevice } from "./shared/model/device/IDevice";
 import { IWorkoutType } from "./shared/model/exercise/IWorkoutType";
-import { Random } from "./core/Random";
 
 export const fetchBackup = global.fetch;
 global.fetch = fetchMock;
-
-const value = Random.next(3, 4);
 
 const App: React.FC = () => {
   return (

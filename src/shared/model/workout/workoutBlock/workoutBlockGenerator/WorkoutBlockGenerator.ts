@@ -40,6 +40,10 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
     const muscleGroupRandomizer = new MuscleGroupRandomizer(numberExercises);
     const exerciseFinder = new ExerciseFinder(this.exercisePool);
     repeat(numberExercises, () => {
+      // If it is only 1 exercise, try as many repetitions as possible
+      // otherwise the number is calculated
+      const numberRepetitions =
+        numberExercises === 1 ? 0 : RepetitionRandomizer.next();
       const muscleGroup = muscleGroupRandomizer.next();
       const exercise = exerciseFinder.findByMuscleGroup(
         muscleGroup,
@@ -48,7 +52,7 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
       const workoutExercise = new WorkoutExercise(
         exercise,
         WorkoutSpanType.REPETITION_BASED,
-        RepetitionRandomizer.next()
+        numberRepetitions
       );
       workoutExercises.push(workoutExercise);
     });
