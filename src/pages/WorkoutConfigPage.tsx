@@ -12,7 +12,6 @@ import { texts } from "../i18n/texts";
 import { Routes } from "../routes/Routes";
 import { IWorkoutConfig } from "../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutType } from "../shared/types/WorkoutType";
-import { checkNotNull } from "../utils/checkNotNull";
 import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
@@ -25,7 +24,7 @@ export const WorkoutConfigPage: React.FC = () => {
   const createWorkoutConfig = (): IWorkoutConfig => {
     return {
       devices: context.selectedDevices.items,
-      workoutType: checkNotNull(context.selectedWorkoutType.value).type,
+      workoutType: workoutType,
     };
   };
 
@@ -50,7 +49,7 @@ export const WorkoutConfigPage: React.FC = () => {
       title={t(texts.workoutConfigPage.title)}
       navigateBackPath={Routes.workoutTypePage.toPath()}
     >
-      <DeviceSelectorList />
+      <DeviceSelectorList workoutType={workoutType} />
       <Athlete className={styles.athlete} />
     </Page>
   );

@@ -10,7 +10,7 @@ import { DeviceSelector } from "../deviceSelector/DeviceSelector";
 import styles from "./DeviceSelectorList.module.scss";
 import { IDevicePickerListProps } from "./IDeviceSelectorListProps";
 
-export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
+export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const [devices, setDevices] = useState<IDevice[]>([]);
   const context = useContext(AppContext);
   const { t } = useTranslation();
@@ -37,8 +37,8 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = () => {
   return (
     <AsyncLoad
       load={async () => {
-        const devices = await Api.workoutType.findDevices(context.selectedWorkoutType.value!.type);
-        setDevices(devices);  
+        const devices = await Api.workoutType.findDevices(props.workoutType);
+        setDevices(devices);
       }}
     >
       <p>{t(texts.deviceSelectorList.explanation)}</p>
