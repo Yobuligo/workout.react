@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Page } from "../components/pages/Page";
 import { WorkoutOverview } from "../features/workoutOverview/WorkoutOverview";
 import { WorkoutOverviewFooter } from "../features/workoutOverviewFooter/WorkoutOverviewFooter";
@@ -10,8 +11,10 @@ import { WorkoutType } from "../shared/types/WorkoutType";
 export const WorkoutOverviewPage: React.FC = () => {
   const { t } = useTranslation();
   const workoutType = useRouteParam<WorkoutType>("workout-type");
+  const navigate = useNavigate();
 
-  const onStartWorkout = () => {};
+  const onStartWorkout = () =>
+    navigate(Routes.workout.toPath({ "workout-type": workoutType }));
 
   return (
     <Page

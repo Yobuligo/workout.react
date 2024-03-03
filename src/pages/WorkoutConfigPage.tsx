@@ -16,7 +16,7 @@ export const WorkoutConfigPage: React.FC = () => {
   const workoutType = useRouteParam<WorkoutType>("workout-type");
 
   const onGenerateWorkout = () =>
-    navigate(Routes.workout.toPath({ "workout-type": workoutType }));
+    navigate(Routes.workoutOverview.toPath({ "workout-type": workoutType }));
 
   return (
     <Page

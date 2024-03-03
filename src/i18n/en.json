@@ -100,6 +100,10 @@
     "workoutFooter": {
         "startWorkout": "Start Workout"
     },
+    "workoutPage": {
+        "title": "Your workout today",
+        "subtitle": "Enjoy!"
+    },
     "workoutOverviewPage": {
         "title": "Your workout today",
         "subtitle": "Enjoy!"
