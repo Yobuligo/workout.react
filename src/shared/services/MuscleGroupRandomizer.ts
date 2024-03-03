@@ -3,14 +3,11 @@ import { MuscleGroup } from "../types/MuscleGroup";
 import { RandomList } from "./randomList/RandomList";
 
 export class MuscleGroupRandomizer {
-  private randomList: RandomList;
-
-  constructor(numberElements: number) {
-    this.randomList = new RandomList(numberElements);
-  }
+  private randomList: RandomList = new RandomList(4);
 
   next(): MuscleGroup {
-    switch (this.randomList.pick().index) {
+    const index = this.randomList.pick().index;
+    switch (index) {
       case 0:
         return MuscleGroup.BACK;
       case 1:
@@ -21,7 +18,7 @@ export class MuscleGroupRandomizer {
         return MuscleGroup.LEGS;
       default:
         throw new IllegalArgumentError(
-          `Error while picking next muscle group from ${MuscleGroupRandomizer.name}. This requested muscle group is not supported.`
+          `Error while picking next muscle group from ${MuscleGroupRandomizer.name}. This requested muscle group with index '${index}' is not supported.`
         );
     }
   }

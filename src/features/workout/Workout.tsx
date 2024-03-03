@@ -33,6 +33,16 @@ export const Workout: React.FC = () => {
       }}
     >
       <div className={styles.workout}>{items}</div>
+      <button
+        onClick={async () => {
+          const workout = await Api.workout.generateWorkout(
+            createWorkoutConfig()
+          );
+          setWorkout(workout);
+        }}
+      >
+        Regenerate
+      </button>
     </AsyncLoad>
   );
 };

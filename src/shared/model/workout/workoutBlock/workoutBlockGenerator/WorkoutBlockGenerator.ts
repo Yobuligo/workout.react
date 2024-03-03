@@ -37,7 +37,7 @@ export abstract class WorkoutBlockGenerator<T extends IWorkoutBlock>
       this.minNumberExercises,
       this.maxNumberExercises
     );
-    const muscleGroupRandomizer = new MuscleGroupRandomizer(numberExercises);
+    const muscleGroupRandomizer = new MuscleGroupRandomizer();
     const exerciseFinder = new ExerciseFinder(this.exercisePool);
     repeat(numberExercises, () => {
       // If it is only 1 exercise, try as many repetitions as possible
