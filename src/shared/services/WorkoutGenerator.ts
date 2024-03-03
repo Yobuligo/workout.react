@@ -2,8 +2,9 @@ import { PowerExercises } from "../model/exercise/PowerExercises";
 import { IWorkout } from "../model/workout/workout/IWorkout";
 import { IWorkoutConfig } from "../model/workout/workout/IWorkoutConfig";
 import { Workout } from "../model/workout/workout/Workout";
-import { Power } from "../model/workout/workoutBlock/Power";
+import { PowerWorkoutBlock } from "../model/workout/workoutBlock/PowerWorkoutBlock";
 import { WorkoutExercise } from "../model/workout/workoutExercise/WorkoutExercise";
+import { PowerWorkoutSchemes } from "../model/workout/workoutScheme/PowerWorkoutSchemes";
 import { MuscleGroup } from "../types/MuscleGroup";
 import { WorkoutSpanType } from "../types/WorkoutSpanType";
 import { ExerciseFinder } from "./ExerciseFinder";
@@ -16,11 +17,15 @@ export class WorkoutGenerator implements IWorkoutGenerator {
     // create workout
     const workout = new Workout();
 
-    // find workout scheme (e.g. power - conditioning, power - stretching)
-    // consider workout type
+    // Currently we always take the default PowerWorkoutScheme
+    PowerWorkoutSchemes.default.power
+
+    // generate WorkoutBlock for power and for Conditioning
+
+
 
     // create workout block for strength
-    const strength = new Power(WorkoutSpanType.TIME_BASED, 900);
+    const strength = new PowerWorkoutBlock(WorkoutSpanType.TIME_BASED, 900);
     strength.items = [
       new WorkoutExercise(
         exerciseFinder.findByMuscleGroup(
