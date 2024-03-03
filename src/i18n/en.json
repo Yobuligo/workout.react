@@ -6,6 +6,7 @@
         "fasciaRole": "Fascia Role"
     },
     "general": {
+        "AsMuchAsPossible": "AMAP",
         "minutes": "min",
         "seconds": "s",
         "times": "x"
@@ -35,7 +36,7 @@
         "kettleBellSumoDeadLiftHighPull": "Kettle Bell Sumo Deadlift High Pull",
         "kettleBellSwing": "Kettle Bell Swing",
         "lateralJumpAndTap": "Lateral Jump and Tap",
-        "lunge": "Split Squat",
+        "lunge": "Lunge",
         "lungeDescription": "Do a lunch, stay in the position and move up and down",
         "lungeJump": "Lunge Jump",
         "mountainClimber": "Mountain Climber",

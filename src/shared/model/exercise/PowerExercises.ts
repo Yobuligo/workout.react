@@ -150,7 +150,7 @@ export const PowerExercises = configureExercises({
   lunge: {
     description: texts.powerExercises.lungeDescription,
     devices: [],
-    difficulty: Difficulty.EASY,
+    difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
     muscleGroups: [MuscleGroup.LEGS],
@@ -295,7 +295,7 @@ export const PowerExercises = configureExercises({
   squat: {
     description: texts.powerExercises.squat,
     devices: [],
-    difficulty: Difficulty.EASY,
+    difficulty: Difficulty.MEDIUM,
     id: nextId(),
     image: undefined,
     muscleGroups: [MuscleGroup.LEGS],
