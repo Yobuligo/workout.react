@@ -24,17 +24,18 @@ export class WorkoutIterator implements IWorkoutIterator {
   next(): IWorkoutStep {
     let workoutExercise = this.getNextFromCurrentBlock();
     if (workoutExercise) {
-      this.workoutBlockCursor++;
+      const workoutBlock = this.getWorkoutBlock();
+      this.workoutExerciseCursor++;
       return {
-        workoutBlock: this.getWorkoutBlock(),
-        workoutExercise: workoutExercise,
+        workoutBlock,
+        workoutExercise,
       };
     }
 
     workoutExercise = this.getNextFromNextBlock();
     if (workoutExercise) {
       this.workoutBlockCursor++;
-      this.workoutExerciseCursor = 0;
+      this.workoutExerciseCursor = 1;
       return {
         workoutBlock: this.getWorkoutBlock(),
         workoutExercise: workoutExercise,
