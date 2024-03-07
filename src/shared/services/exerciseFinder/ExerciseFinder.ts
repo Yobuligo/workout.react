@@ -1,7 +1,7 @@
-import { IDevice } from "../model/device/IDevice";
-import { ExercisePool } from "../model/exercise/ExercisePool";
-import { IExercise } from "../model/exercise/IExercise";
-import { MuscleGroup } from "./../types/MuscleGroup";
+import { IDevice } from "../../model/device/IDevice";
+import { ExercisePool } from "../../model/exercise/ExercisePool";
+import { IExercise } from "../../model/exercise/IExercise";
+import { MuscleGroup } from "../../types/MuscleGroup";
 import { IExerciseFinder } from "./IExerciseFinder";
 
 export class ExerciseFinder<TExercisePool extends ExercisePool>

@@ -1,6 +1,6 @@
 import { Random } from "../../../../../core/Random";
 import { repeat } from "../../../../../core/repeat";
-import { ExerciseFinder } from "../../../../services/ExerciseFinder";
+import { ExerciseFinder } from "../../../../services/exerciseFinder/ExerciseFinder";
 import { ExerciseRepetitionRandomizer } from "../../../../services/ExerciseRepetitionRandomizer";
 import { MuscleGroupRandomizer } from "../../../../services/MuscleGroupRandomizer";
 import { WorkoutSpanType } from "../../../../types/WorkoutSpanType";
