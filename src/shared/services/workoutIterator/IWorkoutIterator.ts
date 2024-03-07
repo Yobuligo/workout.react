@@ -1,4 +1,4 @@
-import { IWorkoutStep } from "../workoutStep/IWorkoutStep";
+import { IWorkoutStep } from "../../model/workout/workoutStep/IWorkoutStep";
 
 export interface IWorkoutIterator {
   readonly hasNext: boolean;

@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import useTranslation from "../../hooks/useTranslation";
-import { IWorkoutIterator } from "../../shared/model/workout/workoutIterator/IWorkoutIterator";
-import { WorkoutIterator } from "../../shared/model/workout/workoutIterator/WorkoutIterator";
+import { IWorkoutIterator } from "../../shared/services/workoutIterator/IWorkoutIterator";
+import { WorkoutIterator } from "../../shared/services/workoutIterator/WorkoutIterator";
 import { IWorkoutStep } from "../../shared/model/workout/workoutStep/IWorkoutStep";
 import { IWorkoutProps } from "./IWorkoutProps";
 

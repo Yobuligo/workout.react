@@ -1,11 +1,11 @@
-import { IllegalStateError } from "../../../../error/IllegalStateError";
-import { error } from "../../../utils/error";
-import { IWorkout } from "../workout/IWorkout";
-import { IWorkoutBlock } from "../workoutBlock/IWorkoutBlock";
-import { IWorkoutBlockItem } from "../workoutBlock/IWorkoutBlockItem";
-import { IWorkoutExercise } from "../workoutExercise/IWorkoutExercise";
-import { isWorkoutExercise } from "../workoutExercise/isWorkoutExercise";
-import { IWorkoutStep } from "../workoutStep/IWorkoutStep";
+import { IllegalStateError } from "../../../error/IllegalStateError";
+import { error } from "../../utils/error";
+import { IWorkout } from "../../model/workout/workout/IWorkout";
+import { IWorkoutBlock } from "../../model/workout/workoutBlock/IWorkoutBlock";
+import { IWorkoutBlockItem } from "../../model/workout/workoutBlock/IWorkoutBlockItem";
+import { IWorkoutExercise } from "../../model/workout/workoutExercise/IWorkoutExercise";
+import { isWorkoutExercise } from "../../model/workout/workoutExercise/isWorkoutExercise";
+import { IWorkoutStep } from "../../model/workout/workoutStep/IWorkoutStep";
 import { IWorkoutIterator } from "./IWorkoutIterator";
 
 export class WorkoutIterator implements IWorkoutIterator {
