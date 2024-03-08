@@ -2,9 +2,9 @@ import { IllegalStateError } from "../../../error/IllegalStateError";
 import { IWorkout } from "../../model/workout/workout/IWorkout";
 import { isWorkoutExercise } from "../../model/workout/workoutExercise/isWorkoutExercise";
 import { IWorkoutStep } from "../../model/workout/workoutStep/IWorkoutStep";
-import { IWorkoutFlatter } from "./IWorkoutFlatter";
+import { IWorkoutFlattener } from "./IWorkoutFlattener";
 
-export class WorkoutFlatter implements IWorkoutFlatter {
+export class WorkoutFlattener implements IWorkoutFlattener {
   constructor(private readonly workout: IWorkout) {}
 
   toFlat(): IWorkoutStep[] {

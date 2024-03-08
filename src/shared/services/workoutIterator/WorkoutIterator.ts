@@ -1,7 +1,7 @@
 import { IllegalStateError } from "../../../error/IllegalStateError";
 import { IWorkout } from "../../model/workout/workout/IWorkout";
 import { IWorkoutStep } from "../../model/workout/workoutStep/IWorkoutStep";
-import { WorkoutFlatter } from "./../workoutFlatter/WorkoutFlatter";
+import { WorkoutFlattener } from "../workoutFlattener/WorkoutFlattener";
 import { IWorkoutIterator } from "./IWorkoutIterator";
 
 export class WorkoutIterator implements IWorkoutIterator {
@@ -9,7 +9,7 @@ export class WorkoutIterator implements IWorkoutIterator {
   private readonly workoutSteps: IWorkoutStep[];
 
   constructor(workout: IWorkout) {
-    const workoutFlatter = new WorkoutFlatter(workout);
+    const workoutFlatter = new WorkoutFlattener(workout);
     this.workoutSteps = workoutFlatter.toFlat();
   }
 
