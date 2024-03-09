@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
 import useTranslation from "../../hooks/useTranslation";
+import { IWorkoutStep } from "../../shared/model/workout/workoutStep/IWorkoutStep";
 import { IWorkoutIterator } from "../../shared/services/workoutIterator/IWorkoutIterator";
 import { WorkoutIterator } from "../../shared/services/workoutIterator/WorkoutIterator";
-import { IWorkoutStep } from "../../shared/model/workout/workoutStep/IWorkoutStep";
+import { WorkoutStep } from "../workoutStep/WorkoutStep";
 import { IWorkoutProps } from "./IWorkoutProps";
 
 export const Workout: React.FC<IWorkoutProps> = (props) => {
@@ -28,9 +29,7 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
       >
         next
       </button>
-      <div>
-        {workoutStep?.workoutBlock.title && t(workoutStep.workoutBlock.title)}
-      </div>
+      {workoutStep && <WorkoutStep workoutStep={workoutStep} />}
       <div>
         {workoutStep?.workoutExercise.title &&
           t(workoutStep.workoutExercise.title)}
