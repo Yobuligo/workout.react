@@ -1,3 +1,4 @@
+import { IWorkoutBlockIteration } from "../workoutTypes/IWorkoutBlockIteration";
 import { IWorkoutBlock } from "./../workoutBlock/IWorkoutBlock";
 import { IWorkoutExercise } from "./../workoutExercise/IWorkoutExercise";
 
@@ -7,5 +8,6 @@ import { IWorkoutExercise } from "./../workoutExercise/IWorkoutExercise";
  */
 export interface IWorkoutStep {
   readonly workoutBlock: IWorkoutBlock;
+  readonly workoutBlockIteration: IWorkoutBlockIteration;
   readonly workoutExercise: IWorkoutExercise;
 }
