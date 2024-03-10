@@ -5,8 +5,11 @@ export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
   const { t } = useTranslation();
   return (
     <div>
-      {props.workoutStep?.workoutBlock.title &&
-        t(props.workoutStep.workoutBlock.title)}
+      <h3>
+        {t(props.workoutStep.workoutBlock.title)}{" "}
+        {`(${props.workoutStep.workoutBlockIteration.current}/${props.workoutStep.workoutBlockIteration.max})`}
+      </h3>
+      {t(props.workoutStep.workoutExercise.title)}
     </div>
   );
 };
