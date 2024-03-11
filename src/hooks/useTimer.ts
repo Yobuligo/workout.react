@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { Event } from "../core/event/Event";
 import { ITimer } from "../types/ITimer";
 import { OnFinishHandler } from "../types/OnFinishHandler";
 import { OnTickHandler } from "../types/OnTickHandler";
@@ -17,10 +18,8 @@ interface ITimerState {
 
 export const useTimer = (seconds: number): ITimer => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
-
-  const onFinishHandlers: OnFinishHandler[] = useMemo(() => [], []);
-
-  const onTickHandlers: OnTickHandler[] = useMemo(() => [], []);
+  const finishEvent = useMemo(() => new Event<OnFinishHandler>(), []);
+  const tickEvent = useMemo(() => new Event<OnTickHandler>(), []);
 
   let timerState: ITimerState = useMemo(
     () => ({ isRunning: false, started: false }),
@@ -41,7 +40,7 @@ export const useTimer = (seconds: number): ITimer => {
     setRemainingSeconds(0);
     timerState.isRunning = false;
     timerState.started = false;
-    onFinishHandlers.forEach((handler) => handler());
+    finishEvent.notify();
     return;
   };
 
@@ -62,33 +61,13 @@ export const useTimer = (seconds: number): ITimer => {
         return;
       }
 
-      onTickHandlers.forEach((handler) => handler(remainingSeconds))
+      tickEvent.notify(remainingSeconds);
       setRemainingSeconds(remainingSeconds);
       startTimer(endTime, timerState);
     }, 200);
   };
 
   const isPaused = timerState.started && !timerState.isRunning;
-
-  const onFinish = (handler: OnFinishHandler) => {
-    onFinishHandlers.push(handler);
-    return () => {
-      const index = onFinishHandlers.findIndex((item) => item === handler);
-      if (index !== -1) {
-        onFinishHandlers.splice(index, 1);
-      }
-    };
-  };
-
-  const onTick = (handler: OnTickHandler) => {
-    onTickHandlers.push(handler);
-    return () => {
-      const index = onTickHandlers.findIndex((item) => item === handler);
-      if (index !== -1) {
-        onTickHandlers.splice(index, 1);
-      }
-    };
-  };
 
   const stop = () => {
     timerState.isRunning = false;
@@ -110,8 +89,8 @@ export const useTimer = (seconds: number): ITimer => {
     remainingSeconds,
     isRunning: timerState.isRunning,
     isPaused,
-    onFinish,
-    onTick,
+    onFinish: finishEvent.onEvent,
+    onTick: tickEvent.onEvent,
     reset,
     start,
     stop,
