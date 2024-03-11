@@ -85,12 +85,20 @@ export const useTimer = (seconds: number): ITimer => {
     onStartTimer(endTime);
   };
 
+  const onFinish = (handler: OnFinishHandler) => {
+    return finishEvent.onEvent(handler);
+  };
+
+  const onTick = (handler: OnTickHandler) => {
+    return tickEvent.onEvent(handler);
+  };
+
   return {
     remainingSeconds,
     isRunning: timerState.isRunning,
     isPaused,
-    onFinish: finishEvent.onEvent,
-    onTick: tickEvent.onEvent,
+    onFinish,
+    onTick,
     reset,
     start,
     stop,
