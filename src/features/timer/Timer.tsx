@@ -9,7 +9,22 @@ export const Timer: React.FC<ITimerProps> = (props) => {
 
   useInitialize(() => {
     timer.start();
+    timer.start();
+    timer.start();
   });
 
-  return <>{renderSeconds(timer.remainingSeconds)}</>;
+  return (
+    <>
+      {renderSeconds(timer.remainingSeconds)}
+      <div>
+        <button onClick={() => timer.start()}>Start</button>
+      </div>
+      <div>
+        <button onClick={() => timer.stop()}>Stop</button>
+      </div>
+      <div>
+        <button onClick={() => timer.reset()}>Reset</button>
+      </div>
+    </>
+  );
 };
