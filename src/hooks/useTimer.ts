@@ -1,4 +1,7 @@
 import { useMemo, useState } from "react";
+import { ITimer } from "../types/ITimer";
+import { OnFinishHandler } from "../types/OnFinishHandler";
+import { OnTickHandler } from "../types/OnTickHandler";
 
 interface ITimerState {
   /**
@@ -12,8 +15,12 @@ interface ITimerState {
   started: boolean;
 }
 
-export const useTimer = (seconds: number) => {
+export const useTimer = (seconds: number): ITimer => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
+
+  const onFinishHandlers: OnFinishHandler[] = useMemo(() => [], []);
+
+  const onTickHandlers: OnTickHandler[] = useMemo(() => [], []);
 
   let timerState: ITimerState = useMemo(
     () => ({ isRunning: false, started: false }),
@@ -30,6 +37,14 @@ export const useTimer = (seconds: number) => {
     startTimer(endTime, timerState);
   };
 
+  const onFinishTimer = () => {
+    setRemainingSeconds(0);
+    timerState.isRunning = false;
+    timerState.started = false;
+    onFinishHandlers.forEach((handler) => handler());
+    return;
+  };
+
   const startTimer = (endTime: Date, timerState: ITimerState) => {
     // Stop timer, if it was stopped from outside
     if (!timerState.isRunning) {
@@ -41,13 +56,39 @@ export const useTimer = (seconds: number) => {
       const remainingSeconds = Math.round(
         (endTime.getTime() - now.getTime()) / 1000
       );
-      console.log(`Calculate Remaining seconds ${remainingSeconds}`);
+
+      if (remainingSeconds <= 0) {
+        onFinishTimer();
+        return;
+      }
+
+      onTickHandlers.forEach((handler) => handler(remainingSeconds))
       setRemainingSeconds(remainingSeconds);
       startTimer(endTime, timerState);
-    }, 500);
+    }, 200);
   };
 
-  const isPaused = () => timerState.started && !timerState.isRunning;
+  const isPaused = timerState.started && !timerState.isRunning;
+
+  const onFinish = (handler: OnFinishHandler) => {
+    onFinishHandlers.push(handler);
+    return () => {
+      const index = onFinishHandlers.findIndex((item) => item === handler);
+      if (index !== -1) {
+        onFinishHandlers.splice(index, 1);
+      }
+    };
+  };
+
+  const onTick = (handler: OnTickHandler) => {
+    onTickHandlers.push(handler);
+    return () => {
+      const index = onTickHandlers.findIndex((item) => item === handler);
+      if (index !== -1) {
+        onTickHandlers.splice(index, 1);
+      }
+    };
+  };
 
   const stop = () => {
     timerState.isRunning = false;
@@ -69,6 +110,8 @@ export const useTimer = (seconds: number) => {
     remainingSeconds,
     isRunning: timerState.isRunning,
     isPaused,
+    onFinish,
+    onTick,
     reset,
     start,
     stop,

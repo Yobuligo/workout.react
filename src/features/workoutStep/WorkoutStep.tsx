@@ -12,7 +12,7 @@ export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
       </h3>
       {t(props.workoutStep.workoutExercise.title)}
       <div>
-        <Timer seconds={900} />
+        <Timer seconds={10} />
       </div>
     </div>
   );

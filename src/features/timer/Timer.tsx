@@ -4,12 +4,14 @@ import { useTimer } from "../../hooks/useTimer";
 import { ITimerProps } from "./ITimerProps";
 
 export const Timer: React.FC<ITimerProps> = (props) => {
-  const timer = useTimer(props.seconds);
+  const timer = useTimer(props.seconds);  
   const renderSeconds = useRenderSeconds();
 
   useInitialize(() => {
-    timer.start();
-    timer.start();
+    timer.onFinish(() => {
+      console.log(`Timer Finished`);
+    });
+
     timer.start();
   });
 
