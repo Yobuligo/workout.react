@@ -1,5 +1,6 @@
-import { OnFinishHandler } from "../services/OnFinishHandler";
-import { OnTickHandler } from "../services/OnTickHandler";
+import { OnFinishHandler } from "./OnFinishHandler";
+import { OnTickHandler } from "./OnTickHandler";
+import { UnregisterHandler } from "./UnregisterHandler";
 
 export interface ITimer {
   /**
@@ -20,12 +21,12 @@ export interface ITimer {
   /**
    * Register on event if timer has finished.
    */
-  onFinish(handler: OnFinishHandler): void;
+  onFinish(handler: OnFinishHandler): UnregisterHandler;
 
   /**
    * Register on event timer tick
    */
-  onTick(handler: OnTickHandler): void;
+  onTick(handler: OnTickHandler): UnregisterHandler;
 
   /**
    * Stops the timer and resets it to its initial value.
