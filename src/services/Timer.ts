@@ -5,21 +5,30 @@ import { OnTickHandler } from "./OnTickHandler";
 import { UnregisterHandler } from "./UnregisterHandler";
 
 export class Timer implements ITimer {
-  private _remainingSeconds = 0;
+  private _remainingSeconds: number;
   private _isPaused = false;
   private _isRunning = false;
   private finishEvent = new Event<OnFinishHandler>();
   private tickEvent = new Event<OnTickHandler>();
 
+  constructor(private readonly seconds: number) {
+    this._remainingSeconds = seconds;
+  }
+
   get remainingSeconds(): number {
     return this._remainingSeconds;
   }
+
   get isPaused(): boolean {
     return this._isPaused;
   }
 
   get isRunning(): boolean {
     return this._isRunning;
+  }
+
+  destruct(): void {
+    this.stop();
   }
 
   onFinish(handler: OnFinishHandler): UnregisterHandler {
@@ -35,10 +44,23 @@ export class Timer implements ITimer {
   }
 
   start(): void {
-    throw new Error("Method not implemented.");
+    const endTime = new Date();
+    endTime.setSeconds(endTime.getSeconds() + this.remainingSeconds);
+    this.onStartTimer(endTime);
   }
 
   stop(): void {
     throw new Error("Method not implemented.");
+  }
+
+  private onStartTimer(endTime: Date){
+    // Do not restart timer, if it is already running
+    if (this.isRunning) {
+      return;
+    }
+
+    this._isRunning = true;
+    timerState.started = true;
+    startTimer(endTime, timerState);    
   }
 }

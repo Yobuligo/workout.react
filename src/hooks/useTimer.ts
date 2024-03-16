@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { Event } from "../core/event/Event";
-import { ITimer } from "../types/ITimer";
 import { OnFinishHandler } from "../services/OnFinishHandler";
 import { OnTickHandler } from "../services/OnTickHandler";
+import { ITimer } from "../types/ITimer";
 
 interface ITimerState {
   /**

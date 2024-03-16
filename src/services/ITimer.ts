@@ -19,6 +19,11 @@ export interface ITimer {
   readonly isRunning: boolean;
 
   /**
+   * Destructs the timer, which means to stop the timer and free memory
+   */
+  destruct(): void;
+
+  /**
    * Register on event if timer has finished.
    */
   onFinish(handler: OnFinishHandler): UnregisterHandler;
