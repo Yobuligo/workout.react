@@ -34,6 +34,11 @@ export interface ITimer {
   onTick(handler: OnTickHandler): UnregisterHandler;
 
   /**
+   * Pauses the timer if it is currently running
+   */
+  pause(): void;
+
+  /**
    * Stops the timer and resets it to its initial value.
    */
   reset(): void;
@@ -42,9 +47,4 @@ export interface ITimer {
    * Starts the timer. Continues running, if it was stopped before.
    */
   start(): void;
-
-  /**
-   * Stops the timer if it is currently running
-   */
-  stop(): void;
 }

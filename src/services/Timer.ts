@@ -8,6 +8,7 @@ export class Timer implements ITimer {
   private _remainingSeconds: number;
   private _isPaused = false;
   private _isRunning = false;
+  private _isStarted = false;
   private finishEvent = new Event<OnFinishHandler>();
   private tickEvent = new Event<OnTickHandler>();
 
@@ -28,7 +29,7 @@ export class Timer implements ITimer {
   }
 
   destruct(): void {
-    this.stop();
+    this.pause();
   }
 
   onFinish(handler: OnFinishHandler): UnregisterHandler {
@@ -39,28 +40,32 @@ export class Timer implements ITimer {
     return this.tickEvent.onEvent(handler);
   }
 
+  pause(): void {
+    if (!this.isRunning) {
+      return;
+    }
+  }
+
   reset(): void {
     throw new Error("Method not implemented.");
   }
 
   start(): void {
-    const endTime = new Date();
-    endTime.setSeconds(endTime.getSeconds() + this.remainingSeconds);
-    this.onStartTimer(endTime);
-  }
-
-  stop(): void {
-    throw new Error("Method not implemented.");
-  }
-
-  private onStartTimer(endTime: Date){
-    // Do not restart timer, if it is already running
     if (this.isRunning) {
       return;
     }
+    const endTime = this.createEndTime();
+    this.startTimer(endTime);
+  }
 
+  private startTimer(endTime: Date) {
     this._isRunning = true;
-    timerState.started = true;
-    startTimer(endTime, timerState);    
+    this._isStarted = true;
+  }
+
+  private createEndTime(): Date {
+    const endTime = new Date();
+    endTime.setSeconds(endTime.getSeconds() + this.remainingSeconds);
+    return endTime;
   }
 }
