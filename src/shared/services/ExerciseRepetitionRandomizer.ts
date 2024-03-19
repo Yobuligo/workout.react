@@ -1,5 +1,5 @@
-import { Random } from "../../core/Random";
-import { IllegalArgumentError } from "../../error/IllegalArgumentError";
+import { Random } from "../../core/services/Random";
+import { IllegalArgumentError } from "../../core/errors/IllegalArgumentError";
 import { IExercise } from "../model/exercise/IExercise";
 import { Difficulty } from "../types/Difficulty";
 

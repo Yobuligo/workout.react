@@ -1,4 +1,4 @@
-import { IllegalArgumentError } from "../../error/IllegalArgumentError";
+import { IllegalArgumentError } from "../../core/errors/IllegalArgumentError";
 import { MuscleGroup } from "../types/MuscleGroup";
 import { RandomList } from "./randomList/RandomList";
 

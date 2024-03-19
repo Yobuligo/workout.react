@@ -1,4 +1,4 @@
-import { IllegalStateError } from "../../../error/IllegalStateError";
+import { IllegalStateError } from "../../../core/errors/IllegalStateError";
 import { IWorkout } from "../../model/workout/workout/IWorkout";
 import { IWorkoutStep } from "../../model/workout/workoutStep/IWorkoutStep";
 import { WorkoutFlattener } from "../workoutFlattener/WorkoutFlattener";

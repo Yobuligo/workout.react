@@ -1,4 +1,4 @@
-import { Random } from "../../../../../core/Random";
+import { Random } from "../../../../../core/services/Random";
 import { repeat } from "../../../../../core/repeat";
 import { ExerciseFinder } from "../../../../services/exerciseFinder/ExerciseFinder";
 import { ExerciseRepetitionRandomizer } from "../../../../services/ExerciseRepetitionRandomizer";

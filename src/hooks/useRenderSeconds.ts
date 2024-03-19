@@ -1,4 +1,4 @@
-import { IllegalArgumentError } from "../error/IllegalArgumentError";
+import { IllegalArgumentError } from "../core/errors/IllegalArgumentError";
 import { texts } from "../i18n/texts";
 import useTranslation from "./useTranslation";
 

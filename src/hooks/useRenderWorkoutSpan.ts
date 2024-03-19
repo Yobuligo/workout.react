@@ -1,4 +1,4 @@
-import { NotSupportedError } from "../error/NotSupportedError";
+import { NotSupportedError } from "../core/errors/NotSupportedError";
 import { WorkoutSpanType } from "../shared/types/WorkoutSpanType";
 import { IWorkoutSpan } from "./../shared/types/IWorkoutSpan";
 import { useRenderSeconds } from "./useRenderSeconds";

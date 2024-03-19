@@ -1,5 +1,5 @@
 import { repeat } from "../../../core/repeat";
-import { IllegalStateError } from "../../../error/IllegalStateError";
+import { IllegalStateError } from "../../../core/errors/IllegalStateError";
 import { IWorkout } from "../../model/workout/workout/IWorkout";
 import { IWorkoutBlock } from "../../model/workout/workoutBlock/IWorkoutBlock";
 import { isWorkoutExercise } from "../../model/workout/workoutExercise/isWorkoutExercise";

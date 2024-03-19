@@ -1,4 +1,4 @@
-import { NotSupportedError } from "../error/NotSupportedError";
+import { NotSupportedError } from "../errors/NotSupportedError";
 
 export class Random {
   static next(range: number): number;

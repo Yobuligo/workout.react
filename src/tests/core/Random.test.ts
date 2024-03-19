@@ -1,4 +1,4 @@
-import { Random } from "../../core/Random";
+import { Random } from "../../core/services/Random";
 
 describe("Random", () => {
   it("returns random value for 1", () => {
