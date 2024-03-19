@@ -1,6 +1,6 @@
 import useTranslation from "../../hooks/useTranslation";
 import { Timer } from "../timer/Timer";
-import { TimerPanel } from "../timerPanel/TimerPanel";
+import { TimerPanel } from "../timerPanel/timerPanel/TimerPanel";
 import { IWorkoutStepProps } from "./IWorkoutStepProps";
 
 export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
