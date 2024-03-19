@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import { ITimer } from "../services/ITimer";
-import { Timer } from "./../services/Timer";
+import { OnFinishHandler } from "../core/services/timer/OnFinishHandler";
+import { OnRemainingSecondsChangeHandler } from "../core/services/timer/OnRemainingSecondsChangeHandler";
+import { Timer } from "../core/services/timer/Timer";
 
-export const useTimer = (seconds: number): ITimer => {
+export const useTimer = (seconds: number) => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
   const timer = useMemo(() => new Timer(seconds), [seconds]);
 
@@ -12,6 +13,22 @@ export const useTimer = (seconds: number): ITimer => {
     };
   }, [timer]);
 
+  const isRunning = timer.isRunning;
+
+  const isPaused = timer.isPaused;
+
+  const onFinish = (handler: OnFinishHandler) => {
+    return timer.onFinish(handler);
+  };
+
+  const onTick = (handler: OnRemainingSecondsChangeHandler) => {
+    return timer.onTick(handler);
+  };
+
+  const reset = () => {
+    timer.reset();
+  };
+
   const start = () => {
     timer.start();
     timer.onRemainingSecondsChange((remainingSeconds) =>
@@ -19,17 +36,18 @@ export const useTimer = (seconds: number): ITimer => {
     );
   };
 
+  const stop = () => {
+    timer.stop();
+  };
+
   return {
+    isRunning,
+    isPaused,
     remainingSeconds,
-    isRunning: timer.isRunning,
-    isPaused: timer.isPaused,
-    tickSize: timer.tickSize,
-    destruct: timer.destruct,
-    onRemainingSecondsChange: timer.onRemainingSecondsChange,
-    onFinish: timer.onFinish,
-    onTick: timer.onTick,
-    reset: timer.reset,
+    onFinish,
+    onTick,
+    reset,
     start,
-    stop: timer.stop,
+    stop,
   };
 };
