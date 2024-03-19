@@ -8,9 +8,10 @@ export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
     <div>
       <h3>
         {t(props.workoutStep.workoutBlock.title)}
-        {` (${props.workoutStep.workoutBlockIteration.current}/${props.workoutStep.workoutBlockIteration.max})`}
+        {` (${props.workoutStep.workoutBlockIteration.from}/${props.workoutStep.workoutBlockIteration.to})`}
       </h3>
       {t(props.workoutStep.workoutExercise.title)}
+      {` (${props.workoutStep.workoutExercisePosition.from}/${props.workoutStep.workoutExercisePosition.to})`}
       <div>
         <Timer seconds={10} />
       </div>

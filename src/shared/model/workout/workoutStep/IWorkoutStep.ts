@@ -1,4 +1,4 @@
-import { IWorkoutBlockIteration } from "../workoutTypes/IWorkoutBlockIteration";
+import { IRange } from "../../../types/IRange";
 import { IWorkoutBlock } from "./../workoutBlock/IWorkoutBlock";
 import { IWorkoutExercise } from "./../workoutExercise/IWorkoutExercise";
 
@@ -8,6 +8,7 @@ import { IWorkoutExercise } from "./../workoutExercise/IWorkoutExercise";
  */
 export interface IWorkoutStep {
   readonly workoutBlock: IWorkoutBlock;
-  readonly workoutBlockIteration: IWorkoutBlockIteration;
+  readonly workoutBlockIteration: IRange;
   readonly workoutExercise: IWorkoutExercise;
+  readonly workoutExercisePosition: IRange;
 }
