@@ -1,0 +1,17 @@
+@import "../../colors.scss";
+
+.timerPanelButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  cursor: pointer;
+  width: 100%;
+  background-color: $primary_dark;
+  color: $neutral_dark;
+}
+
+.timerPanelButton h4 {
+  margin: 0.25rem;
+}

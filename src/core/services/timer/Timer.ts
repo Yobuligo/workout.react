@@ -36,6 +36,10 @@ export class Timer implements ITimer {
     return this._isRunning;
   }
 
+  get isStarted(): boolean {
+    return this._isStarted;
+  }
+
   destruct(): void {
     this.stop();
   }

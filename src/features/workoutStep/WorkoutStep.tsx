@@ -1,5 +1,6 @@
 import useTranslation from "../../hooks/useTranslation";
 import { Timer } from "../timer/Timer";
+import { TimerPanel } from "../timerPanel/TimerPanel";
 import { IWorkoutStepProps } from "./IWorkoutStepProps";
 
 export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
@@ -15,6 +16,7 @@ export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
       <div>
         <Timer seconds={10} />
       </div>
+      <TimerPanel seconds={900} />
     </div>
   );
 };
