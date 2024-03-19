@@ -1,10 +1,11 @@
+import { IDestructable } from "../core/types/IDestructable";
 import { OnFinishHandler } from "./OnFinishHandler";
 import { OnTickHandler } from "./OnTickHandler";
 import { UnregisterHandler } from "./UnregisterHandler";
 
-export interface ITimer {
+export interface ITimer extends IDestructable {
   /**
-   * Returns the remaining seconds, until the timer end is reached.
+   * Returns the remaining seconds to the end of the timer.
    */
   readonly remainingSeconds: number;
 
@@ -14,14 +15,16 @@ export interface ITimer {
   readonly isPaused: boolean;
 
   /**
-   * Returns true if the timer is running, otherwise false. Returns false if the timer was started and then stopped.
+   * Returns true if the timer is running, otherwise false.
+   * Returns also false if the timer was started and then stopped.
+   * Returns also true if the timer was stopped and then started.
    */
   readonly isRunning: boolean;
 
   /**
-   * Destructs the timer, which means to stop the timer and free memory
+   * Returns the milliseconds for each cycle to check if the timer is still running
    */
-  destruct(): void;
+  readonly tickSize: number;
 
   /**
    * Register on event if timer has finished.
@@ -34,11 +37,6 @@ export interface ITimer {
   onTick(handler: OnTickHandler): UnregisterHandler;
 
   /**
-   * Pauses the timer if it is currently running
-   */
-  pause(): void;
-
-  /**
    * Stops the timer and resets it to its initial value.
    */
   reset(): void;
@@ -47,4 +45,9 @@ export interface ITimer {
    * Starts the timer. Continues running, if it was stopped before.
    */
   start(): void;
+
+  /**
+   * Stops the timer if it is currently running
+   */
+  stop(): void;
 }

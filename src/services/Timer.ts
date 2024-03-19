@@ -6,13 +6,16 @@ import { UnregisterHandler } from "./UnregisterHandler";
 
 export class Timer implements ITimer {
   private _remainingSeconds: number;
-  private _isPaused = false;
   private _isRunning = false;
   private _isStarted = false;
+  private timeout: NodeJS.Timeout | undefined = undefined;
   private finishEvent = new Event<OnFinishHandler>();
   private tickEvent = new Event<OnTickHandler>();
 
-  constructor(private readonly seconds: number) {
+  constructor(
+    private readonly seconds: number,
+    readonly tickSize: number = 200
+  ) {
     this._remainingSeconds = seconds;
   }
 
@@ -21,7 +24,7 @@ export class Timer implements ITimer {
   }
 
   get isPaused(): boolean {
-    return this._isPaused;
+    return this._isStarted && !this.isRunning;
   }
 
   get isRunning(): boolean {
@@ -29,7 +32,7 @@ export class Timer implements ITimer {
   }
 
   destruct(): void {
-    this.pause();
+    this.stop();
   }
 
   onFinish(handler: OnFinishHandler): UnregisterHandler {
@@ -40,32 +43,63 @@ export class Timer implements ITimer {
     return this.tickEvent.onEvent(handler);
   }
 
-  pause(): void {
+  stop(): void {
     if (!this.isRunning) {
       return;
     }
+    clearTimeout(this.timeout);
+    this._isRunning = false;
   }
 
   reset(): void {
-    throw new Error("Method not implemented.");
+    this.stop();
+    this._isStarted = false;
+    this._remainingSeconds = this.seconds;
   }
 
   start(): void {
     if (this.isRunning) {
       return;
     }
-    const endTime = this.createEndTime();
-    this.startTimer(endTime);
+    this.startTimer();
   }
 
-  private startTimer(endTime: Date) {
+  private startTimer() {
     this._isRunning = true;
     this._isStarted = true;
+    const endTime = this.calcEndTime();
+    this.startTimerCycle(endTime);
   }
 
-  private createEndTime(): Date {
+  private startTimerCycle(endTime: Date) {
+    this.timeout = setTimeout(() => {
+      const remainingSeconds = this.calcRemainingSeconds(endTime);
+      if (remainingSeconds <= 0) {
+        this.onFinishTimer();
+        return;
+      }
+
+      this._remainingSeconds = remainingSeconds;
+      this.tickEvent.notify(remainingSeconds);
+      this.startTimerCycle(endTime);
+    }, this.tickSize);
+  }
+
+  private calcEndTime(): Date {
     const endTime = new Date();
     endTime.setSeconds(endTime.getSeconds() + this.remainingSeconds);
     return endTime;
+  }
+
+  private calcRemainingSeconds(endTime: Date): number {
+    const now = new Date();
+    return Math.round((endTime.getTime() - now.getTime()) / 1000);
+  }
+
+  private onFinishTimer() {
+    this._remainingSeconds = 0;
+    this._isRunning = false;
+    this._isStarted = false;
+    this.finishEvent.notify();
   }
 }
