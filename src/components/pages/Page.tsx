@@ -1,3 +1,4 @@
+import { Footer } from "../footer/Footer";
 import { NavigateBackButton } from "../navigateBackButton/NavigateBackButton";
 import { IPageProps } from "./IPageProps";
 import styles from "./Page.module.scss";
@@ -17,7 +18,7 @@ export const Page: React.FC<IPageProps> = (props) => {
         </div>
       </header>
       <main className={styles.main}>{props.children}</main>
-      <footer className={styles.footer}>{props.footer}</footer>
+      <Footer>{props.footer}</Footer>
     </div>
   );
 };

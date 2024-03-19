@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useInitialize } from "../../hooks/useInitialize";
 import { IWorkoutStep } from "../../shared/model/workout/workoutStep/IWorkoutStep";
 import { IWorkoutIterator } from "../../shared/services/workoutIterator/IWorkoutIterator";
 import { WorkoutIterator } from "../../shared/services/workoutIterator/WorkoutIterator";
@@ -15,19 +16,14 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
     undefined
   );
 
-  return (
-    <>
-      <button
-        onClick={() => {
-          if (workoutIterator.hasNext) {
-            const workoutStep = workoutIterator.next();
-            setWorkoutStep(workoutStep);
-          }
-        }}
-      >
-        next
-      </button>
-      {workoutStep && <WorkoutStep workoutStep={workoutStep} />}
-    </>
-  );
+  const nextStep = () => {
+    if (workoutIterator.hasNext) {
+      const workoutStep = workoutIterator.next();
+      setWorkoutStep(workoutStep);
+    }
+  };
+
+  useInitialize(() => nextStep());
+
+  return <>{workoutStep && <WorkoutStep workoutStep={workoutStep} />}</>;
 };

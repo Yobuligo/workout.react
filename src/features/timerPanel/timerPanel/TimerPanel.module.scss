@@ -1,9 +1,7 @@
-.timerPanel {
-  display: flex;
-  flex-direction: column;
-}
-
 .buttons {
   display: flex;
   flex-direction: row;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  column-gap: 2rem;
 }

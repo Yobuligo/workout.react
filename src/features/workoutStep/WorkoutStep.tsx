@@ -1,5 +1,6 @@
+import { Footer } from "../../components/footer/Footer";
 import useTranslation from "../../hooks/useTranslation";
-import { Timer } from "../timer/Timer";
+import { WorkoutSpanType } from "../../shared/types/WorkoutSpanType";
 import { TimerPanel } from "../timerPanel/timerPanel/TimerPanel";
 import { IWorkoutStepProps } from "./IWorkoutStepProps";
 
@@ -13,10 +14,15 @@ export const WorkoutStep: React.FC<IWorkoutStepProps> = (props) => {
       </h3>
       {t(props.workoutStep.workoutExercise.title)}
       {` (${props.workoutStep.workoutExercisePosition.from}/${props.workoutStep.workoutExercisePosition.to})`}
-      <div>
-        <Timer seconds={10} />
-      </div>
-      <TimerPanel seconds={900} />
+
+      {props.workoutStep.workoutBlock.type === WorkoutSpanType.TIME_BASED && (
+        <Footer>
+          <TimerPanel
+            seconds={props.workoutStep.workoutBlock.value}
+            startImmediately={true}
+          />
+        </Footer>
+      )}
     </div>
   );
 };
