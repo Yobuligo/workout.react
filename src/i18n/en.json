@@ -73,12 +73,6 @@
         "sitCrossLeggedToTheSide": "Sit Cross Legged to the Side",
         "sitCrossLeggedWithSoleOfFoot": "Sit Cross Legged with sole of Foot"
     },
-    "timerPanel": {
-        "continue": "Continue",
-        "pause": "Pause",
-        "reset": "Reset",
-        "start": "Start"
-    },
     "workoutBlock": {
         "conditioning": "Conditioning",
         "power": "Power",

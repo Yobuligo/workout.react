@@ -1,20 +1,21 @@
+import { ReactComponent as Pause } from "../../assets/icons/pause.svg";
+import { ReactComponent as Play } from "../../assets/icons/play.svg";
+import { ReactComponent as Reset } from "../../assets/icons/reset.svg";
 import { useRenderSeconds } from "../../hooks/useRenderSeconds";
 import { useTimer } from "../../hooks/useTimer";
-import useTranslation from "../../hooks/useTranslation";
-import { texts } from "../../i18n/texts";
 import { TimerPanelButton } from "../timerPanelButton/TimerPanelButton";
 import { ITimerPanelProps } from "./ITimerPanelProps";
 import styles from "./TimerPanel.module.scss";
 
 export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
-  const { t } = useTranslation();
   const renderSeconds = useRenderSeconds();
   const timer = useTimer(props.seconds);
+  const width = "1.5rem";
 
   const initialContent = (
     <div className={styles.buttons}>
       <TimerPanelButton onClick={timer.start}>
-        {t(texts.timerPanel.start)}
+        <Play width={width} />
       </TimerPanelButton>
     </div>
   );
@@ -22,14 +23,14 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
   const runningContent = (
     <div className={styles.buttons}>
       <TimerPanelButton onClick={timer.reset}>
-        {t(texts.timerPanel.reset)}
+        <Reset width={width} />
       </TimerPanelButton>
       <TimerPanelButton
         onClick={() => {
           timer.stop();
         }}
       >
-        {t(texts.timerPanel.pause)}
+        <Pause width={width} />
       </TimerPanelButton>
     </div>
   );
@@ -37,10 +38,10 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
   const pauseContent = (
     <div className={styles.buttons}>
       <TimerPanelButton onClick={timer.reset}>
-        {t(texts.timerPanel.reset)}
+        <Reset width={width} />
       </TimerPanelButton>
       <TimerPanelButton onClick={timer.start}>
-        {t(texts.timerPanel.continue)}
+        <Play width={width} />
       </TimerPanelButton>
     </div>
   );
