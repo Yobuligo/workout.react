@@ -1,7 +1,7 @@
 import { Event } from "../core/event/Event";
 import { ITimer } from "./ITimer";
 import { OnFinishHandler } from "./OnFinishHandler";
-import { OnTickHandler } from "./OnTickHandler";
+import { OnRemainingSecondsChangeHandler } from "./OnRemainingSecondsChangeHandler";
 import { UnregisterHandler } from "./UnregisterHandler";
 
 export class Timer implements ITimer {
@@ -10,7 +10,9 @@ export class Timer implements ITimer {
   private _isStarted = false;
   private timeout: NodeJS.Timeout | undefined = undefined;
   private finishEvent = new Event<OnFinishHandler>();
-  private tickEvent = new Event<OnTickHandler>();
+  private tickEvent = new Event<OnRemainingSecondsChangeHandler>();
+  private remainingSecondsChangeEvent =
+    new Event<OnRemainingSecondsChangeHandler>();
 
   constructor(
     private readonly seconds: number,
@@ -35,11 +37,17 @@ export class Timer implements ITimer {
     this.stop();
   }
 
+  onRemainingSecondsChange(
+    handler: OnRemainingSecondsChangeHandler
+  ): UnregisterHandler {
+    return this.remainingSecondsChangeEvent.onEvent(handler);
+  }
+
   onFinish(handler: OnFinishHandler): UnregisterHandler {
     return this.finishEvent.onEvent(handler);
   }
 
-  onTick(handler: OnTickHandler): UnregisterHandler {
+  onTick(handler: OnRemainingSecondsChangeHandler): UnregisterHandler {
     return this.tickEvent.onEvent(handler);
   }
 
@@ -54,7 +62,7 @@ export class Timer implements ITimer {
   reset(): void {
     this.stop();
     this._isStarted = false;
-    this._remainingSeconds = this.seconds;
+    this.setRemainingSeconds(this.seconds);
   }
 
   start(): void {
@@ -78,8 +86,7 @@ export class Timer implements ITimer {
         this.onFinishTimer();
         return;
       }
-
-      this._remainingSeconds = remainingSeconds;
+      this.setRemainingSeconds(remainingSeconds);
       this.tickEvent.notify(remainingSeconds);
       this.startTimerCycle(endTime);
     }, this.tickSize);
@@ -97,9 +104,15 @@ export class Timer implements ITimer {
   }
 
   private onFinishTimer() {
-    this._remainingSeconds = 0;
     this._isRunning = false;
     this._isStarted = false;
+    this.setRemainingSeconds(0);
+    this.tickEvent.notify(this.remainingSeconds);
     this.finishEvent.notify();
+  }
+
+  private setRemainingSeconds(remainingSeconds: number) {
+    this._remainingSeconds = remainingSeconds;
+    this.remainingSecondsChangeEvent.notify(this.remainingSeconds);
   }
 }

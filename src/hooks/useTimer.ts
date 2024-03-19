@@ -1,8 +1,6 @@
-import { useMemo, useState } from "react";
-import { Event } from "../core/event/Event";
-import { OnFinishHandler } from "../services/OnFinishHandler";
-import { OnTickHandler } from "../services/OnTickHandler";
-import { ITimer } from "../types/ITimer";
+import { useEffect, useMemo, useState } from "react";
+import { ITimer } from "../services/ITimer";
+import { Timer } from "./../services/Timer";
 
 interface ITimerState {
   /**
@@ -18,89 +16,29 @@ interface ITimerState {
 
 export const useTimer = (seconds: number): ITimer => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
-  const finishEvent = useMemo(() => new Event<OnFinishHandler>(), []);
-  const tickEvent = useMemo(() => new Event<OnTickHandler>(), []);
+  const timer = useMemo(() => new Timer(seconds), [seconds]);
 
-  let timerState: ITimerState = useMemo(
-    () => ({ isRunning: false, started: false }),
-    []
-  );
-
-  const onStartTimer = (endTime: Date) => {
-    // Do not restart timer, if it is already running
-    if (timerState.isRunning) {
-      return;
-    }
-    timerState.isRunning = true;
-    timerState.started = true;
-    startTimer(endTime, timerState);
-  };
-
-  const onFinishTimer = () => {
-    setRemainingSeconds(0);
-    timerState.isRunning = false;
-    timerState.started = false;
-    finishEvent.notify();
-    return;
-  };
-
-  const startTimer = (endTime: Date, timerState: ITimerState) => {
-    // Stop timer, if it was stopped from outside
-    if (!timerState.isRunning) {
-      return;
-    }
-
-    setTimeout(() => {
-      const now = new Date();
-      const remainingSeconds = Math.round(
-        (endTime.getTime() - now.getTime()) / 1000
-      );
-
-      if (remainingSeconds <= 0) {
-        onFinishTimer();
-        return;
-      }
-
-      tickEvent.notify(remainingSeconds);
-      setRemainingSeconds(remainingSeconds);
-      startTimer(endTime, timerState);
-    }, 200);
-  };
-
-  const isPaused = timerState.started && !timerState.isRunning;
-
-  const stop = () => {
-    timerState.isRunning = false;
-  };
-
-  const reset = () => {
-    timerState.isRunning = false;
-    timerState.started = false;
-    setRemainingSeconds(seconds);
-  };
+  useEffect(() => {
+    return () => {
+      timer.destruct();
+    };
+  }, [timer]);
 
   const start = () => {
-    const endTime = new Date();
-    endTime.setSeconds(endTime.getSeconds() + remainingSeconds);
-    onStartTimer(endTime);
-  };
-
-  const onFinish = (handler: OnFinishHandler) => {
-    return finishEvent.onEvent(handler);
-  };
-
-  const onTick = (handler: OnTickHandler) => {
-    return tickEvent.onEvent(handler);
+    timer.start();
+    timer.onTick((remainingSeconds) => setRemainingSeconds(remainingSeconds));
   };
 
   return {
     remainingSeconds,
-    isRunning: timerState.isRunning,
-    isPaused,
-    onFinish,
-    onTick,
-    reset,
+    isRunning: timer.isRunning,
+    isPaused: timer.isPaused,
+    tickSize: timer.tickSize,
+    destruct: timer.destruct,
+    onFinish: timer.onFinish,
+    onTick: timer.onTick,
+    reset: timer.reset,
     start,
-    stop,
+    stop: timer.stop,
   };
 };

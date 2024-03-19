@@ -1,6 +1,6 @@
 import { IDestructable } from "../core/types/IDestructable";
 import { OnFinishHandler } from "./OnFinishHandler";
-import { OnTickHandler } from "./OnTickHandler";
+import { OnRemainingSecondsChangeHandler } from "./OnRemainingSecondsChangeHandler";
 import { UnregisterHandler } from "./UnregisterHandler";
 
 export interface ITimer extends IDestructable {
@@ -27,6 +27,13 @@ export interface ITimer extends IDestructable {
   readonly tickSize: number;
 
   /**
+   * Register on event if remaining seconds was changed (either by tick, finish, reset)
+   */
+  onRemainingSecondsChange(
+    handler: OnRemainingSecondsChangeHandler
+  ): UnregisterHandler;
+
+  /**
    * Register on event if timer has finished.
    */
   onFinish(handler: OnFinishHandler): UnregisterHandler;
@@ -34,7 +41,7 @@ export interface ITimer extends IDestructable {
   /**
    * Register on event timer tick
    */
-  onTick(handler: OnTickHandler): UnregisterHandler;
+  onTick(handler: OnRemainingSecondsChangeHandler): UnregisterHandler;
 
   /**
    * Stops the timer and resets it to its initial value.
