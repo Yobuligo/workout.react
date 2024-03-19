@@ -2,18 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { ITimer } from "../services/ITimer";
 import { Timer } from "./../services/Timer";
 
-interface ITimerState {
-  /**
-   * Returns if the timer is currently running
-   */
-  isRunning: boolean;
-
-  /**
-   * Returns if the timer was already started. Even so it is currently paused, it was started before.
-   */
-  started: boolean;
-}
-
 export const useTimer = (seconds: number): ITimer => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
   const timer = useMemo(() => new Timer(seconds), [seconds]);
@@ -26,7 +14,9 @@ export const useTimer = (seconds: number): ITimer => {
 
   const start = () => {
     timer.start();
-    timer.onTick((remainingSeconds) => setRemainingSeconds(remainingSeconds));
+    timer.onRemainingSecondsChange((remainingSeconds) =>
+      setRemainingSeconds(remainingSeconds)
+    );
   };
 
   return {
@@ -35,6 +25,7 @@ export const useTimer = (seconds: number): ITimer => {
     isPaused: timer.isPaused,
     tickSize: timer.tickSize,
     destruct: timer.destruct,
+    onRemainingSecondsChange: timer.onRemainingSecondsChange,
     onFinish: timer.onFinish,
     onTick: timer.onTick,
     reset: timer.reset,
