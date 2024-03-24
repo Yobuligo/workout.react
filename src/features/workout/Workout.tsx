@@ -5,6 +5,7 @@ import { IWorkoutIterator } from "../../shared/services/workoutIterator/IWorkout
 import { WorkoutIterator } from "../../shared/services/workoutIterator/WorkoutIterator";
 import { WorkoutStep } from "../workoutStep/WorkoutStep";
 import { IWorkoutProps } from "./IWorkoutProps";
+import { Footer } from "../../components/footer/Footer";
 
 export const Workout: React.FC<IWorkoutProps> = (props) => {
   const workoutIterator: IWorkoutIterator = useMemo(
@@ -25,5 +26,10 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
 
   useInitialize(() => nextStep());
 
-  return <>{workoutStep && <WorkoutStep workoutStep={workoutStep} />}</>;
+  return (
+    <>
+      {workoutStep && <WorkoutStep workoutStep={workoutStep} />}
+      <Footer />
+    </>
+  );
 };
