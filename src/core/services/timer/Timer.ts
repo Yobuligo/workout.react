@@ -19,7 +19,7 @@ export class Timer implements ITimer {
 
   constructor(
     private readonly seconds: number,
-    readonly tickSize: number = 200
+    readonly tickSize: number = 1000
   ) {
     this._remainingSeconds = seconds;
   }
