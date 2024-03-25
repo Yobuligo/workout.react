@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
-import { OnRemainingSecondsChangeHandler } from "../core/services/timer/OnRemainingSecondsChangeHandler";
+import { ITimer } from "../core/services/timer/ITimer";
 import { Timer } from "../core/services/timer/Timer";
 import { VoidHandler } from "../core/types/VoidHandler";
+import { OnRemainingSecondsChangeHandler } from "./../core/services/timer/OnRemainingSecondsChangeHandler";
 
-export const useTimer = (seconds: number) => {
+export const useTimer = (seconds: number): ITimer => {
   const [remainingSeconds, setRemainingSeconds] = useState(seconds);
   const timer = useMemo(() => new Timer(seconds), [seconds]);
   const [, setState] = useState("");
@@ -23,13 +24,22 @@ export const useTimer = (seconds: number) => {
     };
   }, [timer]);
 
+  const destruct = () => {
+    timer.destruct();
+  };
+
   const isRunning = timer.isRunning;
 
   const isPaused = timer.isPaused;
 
   const isStarted = timer.isStarted;
 
+  const tickSize = timer.tickSize;
+
   const onFinish = (handler: VoidHandler) => timer.onFinish(handler);
+
+  const onRemainingSecondsChange = (handler: OnRemainingSecondsChangeHandler) =>
+    timer.onRemainingSecondsChange(handler);
 
   const onReset = (handler: VoidHandler) => timer.onReset(handler);
 
@@ -51,7 +61,10 @@ export const useTimer = (seconds: number) => {
     isPaused,
     isStarted,
     remainingSeconds,
+    tickSize,
+    destruct,
     onFinish,
+    onRemainingSecondsChange,
     onReset,
     onStart,
     onStop,
