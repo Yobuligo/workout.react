@@ -5,7 +5,7 @@ import { SpinnerSize } from "./SpinnerSize";
 
 export const Spinner: React.FC<ISpinnerProps> = (props) => {
   const getBorderSize = () => {
-    switch (props.spinnerSize) {
+     switch (props.spinnerSize) {
       case SpinnerSize.SMALL:
         return 3;
       case SpinnerSize.LARGE:

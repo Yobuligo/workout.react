@@ -13,6 +13,7 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
 
   const onStart = () => {
     timer.onTick((seconds) => props.onTick?.(seconds));
+    timer.onFinish(() => props.onFinish?.());
     timer.start();
   };
 
