@@ -11,15 +11,20 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
   const timer = useTimer(props.seconds);
   const width = "1.5rem";
 
+  const onStart = () => {
+    timer.onTick((seconds) => props.onTick?.(seconds));
+    timer.start();
+  };
+
   useInitialize(() => {
     if (props.startImmediately) {
-      timer.start();
+      onStart();
     }
   });
 
   const initialContent = (
     <div className={styles.buttons}>
-      <TimerPanelButton onClick={timer.start}>
+      <TimerPanelButton onClick={() => onStart()}>
         <Play width={width} />
       </TimerPanelButton>
     </div>
@@ -45,7 +50,7 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
       <TimerPanelButton onClick={timer.reset}>
         <Reset width={width} />
       </TimerPanelButton>
-      <TimerPanelButton onClick={timer.start}>
+      <TimerPanelButton onClick={() => onStart()}>
         <Play width={width} />
       </TimerPanelButton>
     </div>
