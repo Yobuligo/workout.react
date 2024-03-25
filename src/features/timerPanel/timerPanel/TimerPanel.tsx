@@ -21,6 +21,8 @@ export const TimerPanel: React.FC<ITimerPanelProps> = (props) => {
     unregisterHandlers.push(unregisterHandler);
     unregisterHandler = timer.onFinish(() => props.onFinish?.());
     unregisterHandlers.push(unregisterHandler);
+    unregisterHandler = timer.onReset(() => props.onReset?.());
+    unregisterHandlers.push(unregisterHandler);
     timer.start();
   };
 

@@ -1,6 +1,7 @@
 export interface ITimerPanelProps {
   seconds: number;
   startImmediately?: boolean;
-  onTick?: (seconds: number) => void;
   onFinish?: () => void;
+  onReset?: ()=>void
+  onTick?: (seconds: number) => void;
 }

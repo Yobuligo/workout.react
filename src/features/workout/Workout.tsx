@@ -17,7 +17,8 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
   //   undefined
   // );
 
-  const [seconds, setSeconds] = useState(900);
+  const initialSeconds = 900
+  const [seconds, setSeconds] = useState(initialSeconds);
   const renderSeconds = useRenderSeconds();
   const [playSound] = useSound("/assets/sounds/gong.mp3");
 
@@ -38,14 +39,15 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
     <>
       <div className={styles.workout}>{items}</div>
       <Footer>
-        <h3 className={styles.time}>{renderSeconds(seconds)}</h3>
+        <h1 className={styles.time}>{renderSeconds(seconds)}</h1>
         <TimerPanel
-          seconds={10}
-          onTick={(seconds) => setSeconds(seconds)}
+          seconds={initialSeconds}
           onFinish={() => {
             console.log("completed");
             playSound();
           }}
+          onReset={()=>setSeconds(initialSeconds)}
+          onTick={(seconds) => setSeconds(seconds)}
         />
       </Footer>
     </>
