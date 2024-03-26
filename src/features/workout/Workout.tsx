@@ -18,7 +18,7 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
   //   undefined
   // );
 
-  const initialSeconds = 10;
+  const initialSeconds = 900;
   const renderSeconds = useRenderSeconds();
   const timer = useTimer(initialSeconds);
   const [playSound] = useSound("/assets/sounds/gong.mp3");
