@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useSound from "use-sound";
 import { Footer } from "../../components/footer/Footer";
 import { useRenderSeconds } from "../../hooks/useRenderSeconds";
@@ -6,7 +7,6 @@ import { TimerPanel } from "../timerPanel/timerPanel/TimerPanel";
 import { WorkoutBlock } from "../workoutBlock/WorkoutBlock";
 import { IWorkoutProps } from "./IWorkoutProps";
 import styles from "./Workout.module.scss";
-import { useEffect } from "react";
 
 export const Workout: React.FC<IWorkoutProps> = (props) => {
   // const workoutIterator: IWorkoutIterator = useMemo(

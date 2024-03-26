@@ -1,0 +1,8 @@
+{
+    "appId": "com.yobuligo.workout.react",
+    "appName": "workout.react",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "build",
+    "cordova": {}
+}

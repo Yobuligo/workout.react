@@ -1,0 +1,7 @@
+{
+  "name": "workout.react",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
