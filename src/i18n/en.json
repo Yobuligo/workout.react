@@ -2,6 +2,12 @@
     "deviceSelectorList": {
         "explanation": "Pick your available training devices"
     },
+    "exercise": {
+        "description": "Description",
+        "difficulty": "Difficulty",
+        "muscleGroup": "Muscle Group",
+        "title": "Title"
+    },
     "exerciseListPage": {
         "title": "Exercises"
     },
