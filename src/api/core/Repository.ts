@@ -1,5 +1,5 @@
 import { IEntity } from "../../shared/model/core/IEntity";
-import { RESTParameter } from "../../shared/services/RESTParameter";
+import { RESTParameter } from "./RESTParameter";
 import { IMeta } from "../../shared/types/IMeta";
 import { IFilter } from "../../types/IFilter";
 import { IRepository } from "./IRepository";

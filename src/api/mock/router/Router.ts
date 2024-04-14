@@ -1,3 +1,4 @@
+import { RESTParameter } from "../../core/RESTParameter";
 import { IRESTRoute } from "./IRESTRoute";
 import { RouteHandler } from "./RouterHandler";
 
@@ -11,6 +12,7 @@ export class Router {
     return new Promise(async (resolve) => {
       setTimeout(() => {
         const route = this.findRoute(url, requestInit);
+        const params = RESTParameter.toParams(url);
         if (!route) {
           throw new Error(
             `Error while calling mock REST handler. No handler found for url ${url} with HTTP method '${requestInit?.method}'.`
