@@ -1,3 +1,5 @@
-export type RouteHandler<TResult, TData = undefined> = (
-  data?: TData
+import { IRESTRequest } from "./../../core/IRESTRequest";
+
+export type RouteHandler<TResult, TParams = undefined, TData = undefined> = (
+  request?: IRESTRequest<TParams, TData>
 ) => TResult;

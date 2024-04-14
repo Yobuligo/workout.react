@@ -4,7 +4,10 @@ import {
   IWorkoutType,
   WorkoutTypeMeta,
 } from "../../shared/model/exercise/IWorkoutType";
-import { IWorkout, WorkoutMeta } from "../../shared/model/workout/workout/IWorkout";
+import {
+  IWorkout,
+  WorkoutMeta,
+} from "../../shared/model/workout/workout/IWorkout";
 import { IWorkoutConfig } from "../../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutGenerator } from "../../shared/services/WorkoutGenerator";
 import { WorkoutType } from "../../shared/types/WorkoutType";
@@ -15,7 +18,12 @@ export const MockRouter = new Router();
 
 MockRouter.get<IDevice[]>(DeviceMeta.path, () => db.devices);
 
-MockRouter.get<IExercise[]>(ExerciseMeta.path, () => db.exercises);
+MockRouter.get<IExercise[], { type: WorkoutType }>(
+  ExerciseMeta.path,
+  (request) => {
+    return db.exercises;
+  }
+);
 
 MockRouter.get<IDevice[]>(
   `${WorkoutTypeMeta.path}/${WorkoutType.FASCIA}${DeviceMeta.path}`,
@@ -24,14 +32,14 @@ MockRouter.get<IDevice[]>(
 
 MockRouter.post<IWorkout, IWorkoutConfig>(
   `${WorkoutMeta.path}/generate`,
-  (workoutConfig) => {
-    if (!workoutConfig) {
+  (request) => {
+    if (!request?.data) {
       throw new Error(
         `Error while mocking generation of workout. WorkoutConfig must not be null.`
       );
     }
     const workoutGenerator = new WorkoutGenerator();
-    return workoutGenerator.generate(workoutConfig);
+    return workoutGenerator.generate(request.data);
   }
 );
 

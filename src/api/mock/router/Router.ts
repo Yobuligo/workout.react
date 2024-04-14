@@ -1,3 +1,4 @@
+import { IRESTRequest } from "../../core/IRESTRequest";
 import { RESTParameter } from "../../core/RESTParameter";
 import { IRESTRoute } from "./IRESTRoute";
 import { RouteHandler } from "./RouterHandler";
@@ -12,17 +13,21 @@ export class Router {
     return new Promise(async (resolve) => {
       setTimeout(() => {
         const route = this.findRoute(url, requestInit);
-        const params = RESTParameter.toParams(url);
         if (!route) {
           throw new Error(
             `Error while calling mock REST handler. No handler found for url ${url} with HTTP method '${requestInit?.method}'.`
           );
         }
-        const data = route.handler(
-          requestInit?.body
+
+        const params = RESTParameter.toParams(url) as any;
+        const request: IRESTRequest = {
+          params,
+          data: requestInit?.body
             ? JSON.parse(requestInit?.body.toString())
-            : undefined
-        );
+            : undefined,
+        };
+
+        const data = route.handler(request);
         const blob = new Blob([JSON.stringify(data)], {
           type: "application/json",
         });
@@ -38,7 +43,7 @@ export class Router {
     this.routes.push({ path: path, method: "DELETE", handler });
   }
 
-  get<T>(path: string, handler: RouteHandler<T>) {
+  get<TResult, TParams = undefined>(path: string, handler: RouteHandler<TResult, TParams>) {
     this.routes.push({ path: path, method: "GET", handler });
   }
 
