@@ -11,6 +11,7 @@ import {
 import { IWorkoutConfig } from "../../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutGenerator } from "../../shared/services/WorkoutGenerator";
 import { WorkoutType } from "../../shared/types/WorkoutType";
+import { filterData } from "../core/filterData";
 import { db } from "./db";
 import { Router } from "./router/Router";
 
@@ -21,7 +22,11 @@ MockRouter.get<IDevice[]>(DeviceMeta.path, () => db.devices);
 MockRouter.get<IExercise[], { type: WorkoutType }>(
   ExerciseMeta.path,
   (request) => {
-    return db.exercises;
+    if (request?.params) {
+      return filterData(db.exercises, request.params);
+    } else {
+      return db.exercises;
+    }
   }
 );
 
