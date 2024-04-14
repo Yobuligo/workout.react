@@ -1,7 +1,7 @@
 import { IEntity } from "../../shared/model/core/IEntity";
+import { RESTParameter } from "../../shared/services/RESTParameter";
 import { IMeta } from "../../shared/types/IMeta";
 import { IFilter } from "../../types/IFilter";
-import { filterToString } from "../../utils/filterToString";
 import { IRepository } from "./IRepository";
 import { RESTApi } from "./RESTApi";
 
@@ -26,6 +26,7 @@ export abstract class Repository<T extends IEntity>
   }
 
   private filterToPath(filter: IFilter<T>): string {
-    return `${this.meta.path}?${filterToString(filter)}`;
+    const pathParams = RESTParameter.filterToPath(filter);
+    return `${this.meta.path}?${pathParams}`;
   }
 }
