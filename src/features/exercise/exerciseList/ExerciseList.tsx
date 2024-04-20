@@ -5,9 +5,9 @@ import { IExerciseListProps } from "./IExerciseListProps";
 
 export const ExerciseList: React.FC<IExerciseListProps> = (props) => {
   const items = props.exercises.map((exercise, index) => (
-    <Card key={index} className={styles.item}>
+    <div key={index} className={styles.item}>
       <Exercise exercise={exercise} />
-    </Card>
+    </div>
   ));
 
   return <>{items}</>;
