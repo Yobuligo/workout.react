@@ -2,5 +2,8 @@
 
 .item {
   padding: 0.5rem;
-  border-bottom: 1px solid $neutral_dark;
+}
+
+.divider {
+  border-top: 1px solid $neutral_dark;
 }
