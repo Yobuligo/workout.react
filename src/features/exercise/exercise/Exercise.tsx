@@ -18,7 +18,7 @@ export const Exercise: React.FC<IExerciseProps> = (props) => {
   return (
     <>
       <div className={styles.exercise}>
-        <div>{t(props.exercise.title)}</div>
+        <div className={styles.title}>{t(props.exercise.title)}</div>
         {expand === false ? (
           <DownArrow width={"2rem"} onClick={() => toggleExpand()} />
         ) : (

@@ -1,4 +1,3 @@
-import { Card } from "../../../components/card/Card";
 import { style } from "../../../core/style";
 import { Exercise } from "../exercise/Exercise";
 import styles from "./ExerciseList.module.scss";
