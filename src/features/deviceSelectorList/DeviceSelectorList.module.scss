@@ -5,3 +5,10 @@
   row-gap: 0.5rem;
   flex-wrap: wrap;
 }
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

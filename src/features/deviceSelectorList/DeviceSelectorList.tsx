@@ -39,8 +39,10 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         setDevices(devices);
       }}
     >
-      <p>{t(texts.deviceSelectorList.explanation)}</p>
-      <Switch />
+      <div className={styles.header}>
+        <p>{t(texts.deviceSelectorList.explanation)}</p>
+        <Switch />
+      </div>
       <div className={styles.items}>{items}</div>
     </AsyncLoad>
   );
