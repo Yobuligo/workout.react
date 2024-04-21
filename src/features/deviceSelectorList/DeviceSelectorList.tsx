@@ -9,6 +9,7 @@ import { IDevice } from "../../shared/model/device/IDevice";
 import { DeviceSelector } from "../deviceSelector/DeviceSelector";
 import styles from "./DeviceSelectorList.module.scss";
 import { IDevicePickerListProps } from "./IDeviceSelectorListProps";
+import { ExerciseList } from "../exercise/exerciseList/ExerciseList";
 
 export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const [devices, setDevices] = useState<IDevice[]>([]);
@@ -44,6 +45,9 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         <Switch />
       </div>
       <div className={styles.items}>{items}</div>
+      <div>
+
+      </div>
     </AsyncLoad>
   );
 };

@@ -5,7 +5,10 @@ import styles from "./Switch.module.scss";
 export const Switch: React.FC<ISwitchProps> = (props) => {
   const [checked, toggleChecked] = useToggle(props.checked ?? false);
 
-  const onChecked = () => toggleChecked();
+  const onChecked = () => {
+    toggleChecked();
+    props.onChange?.(!checked);
+  };
 
   return (
     <label className={styles.switch}>
