@@ -5,6 +5,7 @@ $borderLeft: 1rem;
 .page {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .header {
@@ -33,4 +34,5 @@ $borderLeft: 1rem;
   margin-left: $borderLeft;
   margin-right: $borderLeft;
   margin-top: 1rem;
+  height: 100%;
 }

@@ -11,9 +11,5 @@ export function AsyncLoad<T>(props: IAsyncLoadProps<T>) {
     toggleNeedsLoading();
   });
 
-  return (
-    <div className={props.className}>
-      {needsLoading ? <Spinner /> : props.children}
-    </div>
-  );
+  return <>{needsLoading ? <Spinner /> : props.children}</>;
 }

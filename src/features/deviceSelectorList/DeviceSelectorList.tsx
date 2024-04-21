@@ -52,16 +52,20 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         setDevices(devices);
       }}
     >
-      <div className={styles.header}>
-        <p>{t(texts.deviceSelectorList.explanation)}</p>
-        <Switch checked={checked} onChange={setChecked} />
-      </div>
-      <div className={styles.items}>{items}</div>
-      {checked && (
+      <div className={styles.body}>
         <div>
-          <ExerciseList exercises={exercises} />
+          <div className={styles.header}>
+            <p>{t(texts.deviceSelectorList.explanation)}</p>
+            <Switch checked={checked} onChange={setChecked} />
+          </div>
+          <div className={styles.items}>{items}</div>
         </div>
-      )}
+        {checked && (
+          <div className={styles.exerciseList}>
+            <ExerciseList exercises={exercises} />
+          </div>
+        )}
+      </div>
     </AsyncLoad>
   );
 };
