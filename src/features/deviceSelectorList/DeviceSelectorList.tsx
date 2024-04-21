@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Api } from "../../api/Api";
 import { AsyncLoad } from "../../components/asyncLoad/AsyncLoad";
+import { Switch } from "../../components/switch/Switch";
 import { AppContext } from "../../context/AppContext";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
@@ -39,6 +40,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
       }}
     >
       <p>{t(texts.deviceSelectorList.explanation)}</p>
+      <Switch />
       <div className={styles.items}>{items}</div>
     </AsyncLoad>
   );
