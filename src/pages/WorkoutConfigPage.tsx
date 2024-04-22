@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Api } from "../api/Api";
-import { ReactComponent as Athlete } from "../assets/plank.svg";
 import { FooterButton } from "../components/footerButton/FooterButton";
 import { Page } from "../components/pages/Page";
 import { AppContext } from "../context/AppContext";
@@ -12,7 +11,6 @@ import { texts } from "../i18n/texts";
 import { Routes } from "../routes/Routes";
 import { IWorkoutConfig } from "../shared/model/workout/workout/IWorkoutConfig";
 import { WorkoutType } from "../shared/types/WorkoutType";
-import styles from "./WorkoutConfigPage.module.scss";
 
 export const WorkoutConfigPage: React.FC = () => {
   const { t } = useTranslation();
@@ -50,7 +48,6 @@ export const WorkoutConfigPage: React.FC = () => {
       navigateBackPath={Routes.workoutTypePage.toPath()}
     >
       <DeviceSelectorList workoutType={workoutType} />
-      <Athlete className={styles.athlete} />
     </Page>
   );
 };
