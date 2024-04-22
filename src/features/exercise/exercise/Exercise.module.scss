@@ -8,3 +8,9 @@
 .title {
   font-weight: 600;
 }
+
+.details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 0.5rem;
+}
