@@ -4,4 +4,6 @@ import { IHaveTitle } from "../core/IHaveTitle";
 
 export interface IDevice extends IEntity, IHaveTitle {}
 
+export const deviceIdBodyWeight = "bodyWeight";
+
 export const DeviceMeta: IMeta<IDevice> = { path: "/devices" };

@@ -6,15 +6,13 @@ import { AppContext } from "../../context/AppContext";
 import { request } from "../../core/request";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import { IDevice } from "../../shared/model/device/IDevice";
+import { IDevice, deviceIdBodyWeight } from "../../shared/model/device/IDevice";
 import { IExercise } from "../../shared/model/exercise/IExercise";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 import { DeviceSelector } from "../deviceSelector/DeviceSelector";
 import { ExerciseList } from "../exercise/exerciseList/ExerciseList";
 import styles from "./DeviceSelectorList.module.scss";
 import { IDevicePickerListProps } from "./IDeviceSelectorListProps";
-
-const deviceIdBodyWeight = "bodyWeight";
 
 export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const [devices, setDevices] = useState<IDevice[]>([]);
@@ -36,16 +34,18 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const onUnselectDevice = (device: IDevice) =>
     context.selectedDevices.remove(device);
 
-  const items = devices.map((device) => (
-    <div key={device.id}>
-      <DeviceSelector
-        device={device}
-        onSelect={onSelectDevice}
-        onUnselect={onUnselectDevice}
-        selected={device.id === deviceIdBodyWeight ? true : false}
-      />
-    </div>
-  ));
+  const items = devices.map((device) => {
+    return (
+      <div key={device.id}>
+        <DeviceSelector
+          device={device}
+          onSelect={onSelectDevice}
+          onUnselect={onUnselectDevice}
+          selected={false}
+        />
+      </div>
+    );
+  });
 
   return (
     <AsyncLoad

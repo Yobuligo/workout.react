@@ -5,7 +5,7 @@ export interface IExerciseListProps {
   /**
    * Consider {@link exercises} which require one of the following device
    */
-  devices?: IDevice[];
+  devices: IDevice[];
 
   exercises: IExercise[];
 }
