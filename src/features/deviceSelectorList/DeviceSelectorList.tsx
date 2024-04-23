@@ -62,7 +62,10 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         </div>
         {checked && (
           <div className={styles.exerciseList}>
-            <ExerciseList exercises={exercises} />
+            <ExerciseList
+              exercises={exercises}
+              devices={context.selectedDevices.items}
+            />
           </div>
         )}
       </div>

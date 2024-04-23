@@ -1,19 +1,18 @@
 import { style } from "../../../core/style";
+import { ExerciseInfo } from "../../../services/ExerciseInfo";
+import { IExercise } from "../../../shared/model/exercise/IExercise";
 import { Exercise } from "../exercise/Exercise";
 import styles from "./ExerciseList.module.scss";
 import { IExerciseListProps } from "./IExerciseListProps";
 
 export const ExerciseList: React.FC<IExerciseListProps> = (props) => {
+  const filterExercises = (): IExercise[] => {
+    return props.exercises.filter((exercise) =>
+      ExerciseInfo.hasDevices(exercise, props.devices)
+    );
+  };
 
-props.exercises.filter((exercise)=>{
-  if (!exercise.devices || exercise.devices.length === 0){
-    return true
-  }
-
-  return false
-})
-
-  const items = props.exercises.map((exercise, index) => (
+  const items = filterExercises().map((exercise, index) => (
     <div
       key={index}
       className={style(styles.item, index > 0 ? styles.divider : "")}
