@@ -14,6 +14,8 @@ import { ExerciseList } from "../exercise/exerciseList/ExerciseList";
 import styles from "./DeviceSelectorList.module.scss";
 import { IDevicePickerListProps } from "./IDeviceSelectorListProps";
 
+const deviceIdBodyWeight = "bodyWeight";
+
 export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const [devices, setDevices] = useState<IDevice[]>([]);
   const context = useContext(AppContext);
@@ -40,7 +42,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         device={device}
         onSelect={onSelectDevice}
         onUnselect={onUnselectDevice}
-        selected={false}
+        selected={device.id === deviceIdBodyWeight ? true : false}
       />
     </div>
   ));
@@ -49,6 +51,10 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     <AsyncLoad
       load={async () => {
         const devices = await Api.workoutType.findDevices(props.workoutType);
+        devices.push({
+          id: deviceIdBodyWeight,
+          title: texts.powerDevices.bodyWeight,
+        });
         setDevices(devices);
       }}
     >
