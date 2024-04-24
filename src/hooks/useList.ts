@@ -20,6 +20,12 @@ export const useList = <T>(
     []
   );
 
+  const contains = useCallback((item: T): boolean => {
+    const comparator = createComparator();
+    const index = items.findIndex((element) => comparator(element, item));
+    return index !== -1;
+  }, [createComparator, items]);
+
   const remove = useCallback(
     (item: T) => {
       setItems((previous) => {
@@ -40,5 +46,5 @@ export const useList = <T>(
     setItems([]);
   }, []);
 
-  return { append, items, remove, removeAll };
+  return { append, contains, items, remove, removeAll };
 };

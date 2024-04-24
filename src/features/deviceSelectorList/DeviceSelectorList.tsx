@@ -6,9 +6,7 @@ import { AppContext } from "../../context/AppContext";
 import { request } from "../../core/request";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import {
-  BodyWeightDevice
-} from "../../shared/model/device/BodyWeightDevice";
+import { BodyWeightDevice } from "../../shared/model/device/BodyWeightDevice";
 import { IDevice } from "../../shared/model/device/IDevice";
 import { IExercise } from "../../shared/model/exercise/IExercise";
 import { WorkoutType } from "../../shared/types/WorkoutType";
@@ -44,7 +42,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
           device={device}
           onSelect={onSelectDevice}
           onUnselect={onUnselectDevice}
-          selected={false}
+          selected={context.selectedDevices.contains(device)}
         />
       </div>
     );
