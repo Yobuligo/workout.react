@@ -6,7 +6,10 @@ import { AppContext } from "../../context/AppContext";
 import { request } from "../../core/request";
 import useTranslation from "../../hooks/useTranslation";
 import { texts } from "../../i18n/texts";
-import { IDevice, deviceIdBodyWeight } from "../../shared/model/device/IDevice";
+import {
+  BodyWeightDevice
+} from "../../shared/model/device/BodyWeightDevice";
+import { IDevice } from "../../shared/model/device/IDevice";
 import { IExercise } from "../../shared/model/exercise/IExercise";
 import { WorkoutType } from "../../shared/types/WorkoutType";
 import { DeviceSelector } from "../deviceSelector/DeviceSelector";
@@ -51,10 +54,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     <AsyncLoad
       load={async () => {
         const devices = await Api.workoutType.findDevices(props.workoutType);
-        devices.push({
-          id: deviceIdBodyWeight,
-          title: texts.powerDevices.bodyWeight,
-        });
+        devices.push(BodyWeightDevice);
         setDevices(devices);
       }}
     >

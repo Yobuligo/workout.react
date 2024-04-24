@@ -1,4 +1,5 @@
-import { IDevice, deviceIdBodyWeight } from "../shared/model/device/IDevice";
+import { deviceIdBodyWeight } from "../shared/model/device/BodyWeightDevice";
+import { IDevice } from "../shared/model/device/IDevice";
 import { IExercise } from "../shared/model/exercise/IExercise";
 import { IExerciseInfo } from "./IExerciseInfo";
 
