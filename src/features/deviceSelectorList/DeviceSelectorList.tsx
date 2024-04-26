@@ -51,7 +51,6 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   return (
     <AsyncLoad
       load={async () => {
-        // todo: filter by selected devices
         const devices = await Api.workoutType.findDevices(props.workoutType);
         devices.push(BodyWeightDevice);
         setDevices(devices);
