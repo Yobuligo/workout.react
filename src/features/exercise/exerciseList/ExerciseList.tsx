@@ -15,7 +15,7 @@ export const ExerciseList: React.FC<IExerciseListProps> = (props) => {
   const items = filterExercises().map((exercise, index) => (
     <div
       key={index}
-      className={style(styles.item, index > 0 ? styles.divider : "")}
+      className={style(styles.item)}
     >
       <Exercise exercise={exercise} />
     </div>
