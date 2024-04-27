@@ -15,14 +15,18 @@ export const Exercise: React.FC<IExerciseProps> = (props) => {
 
   const muscleGroups = props.exercise.muscleGroups.join(",");
 
+  const onToggleExpand = () => {
+    toggleExpand();
+  };
+
   return (
     <>
-      <div className={styles.exercise}>
+      <div className={styles.exercise} onClick={onToggleExpand}>
         <div className={styles.title}>{t(props.exercise.title)}</div>
         {expand === false ? (
-          <DownArrow width={"2rem"} onClick={() => toggleExpand()} />
+          <DownArrow width={"2rem"} onClick={onToggleExpand} />
         ) : (
-          <UpArrow width={"2rem"} onClick={() => toggleExpand()} />
+          <UpArrow width={"2rem"} onClick={onToggleExpand} />
         )}
       </div>
       {expand === true && (
