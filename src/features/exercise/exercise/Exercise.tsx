@@ -24,9 +24,9 @@ export const Exercise: React.FC<IExerciseProps> = (props) => {
       <div className={styles.exercise} onClick={onToggleExpand}>
         <div className={styles.title}>{t(props.exercise.title)}</div>
         {expand === false ? (
-          <DownArrow width={"2rem"} onClick={onToggleExpand} />
+          <DownArrow width={"2rem"} />
         ) : (
-          <UpArrow width={"2rem"} onClick={onToggleExpand} />
+          <UpArrow width={"2rem"} />
         )}
       </div>
       {expand === true && (
