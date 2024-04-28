@@ -12,7 +12,7 @@ export const Page: React.FC<IPageProps> = (props) => {
             <NavigateBackButton navigateBackPath={props.navigateBackPath} />
           )}
           <div>
-            <h3>{props.title}</h3>
+            <h2>{props.title}</h2>
             <p className={styles.subTitle}>{props.subTitle}</p>
           </div>
         </div>

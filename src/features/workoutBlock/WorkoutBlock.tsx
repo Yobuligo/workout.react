@@ -11,9 +11,9 @@ export const WorkoutBlock: React.FC<IWorkoutBlockProps> = (props) => {
 
   return (
     <div className={styles.workoutBlock}>
-      <h3>
+      <h2>
         {t(props.workoutBlock.title)} ({renderWorkoutSpan(props.workoutBlock)})
-      </h3>
+      </h2>
       <div className={styles.workoutExerciseList}>
         <WorkoutExerciseList
           workoutExercises={props.workoutBlock.items as IWorkoutExercise[]}

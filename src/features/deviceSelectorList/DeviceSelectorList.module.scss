@@ -1,3 +1,5 @@
+@import "../../fonts.scss";
+
 .items {
   display: flex;
   flex-direction: row;
@@ -11,6 +13,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: $font_size_medium;
 }
 
 .body {

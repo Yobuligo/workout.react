@@ -31,7 +31,9 @@ export const WorkoutTypeSelector: React.FC<IWorkoutTypeSelectorProps> = (
         setWorkoutTypes(workoutTypes);
       }}
     >
-      <p>{t(texts.workoutTypeSelector.explanation)}</p>
+      <p className={styles.explanation}>
+        {t(texts.workoutTypeSelector.explanation)}
+      </p>
       <div className={styles.workoutTypeSelector}>{items}</div>
     </AsyncLoad>
   );

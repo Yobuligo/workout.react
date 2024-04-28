@@ -26,14 +26,13 @@ export const DeviceSelector: React.FC<IDeviceSelectorProps> = (props) => {
     <Card
       className={style(
         styles.card,
+        styles.title,
         selected ? styles.selected : styles.unselected
       )}
       onClick={onToggleSelected}
     >
-      <>
-        {selected && <CheckIcon className={styles.checkIcon} />}
-        {t(props.device.title)}
-      </>
+      {selected && <CheckIcon className={styles.checkIcon} />}
+      {t(props.device.title)}
     </Card>
   );
 };

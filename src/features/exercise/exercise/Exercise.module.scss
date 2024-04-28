@@ -1,3 +1,5 @@
+@import "../../../fonts.scss";
+
 .exercise {
   display: flex;
   flex-direction: row;
@@ -7,10 +9,12 @@
 
 .title {
   font-weight: 600;
+  font-size: $font_size_medium;
 }
 
 .details {
   display: grid;
   grid-template-columns: auto 1fr;
   column-gap: 0.5rem;
+  font-size: $font_size_medium;
 }

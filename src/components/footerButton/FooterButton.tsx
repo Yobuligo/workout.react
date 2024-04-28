@@ -11,7 +11,7 @@ export const FooterButton: React.FC<IFooterButtonProps> = (props) => {
         {props.displaySpinner ? (
           <Spinner spinnerSize={SpinnerSize.SMALL} />
         ) : (
-          <h4>{props.caption}</h4>
+          <div className={styles.caption}>{props.caption}</div>
         )}
       </Card>
     </div>

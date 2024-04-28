@@ -1,4 +1,5 @@
 @import "../../colors.scss";
+@import "../../fonts.scss";
 
 .card {
   cursor: pointer;
@@ -22,4 +23,8 @@
   width: 1rem;
   margin-right: 0.3rem;
   fill: $neutral_light;
+}
+
+.title {
+  font-size: $font_size_medium;
 }

@@ -1,5 +1,4 @@
 import { style } from "../../../core/style";
-import useTranslation from "../../../hooks/useTranslation";
 import { ExerciseInfo } from "../../../services/ExerciseInfo";
 import { IExercise } from "../../../shared/model/exercise/IExercise";
 import { Exercise } from "../exercise/Exercise";
@@ -8,7 +7,6 @@ import styles from "./ExerciseList.module.scss";
 import { IExerciseListProps } from "./IExerciseListProps";
 
 export const ExerciseList: React.FC<IExerciseListProps> = (props) => {
-  const { t } = useTranslation();
   const filterExercises = (): IExercise[] => {
     return props.exercises.filter((exercise) =>
       ExerciseInfo.hasDevices(exercise, props.devices)

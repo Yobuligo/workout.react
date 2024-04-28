@@ -1,5 +1,5 @@
 @import "../../../colors.scss";
-@import "../../../config.scss";
+@import "../../../fonts.scss";
 
 .item {
   padding: 0.5rem;
@@ -9,7 +9,7 @@
   margin: 1rem;
   text-align: right;
   font-weight: 600;
-  font-size: $font_size_text;
+  font-size: $font_size_medium;
 }
 
 .exerciseList {

@@ -1,4 +1,9 @@
 @import "../../colors.scss";
+@import "../../fonts.scss";
+
+.explanation {
+  font-size: $font_size_medium;
+}
 
 .workoutTypeSelector {
   display: flex;
@@ -16,6 +21,8 @@
   background-color: $neutral_light;
   cursor: pointer;
   font-weight: 600;
-  width: 70%;
+  font-size: $font_size_medium;
+  padding-left: 2rem;
+  padding-right: 2rem;
   height: 2rem;
 }
