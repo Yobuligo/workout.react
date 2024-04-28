@@ -9,7 +9,7 @@
         "title": "Title"
     },
     "exerciseCount": {
-        "text": "Number exercises {{count}}"
+        "text": "Number of exercises: {{count}}"
     },
     "exerciseListPage": {
         "title": "Exercises"
