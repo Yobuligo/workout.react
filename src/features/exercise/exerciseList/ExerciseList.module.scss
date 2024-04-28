@@ -1,5 +1,19 @@
 @import "../../../colors.scss";
+@import "../../../config.scss";
 
 .item {
   padding: 0.5rem;
+}
+
+.exerciseCount {
+  margin: 1rem;
+  text-align: right;
+  font-weight: 600;
+  font-size: $font_size_text;
+}
+
+.exerciseList {
+  height: 100%;
+  overflow: scroll;
+  margin-bottom: 7rem;
 }

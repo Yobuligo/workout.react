@@ -8,6 +8,9 @@
         "muscleGroup": "Muscle Group",
         "title": "Title"
     },
+    "exerciseCount": {
+        "text": "Number exercises {{count}}"
+    },
     "exerciseListPage": {
         "title": "Exercises"
     },
