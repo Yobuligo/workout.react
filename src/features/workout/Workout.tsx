@@ -9,15 +9,6 @@ import { IWorkoutProps } from "./IWorkoutProps";
 import styles from "./Workout.module.scss";
 
 export const Workout: React.FC<IWorkoutProps> = (props) => {
-  // const workoutIterator: IWorkoutIterator = useMemo(
-  //   () => new WorkoutIterator(props.workout),
-  //   [props.workout]
-  // );
-
-  // const [workoutStep, setWorkoutStep] = useState<IWorkoutStep | undefined>(
-  //   undefined
-  // );
-
   const initialSeconds = 900;
   const renderSeconds = useRenderSeconds();
   const timer = useTimer(initialSeconds);
@@ -34,15 +25,6 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
     };
   }, [playSound, timer]);
 
-  // const nextStep = () => {
-  //   if (workoutIterator.hasNext) {
-  //     const workoutStep = workoutIterator.next();
-  //     setWorkoutStep(workoutStep);
-  //   }
-  // };
-
-  // useInitialize(() => nextStep());
-
   return (
     <>
       <div className={styles.workout}>{items}</div>
@@ -52,10 +34,4 @@ export const Workout: React.FC<IWorkoutProps> = (props) => {
       </Footer>
     </>
   );
-
-  // return (
-  //   <>
-  //     {workoutStep && <WorkoutStep workoutStep={workoutStep} />}
-  //   </>
-  // );
 };
