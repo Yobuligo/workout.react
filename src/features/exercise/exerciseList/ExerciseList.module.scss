@@ -8,6 +8,7 @@
 .exerciseCount {
   margin: 1rem;
   text-align: right;
+  color: $neutral_dark;
   font-weight: 600;
   font-size: $font_size_medium;
 }
@@ -16,4 +17,5 @@
   height: 100%;
   overflow: scroll;
   margin-bottom: 7rem;
+  color: $neutral_dark;
 }
