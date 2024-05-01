@@ -31,23 +31,29 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     });
   }, [checked]);
 
-  const updateUserConfig = useCallback(() => {
-    const selectedDeviceIds = context.selectedDevices.items.map(
-      (device) => device.id
-    );
-    userConfig.selectedDeviceIds = selectedDeviceIds;
-    setUserConfig(userConfig);
-  }, [context.selectedDevices.items, setUserConfig, userConfig]);
+  const updateUserConfig = useCallback(
+    (selectedDevices: IDevice[]) => {
+      const selectedDeviceIds = selectedDevices.map((device) => device.id);
+      userConfig.selectedDeviceIds = selectedDeviceIds;
+      setUserConfig(userConfig);
+    },
+    [setUserConfig, userConfig]
+  );
 
-  useEffect(() => {
-    updateUserConfig();
-  }, [context.selectedDevices, updateUserConfig]);
-
-  const onSelectDevice = (device: IDevice) =>
+  const onSelectDevice = (device: IDevice) => {
     context.selectedDevices.append(device);
+    updateUserConfig([...context.selectedDevices.items, device]);
+  };
 
-  const onUnselectDevice = (device: IDevice) =>
+  const onUnselectDevice = (device: IDevice) => {
     context.selectedDevices.remove(device);
+    const selectedDevices = context.selectedDevices.items;
+    const index = selectedDevices.findIndex((item) => item.id === device.id);
+    if (index !== -1) {
+      selectedDevices.splice(index, 1);
+    }
+    updateUserConfig(selectedDevices);
+  };
 
   const items = devices.map((device) => {
     return (
@@ -62,12 +68,23 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     );
   });
 
+  const selectDevices = (devices: IDevice[]) => {
+    context.selectedDevices.removeAll();
+    userConfig.selectedDeviceIds.forEach((selectedDeviceId) => {
+      const device = devices.find((device) => device.id === selectedDeviceId);
+      if (device) {
+        context.selectedDevices.append(device);
+      }
+    });
+  };
+
   return (
     <AsyncLoad
       load={async () => {
         const devices = await Api.workoutType.findDevices(props.workoutType);
         devices.push(BodyWeightDevice);
         setDevices(devices);
+        selectDevices(devices);
       }}
     >
       <div className={styles.body}>
