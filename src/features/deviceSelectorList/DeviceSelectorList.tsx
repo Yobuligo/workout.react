@@ -5,6 +5,7 @@ import { Switch } from "../../components/switch/Switch";
 import { AppContext } from "../../context/AppContext";
 import { request } from "../../core/request";
 import useTranslation from "../../hooks/useTranslation";
+import { useUserConfig } from "../../hooks/useUserConfig";
 import { texts } from "../../i18n/texts";
 import { BodyWeightDevice } from "../../shared/model/device/BodyWeightDevice";
 import { IDevice } from "../../shared/model/device/IDevice";
@@ -21,6 +22,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const { t } = useTranslation();
   const [checked, setChecked] = useState(false);
   const [exercises, setExercises] = useState<IExercise[]>([]);
+  const [userConfig, setUserConfig] = useUserConfig();
 
   useEffect(() => {
     request(async () => {

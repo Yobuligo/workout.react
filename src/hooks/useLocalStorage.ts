@@ -6,7 +6,9 @@ export const useLocalStorage = <T>(
   key: string,
   initialValue: T
 ): [value: T, updateValue: (newValue: T) => void] => {
-  const [value, setValue] = useState<T>(readLocalStorage(key) ?? initialValue);
+  const [value, setValue] = useState<T>(
+    readLocalStorage(key) ?? writeLocalStorage(key, initialValue)
+  );
 
   const updateValue = (newValue: T) => {
     setValue(newValue);
