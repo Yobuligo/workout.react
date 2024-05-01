@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { Api } from "../../api/Api";
 import { AsyncLoad } from "../../components/asyncLoad/AsyncLoad";
 import { Switch } from "../../components/switch/Switch";
@@ -30,6 +30,18 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
       setExercises(exercises);
     });
   }, [checked]);
+
+  const updateUserConfig = useCallback(() => {
+    const selectedDeviceIds = context.selectedDevices.items.map(
+      (device) => device.id
+    );
+    userConfig.selectedDeviceIds = selectedDeviceIds;
+    setUserConfig(userConfig);
+  }, [context.selectedDevices.items, setUserConfig, userConfig]);
+
+  useEffect(() => {
+    updateUserConfig();
+  }, [context.selectedDevices, updateUserConfig]);
 
   const onSelectDevice = (device: IDevice) =>
     context.selectedDevices.append(device);
