@@ -7,7 +7,7 @@ export const useUserConfig = (): [
 ] => {
   const [userConfig, setUserConfig] = useLocalStorage<IUserConfig>(
     "user-config",
-    { selectedDeviceIds: [] }
+    { displayTrainingDevices: false, selectedDeviceIds: [] }
   );
   return [userConfig, setUserConfig];
 };

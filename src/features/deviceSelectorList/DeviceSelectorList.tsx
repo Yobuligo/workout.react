@@ -20,9 +20,9 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
   const [devices, setDevices] = useState<IDevice[]>([]);
   const context = useContext(AppContext);
   const { t } = useTranslation();
-  const [checked, setChecked] = useState(false);
   const [exercises, setExercises] = useState<IExercise[]>([]);
   const [userConfig, setUserConfig] = useUserConfig();
+  const [checked, setChecked] = useState(userConfig.displayTrainingDevices);
 
   useEffect(() => {
     request(async () => {
@@ -31,7 +31,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     });
   }, [checked]);
 
-  const updateUserConfig = useCallback(
+  const updateSelectedDevices = useCallback(
     (selectedDevices: IDevice[]) => {
       const selectedDeviceIds = selectedDevices.map((device) => device.id);
       userConfig.selectedDeviceIds = selectedDeviceIds;
@@ -42,7 +42,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
 
   const onSelectDevice = (device: IDevice) => {
     context.selectedDevices.append(device);
-    updateUserConfig([...context.selectedDevices.items, device]);
+    updateSelectedDevices([...context.selectedDevices.items, device]);
   };
 
   const onUnselectDevice = (device: IDevice) => {
@@ -52,7 +52,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     if (index !== -1) {
       selectedDevices.splice(index, 1);
     }
-    updateUserConfig(selectedDevices);
+    updateSelectedDevices(selectedDevices);
   };
 
   const items = devices.map((device) => {
@@ -78,6 +78,12 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
     });
   };
 
+  const onCheckDisplayDevices = (checked: boolean) => {
+    setChecked(checked);
+    userConfig.displayTrainingDevices = checked;
+    setUserConfig(userConfig);
+  };
+
   return (
     <AsyncLoad
       load={async () => {
@@ -91,7 +97,7 @@ export const DeviceSelectorList: React.FC<IDevicePickerListProps> = (props) => {
         <div>
           <div className={styles.header}>
             <p>{t(texts.deviceSelectorList.explanation)}</p>
-            <Switch checked={checked} onChange={setChecked} />
+            <Switch checked={checked} onChange={onCheckDisplayDevices} />
           </div>
           <div className={styles.items}>{items}</div>
         </div>
