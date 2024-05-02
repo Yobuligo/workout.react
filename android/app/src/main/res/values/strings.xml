@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">workout.react</string>
-    <string name="title_activity_main">workout.react</string>
+    <string name="app_name">Workout App</string>
+    <string name="title_activity_main">Workout App</string>
     <string name="package_name">com.yobuligo.workout.react</string>
     <string name="custom_url_scheme">com.yobuligo.workout.react</string>
 </resources>
