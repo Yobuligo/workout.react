@@ -7,6 +7,12 @@
   align-items: center;
 }
 
+.imageAndText {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
 .title {
   font-weight: 600;
   font-size: $font_size_medium;

@@ -22,7 +22,14 @@ export const Exercise: React.FC<IExerciseProps> = (props) => {
   return (
     <>
       <div className={styles.exercise} onClick={onToggleExpand}>
-        <div className={styles.title}>{t(props.exercise.title)}</div>
+        <div className={styles.imageAndText}>
+          <img
+            src="/images/bicycle_crunches.jpg"
+            alt={t(props.exercise.title)}
+            width={"100rem"}
+          />
+          <div className={styles.title}>{t(props.exercise.title)}</div>
+        </div>
         {expand === false ? (
           <DownArrow width={"2rem"} />
         ) : (
